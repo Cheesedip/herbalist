@@ -1,0 +1,205 @@
+[
+  {
+    "name": "Sunspire Daisy",
+    "appearance": "Tall daisy with golden petals shimmering in sunlight.",
+    "use": "Brewed for a tea that grants minor healing (1d4 HP).",
+    "rarity": "Common",
+    "biome": "Meadow"
+  },
+  {
+    "name": "Bluebloom Clover",
+    "appearance": "Small blue clover-like plant glowing faintly at dusk.",
+    "use": "Ground into a paste to soothe burns and minor wounds.",
+    "rarity": "Common",
+    "biome": "Meadow"
+  },
+  {
+    "name": "Honeydrop Orchid",
+    "appearance": "Yellow and white orchid with a honey-like scent.",
+    "use": "Nectar used in potions to boost charisma for an hour (+1 Charisma).",
+    "rarity": "Common",
+    "biome": "Meadow"
+  },
+  {
+    "name": "Wildheart Poppy",
+    "appearance": "Bright red with black and white stripes at the base.",
+    "use": "Calms fear and panic (advantage on Wisdom saves).",
+    "rarity": "Uncommon",
+    "biome": "Meadow"
+  },
+  {
+    "name": "Frostpetal Violet",
+    "appearance": "Purple flower with frost-tipped petals.",
+    "use": "Used in alchemical cooling agents or frost-related spells.",
+    "rarity": "Uncommon",
+    "biome": "Meadow"
+  },
+  {
+    "name": "Amberdew Lily",
+    "appearance": "Small orange flower that releases sticky sap at night.",
+    "use": "Enhances focus; grants advantage on concentration checks.",
+    "rarity": "Common",
+    "biome": "Meadow"
+  },
+  {
+    "name": "Silverthread Fern",
+    "appearance": "Pale green leaves with silver veins.",
+    "use": "Essential for invisibility potions.",
+    "rarity": "Rare",
+    "biome": "Meadow"
+  },
+  {
+    "name": "Glowvine Blossom",
+    "appearance": "Creeping vine with glowing green flowers.",
+    "use": "Creates a potion that lights dim areas.",
+    "rarity": "Common",
+    "biome": "Meadow"
+  },
+  {
+    "name": "Starflax",
+    "appearance": "Tiny white flowers shaped like stars.",
+    "use": "Boosts energy; temporarily reduces exhaustion by 1 level.",
+    "rarity": "Common",
+    "biome": "Meadow"
+  },
+  {
+    "name": "Dreamcatcher Lily",
+    "appearance": "Lavender flower with wispy petals.",
+    "use": "Eases sleep and wards off nightmares.",
+    "rarity": "Rare",
+    "biome": "Meadow"
+  },
+  {
+    "name": "Moonshade Bell",
+    "appearance": "Small, silver bell-shaped flower blooming under moonlight.",
+    "use": "Key ingredient in potions of night vision.",
+    "rarity": "Rare",
+    "biome": "Forest"
+  },
+  {
+    "name": "Crimsonthorn Bloom",
+    "appearance": "Bright red flower growing among thorny bushes.",
+    "use": "Poisonous but diluted for paralysis effects.",
+    "rarity": "Common",
+    "biome": "Forest"
+  },
+  {
+    "name": "Whisperpetal Orchid",
+    "appearance": "Pale blue with petals vibrating in the wind.",
+    "use": "Enhances perception (advantage on Insight checks).",
+    "rarity": "Uncommon",
+    "biome": "Forest"
+  },
+  {
+    "name": "Mossrose",
+    "appearance": "Rose-like flower with moss-covered stems.",
+    "use": "An antidote to minor poisons.",
+    "rarity": "Common",
+    "biome": "Forest"
+  },
+  {
+    "name": "Etherfern",
+    "appearance": "Glowing fern-like flower with faint blue luminescence.",
+    "use": "Used in invisibility and etherealness potions.",
+    "rarity": "Uncommon",
+    "biome": "Forest"
+  },
+  {
+    "name": "Foxglimmer",
+    "appearance": "Gold and orange blossoms sparkling faintly in darkness.",
+    "use": "Enhances stealth checks in forests (1d6 bonus).",
+    "rarity": "Uncommon",
+    "biome": "Forest"
+  },
+  {
+    "name": "Blightbane Lily",
+    "appearance": "White petals with black streaks.",
+    "use": "Counteracts necrotic damage effects.",
+    "rarity": "Common",
+    "biome": "Forest"
+  },
+  {
+    "name": "Tanglethorn Blossom",
+    "appearance": "Green flower with long, vine-like tendrils.",
+    "use": "Used in binding potions or spells.",
+    "rarity": "Common",
+    "biome": "Forest"
+  },
+  {
+    "name": "Verdant Torch",
+    "appearance": "Tall stalk with bright green, flame-like flowers.",
+    "use": "Boosts nature-based spell effects.",
+    "rarity": "Common",
+    "biome": "Forest"
+  },
+  {
+    "name": "Glowcap Mushroom",
+    "appearance": "Small, bioluminescent blue mushroom.",
+    "use": "Emits light and is used in light-enhancing potions.",
+    "rarity": "Rare",
+    "biome": "Cave"
+  },
+  {
+    "name": "Frostroot Reed",
+    "appearance": "Icy-blue reeds with frozen tips.",
+    "use": "Used in cold resistance potions.",
+    "rarity": "Uncommon",
+    "biome": "Cave"
+  },
+  {
+    "name": "Nightveil Rose",
+    "appearance": "Black rose with silver edges.",
+    "use": "Mixed into necromantic potions or spells.",
+    "rarity": "Rare",
+    "biome": "Cave"
+  },
+  {
+    "name": "Ironthorn Blossom",
+    "appearance": "Small, gray flower with thorny stems as hard as iron.",
+    "use": "Used in strengthening or armor-enchanting potions.",
+    "rarity": "Uncommon",
+    "biome": "Cave"
+  },
+  {
+    "name": "Ashen Petal",
+    "appearance": "Charcoal-gray petals with ashy dust.",
+    "use": "Ground into powder for smoke bombs or obscuring potions.",
+    "rarity": "Common",
+    "biome": "Cave"
+  },
+  {
+    "name": "Cavernshade Orchid",
+    "appearance": "Dark purple petals with a faintly sweet aroma.",
+    "use": "Grants temporary immunity to fear effects.",
+    "rarity": "Common",
+    "biome": "Cave"
+  },
+  {
+    "name": "Crystalfrost Lily",
+    "appearance": "Translucent flower resembling icy crystals.",
+    "use": "Essential for crafting frost grenades.",
+    "rarity": "Uncommon",
+    "biome": "Cave"
+  },
+  {
+    "name": "Shadowbloom Fern",
+    "appearance": "Deep black fern with faint purple highlights.",
+    "use": "Grants temporary darkvision (up to 30 feet).",
+    "rarity": "Common",
+    "biome": "Cave"
+  },
+  {
+    "name": "Sporefern Blossom",
+    "appearance": "Yellow flower releasing spores when disturbed.",
+    "use": "Can cause sleep effects; also used for making sedatives.",
+    "rarity": "Rare",
+    "biome": "Cave"
+  },
+  {
+    "name": "Bloodroot Vine",
+    "appearance": "Thick, dark red vines with sap resembling blood.",
+    "use": "Used in potions to enhance strength temporarily.",
+    "rarity": "Common",
+    "biome": "Cave"
+  }
+]
