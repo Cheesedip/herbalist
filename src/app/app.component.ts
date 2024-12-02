@@ -19,10 +19,11 @@ import { gather } from '../data/plant/gather';
 import { addIds } from './helpers';
 import { Biome } from '../data/plant/biome';
 import { Plant } from '../data/plant/plant';
+import { DisplayPlantsComponent } from './display-plants/display-plants.component';
 
 @Component({
   selector: 'app-root',
-  imports: [NgIf, NgFor, ReactiveFormsModule],
+  imports: [NgIf, NgFor, ReactiveFormsModule, DisplayPlantsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   standalone: true,

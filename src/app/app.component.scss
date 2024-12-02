@@ -103,7 +103,6 @@
 .btn-submit:hover {
   background-color: #45a049;
 }
-
 .plant-table-container {
   margin: 20px auto;
   padding: 10px;
@@ -114,34 +113,3 @@
   background-color: #f9f9f9;
 }
 
-.plant-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.plant-table th,
-.plant-table td {
-  padding: 12px 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-.plant-table th {
-  background-color: #4caf50;
-  color: white;
-  text-transform: uppercase;
-  font-size: 14px;
-}
-
-.plant-table tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.plant-table tbody tr:hover {
-  background-color: #e9f7ef;
-}
-
-.plant-table td {
-  font-size: 14px;
-  color: #333;
-}

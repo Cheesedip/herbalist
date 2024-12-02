@@ -41,26 +41,6 @@
   </form>
 </div>
 
-
 <div class="plant-table-container">
-  <table class="plant-table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Appearance</th>
-        <th>Use</th>
-        <th>Rarity</th>
-        <th>Biome</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let plant of gatheredPlants()">
-        <td>{{ plant.name }}</td>
-        <td>{{ plant.appearance }}</td>
-        <td>{{ plant.use }}</td>
-        <td>{{ plant.rarity }}</td>
-        <td>{{ plant.biome }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <app-display-plants [plants]="gatheredPlants()"></app-display-plants>
 </div>

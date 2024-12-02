@@ -52,6 +52,12 @@ function calculateGatherRarity(roll: number): Record<PlantRarity, number> {
   return gatherRarity;
 }
 
+/**
+ * For each gatherRarity pick a random plant from the available plantsInBiomes
+ * @param gatherRarity
+ * @param plantsInBiomes
+ * @returns
+ */
 function pickPlants(
   gatherRarity: Record<PlantRarity, number>,
   plantsInBiomes: Plant[]
