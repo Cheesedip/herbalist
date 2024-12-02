@@ -6,7 +6,7 @@ import {
   WritableSignal,
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { addPlants } from '../data/plant/plant.repository';
+import { addPlants, plants$ } from '../data/plant/plant.repository';
 import plants from '../data/plant/plants.json'; // Ensure the path to the JSON file is correct
 import {
   FormControl,
@@ -14,16 +14,23 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { NgFor, NgIf } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { gather } from '../data/plant/gather';
 import { addIds } from './helpers';
 import { Biome } from '../data/plant/biome';
 import { Plant } from '../data/plant/plant';
 import { DisplayPlantsComponent } from './display-plants/display-plants.component';
+import { toSignal } from '@angular/core/rxjs-interop';
+
+enum TabType {
+  GatherHerbs = 'Gather Herbs',
+  BotanicalCompendium = 'Botanical Compendium',
+  AlchemicalRecipes = 'Alchemical Recipes',
+}
 
 @Component({
   selector: 'app-root',
-  imports: [NgIf, NgFor, ReactiveFormsModule, DisplayPlantsComponent],
+  imports: [CommonModule, ReactiveFormsModule, DisplayPlantsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   standalone: true,
@@ -32,12 +39,18 @@ import { DisplayPlantsComponent } from './display-plants/display-plants.componen
 export class AppComponent {
   protected Biome = Biome;
   protected biomes = Object.values(Biome);
+  protected TabType = TabType;
+  protected tabs = Object.values(TabType);
 
   protected gatheredPlants: WritableSignal<Plant[]> = signal([]);
+  protected allPlants: WritableSignal<Plant[]> = signal([]);
+
+  protected activeTab = TabType.GatherHerbs;
 
   constructor() {
-    const plantsWithIds = addIds(plants);
-    addPlants(plantsWithIds as Plant[]);
+    const plantsWithIds = addIds(plants) as Plant[];
+    addPlants(plantsWithIds);
+    this.allPlants.set(plantsWithIds);
   }
 
   protected form = new FormGroup({
@@ -79,5 +92,10 @@ export class AppComponent {
 
   private getBiomeListFromForm(formBiomes: any): Biome[] {
     return Object.values(Biome).filter((biome) => formBiomes[biome]);
+  }
+
+  protected setActiveTab(tab: TabType) {
+    this.activeTab = tab;
+    console.log(this.activeTab);
   }
 }

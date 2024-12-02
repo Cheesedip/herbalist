@@ -1,46 +1,73 @@
 <div class="herbalist-container">
-  <h1>Welcome to Herbalist!</h1>
-  <form [formGroup]="form" class="herbalist-form">
-    <!-- Input Field for Roll -->
-    <div class="form-group">
-      <label for="roll">Roll:</label>
-      <input
-        id="roll"
-        type="number"
-        formControlName="roll"
-        placeholder="Enter a positive number"
-        class="form-control"
-      />
-      <div
-        *ngIf="form.get('roll')?.invalid && form.get('roll')?.touched"
-        class="error-message"
-      >
-        {{ getErrorMessage() }}
-      </div>
-    </div>
+  <header class="welcome-header">
+    <h1>Welcome to Herbalist!</h1>
+  </header>
 
-    <!-- Checkboxes for Biomes -->
-    <div class="form-group">
-      <label>Biomes:</label>
-      <div formGroupName="biomes" class="checkbox-group">
-        <div class="checkbox-item" *ngFor="let biome of biomes">
-          <input
-            type="checkbox"
-            [formControlName]="biome"
-            id="{{ biome }}"
-            class="checkbox-input"
-          />
-          <label [for]="biome" class="checkbox-label">{{ biome }}</label>
-        </div>
-      </div>
-    </div>
-
-    <button (click)="gatherHerbs()" class="btn-submit">
-      Gather herbs in selected biomes
+  <nav class="tab-navigation">
+    <button
+      class="tab"
+      *ngFor="let tab of tabs"
+      [class.active]="activeTab === tab"
+      (click)="setActiveTab(tab)"
+    >
+      {{ tab }}
     </button>
-  </form>
-</div>
+  </nav>
+  <div class="tab-content" [ngSwitch]="activeTab">
+    <div *ngSwitchCase="TabType.GatherHerbs">
+      <!-- Gather Herbs Tab Content -->
+      <form [formGroup]="form" class="herbalist-form">
+        <!-- Input Field for Roll -->
+        <div class="form-group">
+          <label for="roll">Roll:</label>
+          <input
+            id="roll"
+            type="number"
+            formControlName="roll"
+            placeholder="Enter a positive number"
+            class="form-control"
+          />
+          <div
+            *ngIf="form.get('roll')?.invalid && form.get('roll')?.touched"
+            class="error-message"
+          >
+            {{ getErrorMessage() }}
+          </div>
+        </div>
 
-<div class="plant-table-container">
-  <app-display-plants [plants]="gatheredPlants()"></app-display-plants>
+        <!-- Checkboxes for Biomes -->
+        <div class="form-group">
+          <label>Biomes:</label>
+          <div formGroupName="biomes" class="checkbox-group">
+            <div class="checkbox-item" *ngFor="let biome of biomes">
+              <input
+                type="checkbox"
+                [formControlName]="biome"
+                id="{{ biome }}"
+                class="checkbox-input"
+              />
+              <label [for]="biome" class="checkbox-label">{{ biome }}</label>
+            </div>
+          </div>
+        </div>
+
+        <button (click)="gatherHerbs()" class="btn-submit">
+          Gather herbs in selected biomes
+        </button>
+      </form>
+
+      <div class="plant-table-container">
+        <app-display-plants [plants]="gatheredPlants()"></app-display-plants>
+      </div>
+    </div>
+    <div *ngSwitchCase="TabType.BotanicalCompendium">
+      <div class="plant-table-container">
+        <app-display-plants [plants]="allPlants()"></app-display-plants>
+      </div>
+    </div>
+    <div *ngSwitchCase="TabType.AlchemicalRecipes">
+      <!-- Content for Alchemical Recipes -->
+      <p>Alchemical Recipes content goes here.</p>
+    </div>
+  </div>
 </div>

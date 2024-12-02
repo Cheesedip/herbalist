@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component, input, Signal } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { Plant } from '../../data/plant/plant';
 
 @Component({
@@ -9,5 +9,5 @@ import { Plant } from '../../data/plant/plant';
   styleUrl: './display-plants.component.scss',
 })
 export class DisplayPlantsComponent {
-  public plants: Signal<Plant[]> = input.required();
+  public plants = input.required<Plant[]>();
 }
