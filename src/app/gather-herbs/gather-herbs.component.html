@@ -1,0 +1,46 @@
+<form [formGroup]="form" class="herbalist-form">
+  <!-- Input Field for Roll -->
+  <div class="form-group">
+    <label for="roll">Roll:</label>
+    <input
+      id="roll"
+      type="number"
+      formControlName="roll"
+      placeholder="Enter a positive number"
+      class="form-control"
+    />
+    <div
+      *ngIf="form.get('roll')?.invalid && form.get('roll')?.touched"
+      class="error-message"
+    >
+      {{ getErrorMessage() }}
+    </div>
+  </div>
+
+  <!-- Checkboxes for Biomes -->
+  <div class="form-group">
+    <label>Biomes:</label>
+    <div formGroupName="biomes" class="checkbox-group">
+      <div class="checkbox-item" *ngFor="let biome of biomes">
+        <input
+          type="checkbox"
+          [formControlName]="biome"
+          id="{{ biome }}"
+          class="checkbox-input"
+        />
+        <label [for]="biome" class="checkbox-label">{{ biome }}</label>
+      </div>
+    </div>
+  </div>
+
+  <button (click)="gatherHerbs()" class="btn-submit" [disabled]="form.invalid">
+    Gather herbs in selected biomes
+  </button>
+</form>
+
+<div class="plant-table-container">
+  <app-display-plants
+    *ngIf="gatheredPlants().length"
+    [plants]="gatheredPlants()"
+  ></app-display-plants>
+</div>
