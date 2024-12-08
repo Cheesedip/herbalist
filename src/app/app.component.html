@@ -21,7 +21,10 @@
       <app-display-plants [plants]="plants()"></app-display-plants>
     </div>
     <div *ngSwitchCase="TabType.AlchemicalRecipes">
-      <app-display-recipes [recipes]="recipes()"></app-display-recipes>
+      <app-display-recipes
+        [recipes]="recipes()"
+        [plants]="plants()"
+      ></app-display-recipes>
     </div>
   </div>
 </div>

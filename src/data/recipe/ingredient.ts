@@ -1,4 +1,7 @@
+import { Plant } from '../plant/plant';
+
 export interface Ingredient {
   count: number;
-  value: number; // id of plant
+  plantId: number;
+  plant?: Plant;
 }
