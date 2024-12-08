@@ -18,11 +18,10 @@
       <app-gather-herbs></app-gather-herbs>
     </div>
     <div *ngSwitchCase="TabType.BotanicalCompendium">
-        <app-display-plants [plants]="allPlants()"></app-display-plants>
+      <app-display-plants [plants]="plants()"></app-display-plants>
     </div>
     <div *ngSwitchCase="TabType.AlchemicalRecipes">
-      <!-- Content for Alchemical Recipes -->
-      <p>Alchemical Recipes content goes here.</p>
+      <app-display-recipes [recipes]="recipes()"></app-display-recipes>
     </div>
   </div>
 </div>

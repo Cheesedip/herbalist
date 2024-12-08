@@ -12,10 +12,10 @@ import {
 } from '@angular/forms';
 import { Biome } from '../../data/plant/biome';
 import { gather } from '../../data/plant/gather';
-import { Plant } from '../../data/plant/plant';
 import { CommonModule } from '@angular/common';
 import { DisplayPlantsComponent } from '../display-plants/display-plants.component';
 import { atLeastOneBiomeChecked } from '../../form-validators/at-least-one-biome.validator';
+import { Plant } from '../../data/plant/plant';
 
 @Component({
   selector: 'app-gather-herbs',

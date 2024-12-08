@@ -1,0 +1,31 @@
+.recipe-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .recipe-table th,
+  .recipe-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .recipe-table th {
+    background-color: #4caf50;
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  
+  .recipe-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .recipe-table tbody tr:hover {
+    background-color: #e9f7ef;
+  }
+  
+  .recipe-table td {
+    font-size: 14px;
+    color: #333;
+  }
