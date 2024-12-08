@@ -1,6 +1,7 @@
 <table class="plant-table">
   <thead>
     <tr>
+      <th>Image</th>
       <th>Name</th>
       <th>Appearance</th>
       <th>Use</th>
@@ -9,7 +10,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let plant of plants()">
+    <tr *ngFor="let plant of plantsWithImageUrl()">
+      <td>
+        <img loading="lazy" [src]="plant.imageUrl" alt="{{ plant.name }}" />
+      </td>
       <td>{{ plant.name }}</td>
       <td>{{ plant.appearance }}</td>
       <td>{{ plant.use }}</td>

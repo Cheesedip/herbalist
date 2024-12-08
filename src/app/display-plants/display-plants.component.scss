@@ -1,31 +1,76 @@
+$primary-color: #4caf50;
+$secondary-color: #f2f2f2;
+$hover-color: #e9f7ef;
+$text-color: #333;
+$border-color: #ddd;
+
 .plant-table {
   width: 100%;
   border-collapse: collapse;
-}
+  table-layout: fixed; // Add this line
 
-.plant-table th,
-.plant-table td {
-  padding: 12px 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
+  th,
+  td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid $border-color;
+    font-size: 14px;
+  }
 
-.plant-table th {
-  background-color: #4caf50;
-  color: white;
-  text-transform: uppercase;
-  font-size: 14px;
-}
+  th {
+    background-color: $primary-color;
+    color: white;
+    text-transform: uppercase;
+  }
 
-.plant-table tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
+  tbody {
+    tr:nth-child(even) {
+      background-color: $secondary-color;
+    }
 
-.plant-table tbody tr:hover {
-  background-color: #e9f7ef;
-}
+    tr:hover {
+      background-color: $hover-color;
+    }
+  }
 
-.plant-table td {
-  font-size: 14px;
-  color: #333;
+  td {
+    color: $text-color;
+    word-wrap: break-word; // Add this line to wrap text
+  }
+
+  img {
+    width: 50px;
+    height: auto;
+  }
+
+  // Set column widths to prevent overflow
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 10%; // Image column
+  }
+
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 15%; // Name column
+  }
+
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: 25%; // Appearance column
+  }
+
+  th:nth-child(4),
+  td:nth-child(4) {
+    width: 25%; // Use column
+  }
+
+  th:nth-child(5),
+  td:nth-child(5) {
+    width: 12.5%; // Rarity column
+  }
+
+  th:nth-child(6),
+  td:nth-child(6) {
+    width: 12.5%; // Biome column
+  }
 }

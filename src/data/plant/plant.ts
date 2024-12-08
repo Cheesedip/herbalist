@@ -7,6 +7,7 @@ export interface Plant {
   use: string;
   rarity: PlantRarity;
   biome: Biome;
+  imageUrl?: string;
 }
 
 export enum PlantRarity {
