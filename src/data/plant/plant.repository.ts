@@ -13,8 +13,11 @@ import {
   withActiveIds,
   selectActiveEntities,
   toggleActiveIds,
+  selectEntity,
+  getEntity,
 } from '@ngneat/elf-entities';
 import { Plant } from './plant';
+import { filter, tap } from 'rxjs';
 
 export interface PlantUI {
   id: number;
@@ -34,7 +37,11 @@ export const store = createStore(
 
 export const activePlants$ = store.pipe(selectActiveEntities());
 
-export const activePlant$ = store.pipe(selectActiveEntity());
+export const activePlant$ = store.pipe(
+  selectActiveEntity(),
+  tap(console.log),
+  filter((plant) => !!plant)
+);
 
 export const plants$ = store.pipe(selectAllEntities());
 
@@ -68,4 +75,9 @@ export function setActivePlantsId(id: Plant['id']) {
 
 export function toggleActivePlantsIds(ids: Array<Plant['id']>) {
   store.update(toggleActiveIds(ids));
+}
+
+export function getPlantById(id: number): Plant | undefined {
+  console.log('store', store.getValue());
+  return store.getValue().entities[id];
 }

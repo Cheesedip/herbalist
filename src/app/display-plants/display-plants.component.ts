@@ -1,10 +1,11 @@
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { Component, computed, input } from '@angular/core';
 import { Plant } from '../../data/plant/plant';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-display-plants',
-  imports: [NgFor],
+  imports: [CommonModule, RouterModule],
   templateUrl: './display-plants.component.html',
   styleUrl: './display-plants.component.scss',
 })

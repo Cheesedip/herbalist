@@ -1,0 +1,24 @@
+<div class="plant-page">
+  <button class="back-button" (click)="goBack()">Back</button>
+  <div class="plant-details" *ngIf="plant() as plant">
+    <div class="plant-image">
+      <img
+        [src]="'assets/plants/plant_' + plant.id + '.jpeg'"
+        alt="{{ plant.name }}"
+      />
+    </div>
+    <div class="plant-info">
+      <h2>{{ plant.name }}</h2>
+      <p><strong>Appearance:</strong> {{ plant.appearance }}</p>
+      <p><strong>Use:</strong> {{ plant.use }}</p>
+      <p><strong>Rarity:</strong> {{ plant.rarity }}</p>
+      <p><strong>Biome:</strong> {{ plant.biome }}</p>
+    </div>
+  </div>
+
+  <h3 class="recipes-title">Relevant recipes</h3>
+  <app-display-recipes
+    [recipes]="filteredRecipes()"
+    [plants]="plants()"
+  ></app-display-recipes>
+</div>
