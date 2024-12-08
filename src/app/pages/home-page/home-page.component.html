@@ -1,0 +1,24 @@
+<nav class="tab-navigation">
+  <button
+    class="tab"
+    *ngFor="let tab of tabs"
+    [class.active]="activeTab === tab"
+    (click)="setActiveTab(tab)"
+  >
+    {{ tab }}
+  </button>
+</nav>
+<div class="tab-content" [ngSwitch]="activeTab">
+  <div *ngSwitchCase="TabType.GatherHerbs">
+    <app-gather-herbs></app-gather-herbs>
+  </div>
+  <div *ngSwitchCase="TabType.BotanicalCompendium">
+    <app-display-plants [plants]="plants()"></app-display-plants>
+  </div>
+  <div *ngSwitchCase="TabType.AlchemicalRecipes">
+    <app-display-recipes
+      [recipes]="recipes()"
+      [plants]="plants()"
+    ></app-display-recipes>
+  </div>
+</div>

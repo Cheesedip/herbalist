@@ -10,7 +10,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let plant of plantsWithImageUrl()">
+    <tr
+      *ngFor="let plant of plantsWithImageUrl()"
+      [routerLink]="['/plants', plant.id]"
+    >
       <td>
         <img loading="lazy" [src]="plant.imageUrl" alt="{{ plant.name }}" />
       </td>
