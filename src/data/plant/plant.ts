@@ -1,4 +1,5 @@
 import { Biome } from './biome';
+import { PlantRarity } from './rarity';
 
 export interface Plant {
   id: number;
@@ -8,12 +9,6 @@ export interface Plant {
   rarity: PlantRarity;
   biome: Biome;
   imageUrl?: string;
-}
-
-export enum PlantRarity {
-  COMMON = 'Common',
-  UNCOMMON = 'Uncommon',
-  RARE = 'Rare',
 }
 
 // Important, this enum must start with the most rare value

@@ -1,7 +1,8 @@
-import { CommonModule, NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, computed, input } from '@angular/core';
 import { Plant } from '../../data/plant/plant';
 import { RouterModule } from '@angular/router';
+import { PlantRarityColor } from '../../data/plant/rarity';
 
 @Component({
   selector: 'app-display-plants',
@@ -11,11 +12,5 @@ import { RouterModule } from '@angular/router';
 })
 export class DisplayPlantsComponent {
   public plants = input.required<Plant[]>();
-
-  public plantsWithImageUrl = computed(() =>
-    this.plants().map((plant) => ({
-      ...plant,
-      imageUrl: `assets/plants/plant_${plant.id}.jpeg`,
-    }))
-  );
+  protected PlantRarityColor = PlantRarityColor;
 }

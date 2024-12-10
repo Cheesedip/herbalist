@@ -10,17 +10,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr
-      *ngFor="let plant of plantsWithImageUrl()"
-      [routerLink]="['/plants', plant.id]"
-    >
+    <tr *ngFor="let plant of plants()" [routerLink]="['/plants', plant.id]">
       <td>
         <img loading="lazy" [src]="plant.imageUrl" alt="{{ plant.name }}" />
       </td>
       <td>{{ plant.name }}</td>
       <td>{{ plant.appearance }}</td>
       <td>{{ plant.use }}</td>
-      <td>{{ plant.rarity }}</td>
+      <td [style.color]="PlantRarityColor[plant.rarity]">{{ plant.rarity }}</td>
       <td>{{ plant.biome }}</td>
     </tr>
   </tbody>
