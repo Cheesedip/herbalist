@@ -1,5 +1,6 @@
 import { Biome } from './biome';
-import { Plant, PlantRarity } from './plant';
+import { Plant } from './plant';
+import { PlantRarity } from './rarity';
 
 export const plants: Plant[] = [
   {

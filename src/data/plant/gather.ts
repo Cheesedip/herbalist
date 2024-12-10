@@ -1,6 +1,7 @@
 import { Biome } from './biome';
-import { Plant, PlantOdds, PlantRarity } from './plant';
+import { Plant, PlantOdds } from './plant';
 import { getPlants } from './plant.repository';
+import { PlantRarity } from './rarity';
 
 export function gather(roll: number, biomes: Biome[]): Plant[] {
   if (roll < 0) {
