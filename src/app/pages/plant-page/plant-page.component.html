@@ -2,10 +2,7 @@
   <button class="back-button" (click)="goBack()">Back</button>
   <div class="plant-details" *ngIf="plant() as plant">
     <div class="plant-image">
-      <img
-        [src]="'assets/plants/plant_' + plant.id + '.jpeg'"
-        alt="{{ plant.name }}"
-      />
+      <img [src]="plant.imageUrl" alt="{{ plant.name }}" />
     </div>
     <div class="plant-info">
       <h2>{{ plant.name }}</h2>
@@ -18,7 +15,6 @@
 
   <h3 class="recipes-title">Relevant recipes</h3>
   <app-display-recipes
-    [recipes]="filteredRecipes()"
-    [plants]="plants()"
+    [recipesWithPlants]="filteredRecipes()"
   ></app-display-recipes>
 </div>

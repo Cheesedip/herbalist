@@ -4,6 +4,8 @@ import { addPlants } from '../data/plant/plant.repository';
 import { plants } from '../data/plant/plants';
 import { addRecipes } from '../data/recipe/recipe.repository';
 import { recipes } from '../data/recipe/recipes';
+import { Recipe } from '../data/recipe/recipe';
+import { Plant } from '../data/plant/plant';
 
 @Component({
   selector: 'app-root',
@@ -15,9 +17,25 @@ import { recipes } from '../data/recipe/recipes';
 })
 export class AppComponent {
   constructor() {
-    //TODO: generate and add image URLs to plants
+    const plantsWithImageUrl = this.addImageUrlsToPlants(plants);
+    const recipesWithImageUrl = this.addImageUrlsToRecipes(recipes);
+
     // Add all data to the store
-    addPlants(plants);
-    addRecipes(recipes);
+    addPlants(plantsWithImageUrl);
+    addRecipes(recipesWithImageUrl);
+  }
+
+  private addImageUrlsToPlants(plants: Omit<Plant, 'imageUrl'>[]): Plant[] {
+    return plants.map((plant) => ({
+      ...plant,
+      imageUrl: `assets/plants/plant_${plant.id}.jpeg`,
+    }));
+  }
+
+  private addImageUrlsToRecipes(recipes: Omit<Recipe, 'imageUrl'>[]): Recipe[] {
+    return recipes.map((recipe) => ({
+      ...recipe,
+      imageUrl: `assets/recipes/recipe_${recipe.id}.jpeg`,
+    }));
   }
 }

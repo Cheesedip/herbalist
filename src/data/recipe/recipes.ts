@@ -1,6 +1,6 @@
 import { Recipe } from './recipe';
 
-export const recipes: Recipe[] = [
+export const recipes: Omit<Recipe, 'imageUrl'>[] = [
   {
     id: 0,
     name: 'Healing Tea',

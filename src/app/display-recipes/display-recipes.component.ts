@@ -1,12 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  input,
-} from '@angular/core';
-import { Recipe } from '../../data/recipe/recipe';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Plant } from '../../data/plant/plant';
+import { RecipeWithPlants } from '../../data/recipe/recipe';
 
 @Component({
   selector: 'app-display-recipes',
@@ -17,20 +11,5 @@ import { Plant } from '../../data/plant/plant';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DisplayRecipesComponent {
-  public recipes = input.required<Recipe[]>();
-  public plants = input.required<Plant[]>();
-
-  protected recipesWithPlants = computed(() => {
-    const recipes = this.recipes();
-    const plants = this.plants();
-    return recipes.map((recipe) => {
-      recipe.ingredients = recipe.ingredients.map((ingredient) => {
-        ingredient.plant = plants.find(
-          (plant) => plant.id === ingredient.plantId
-        );
-        return ingredient;
-      });
-      return recipe;
-    });
-  });
+  public recipesWithPlants = input.required<RecipeWithPlants[]>();
 }

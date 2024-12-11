@@ -1,6 +1,7 @@
 <table class="recipe-table">
   <thead>
     <tr>
+      <th>Image</th>
       <th>Name</th>
       <th>Ingredients</th>
       <th>Effect</th>
@@ -8,11 +9,14 @@
   </thead>
   <tbody>
     <tr *ngFor="let recipe of recipesWithPlants()">
+      <td>
+        <img [src]="recipe.imageUrl" alt="{{ recipe.name }}" />
+      </td>
       <td>{{ recipe.name }}</td>
       <td>
         <ul>
           <li *ngFor="let ingredient of recipe.ingredients">
-            {{ ingredient.count }} x {{ ingredient.plant?.name }}
+            {{ ingredient.count }} x {{ ingredient.plant.name }}
           </li>
         </ul>
       </td>

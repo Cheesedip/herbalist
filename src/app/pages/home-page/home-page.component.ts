@@ -7,8 +7,12 @@ import {
 import { addPlants, getPlants } from '../../../data/plant/plant.repository';
 import { Plant } from '../../../data/plant/plant';
 import { plants } from '../../../data/plant/plants';
-import { Recipe } from '../../../data/recipe/recipe';
-import { addRecipes, getRecipes } from '../../../data/recipe/recipe.repository';
+import { Recipe, RecipeWithPlants } from '../../../data/recipe/recipe';
+import {
+  addPlantsToRecipes,
+  addRecipes,
+  getRecipes,
+} from '../../../data/recipe/recipe.repository';
 import { recipes } from '../../../data/recipe/recipes';
 import { CommonModule } from '@angular/common';
 import { DisplayPlantsComponent } from '../../display-plants/display-plants.component';
@@ -41,7 +45,9 @@ export class HomePageComponent {
   protected tabs = Object.values(TabType);
 
   protected plants: WritableSignal<Plant[]> = signal(getPlants());
-  protected recipes: WritableSignal<Recipe[]> = signal(getRecipes());
+  protected recipesWithPlants: WritableSignal<RecipeWithPlants[]> = signal(
+    addPlantsToRecipes(getRecipes())
+  );
 
   protected activeTab = TabType.GatherHerbs;
 

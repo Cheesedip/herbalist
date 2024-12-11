@@ -8,7 +8,7 @@ export interface Plant {
   use: string;
   rarity: PlantRarity;
   biome: Biome;
-  imageUrl?: string;
+  imageUrl: string;
 }
 
 // Important, this enum must start with the most rare value

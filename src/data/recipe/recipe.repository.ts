@@ -14,7 +14,8 @@ import {
   selectActiveEntities,
   toggleActiveIds,
 } from '@ngneat/elf-entities';
-import { Recipe } from './recipe';
+import { Recipe, RecipeWithPlants } from './recipe';
+import { getPlants } from '../plant/plant.repository';
 
 export interface RecipeUI {
   id: number;
@@ -37,7 +38,6 @@ export const activeRecipes$ = store.pipe(selectActiveEntities());
 export const activeRecipe$ = store.pipe(selectActiveEntity());
 
 export const recipes$ = store.pipe(selectAllEntities());
-
 
 export function getRecipes(): Recipe[] {
   return Object.values(store.getValue().entities);
@@ -69,4 +69,15 @@ export function setActiveRecipesId(id: Recipe['id']) {
 
 export function toggleActiveRecipesIds(ids: Array<Recipe['id']>) {
   store.update(toggleActiveIds(ids));
+}
+
+export function addPlantsToRecipes(recipes: Recipe[]) {
+  const plants = getPlants();
+  return recipes.map((recipe) => {
+    recipe.ingredients = recipe.ingredients.map((ingredient) => {
+      const plant = plants.find((plant) => plant.id === ingredient.plantId);
+      return { ...ingredient, plant };
+    });
+    return recipe;
+  }) as RecipeWithPlants[];
 }

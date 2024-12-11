@@ -8,8 +8,11 @@ import { ActivatedRoute } from '@angular/router';
 import { getPlantById, getPlants } from '../../../data/plant/plant.repository';
 import { Plant } from '../../../data/plant/plant';
 import { CommonModule, Location } from '@angular/common';
-import { Recipe } from '../../../data/recipe/recipe';
-import { getRecipes } from '../../../data/recipe/recipe.repository';
+import { Recipe, RecipeWithPlants } from '../../../data/recipe/recipe';
+import {
+  addPlantsToRecipes,
+  getRecipes,
+} from '../../../data/recipe/recipe.repository';
 import { DisplayRecipesComponent } from '../../display-recipes/display-recipes.component';
 
 @Component({
@@ -24,7 +27,7 @@ export class PlantPageComponent {
   protected plants: WritableSignal<Plant[]> = signal([]);
   protected plant: WritableSignal<Plant | undefined> = signal(undefined);
   protected recipes: WritableSignal<Recipe[]> = signal([]);
-  protected filteredRecipes: WritableSignal<Recipe[]> = signal([]);
+  protected filteredRecipes: WritableSignal<RecipeWithPlants[]> = signal([]);
 
   constructor(private route: ActivatedRoute, private location: Location) {
     this.plants.set(getPlants());
@@ -37,8 +40,12 @@ export class PlantPageComponent {
     // Filter recipes that include this plant
     this.filteredRecipes.set(
       // TODO: make this reactive (computed)
-      this.recipes().filter((recipe) =>
-        recipe.ingredients.some((ingredient) => ingredient.plantId === plantId)
+      addPlantsToRecipes(
+        this.recipes().filter((recipe) =>
+          recipe.ingredients.some(
+            (ingredient) => ingredient.plantId === plantId
+          )
+        )
       )
     );
   }

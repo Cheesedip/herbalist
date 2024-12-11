@@ -2,7 +2,7 @@ import { Biome } from './biome';
 import { Plant } from './plant';
 import { PlantRarity } from './rarity';
 
-export const plants: Plant[] = [
+export const plants: Omit<Plant, 'imageUrl'>[] = [
   {
     id: 0,
     name: 'Sunspire Daisy',
