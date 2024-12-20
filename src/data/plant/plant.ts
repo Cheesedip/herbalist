@@ -5,7 +5,6 @@ export interface Plant {
   id: number;
   name: string;
   appearance: string;
-  use: string;
   rarity: PlantRarity;
   biome: Biome;
   imageUrl: string;

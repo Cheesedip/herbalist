@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  effect,
   signal,
   WritableSignal,
 } from '@angular/core';
@@ -45,6 +46,14 @@ export class GatherHerbsComponent {
     ),
   });
 
+  constructor() {
+    this.getStateFromLocalStorage();
+
+    effect(() => {
+      this.storeStateToLocalStorage();
+    });
+  }
+
   protected getErrorMessage() {
     if (this.form.controls.roll.hasError('required')) {
       return 'You must enter a value';
@@ -74,5 +83,28 @@ export class GatherHerbsComponent {
 
   private getBiomeListFromForm(formBiomes: any): Biome[] {
     return Object.values(Biome).filter((biome) => formBiomes[biome]);
+  }
+
+  private storeStateToLocalStorage() {
+    localStorage.setItem(
+      'gatheredPlants',
+      JSON.stringify(this.gatheredPlants())
+    );
+    localStorage.setItem(
+      'gatherHerbsForm',
+      JSON.stringify(this.form.getRawValue())
+    );
+  }
+
+  private getStateFromLocalStorage() {
+    const storedPlants = localStorage.getItem('gatheredPlants');
+    if (storedPlants) {
+      this.gatheredPlants.set(JSON.parse(storedPlants));
+    }
+
+    const storedForm = localStorage.getItem('gatherHerbsForm');
+    if (storedForm) {
+      this.form.setValue(JSON.parse(storedForm));
+    }
   }
 }
