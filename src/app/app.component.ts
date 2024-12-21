@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { addPlants } from '../data/plant/plant.repository';
 import { plants } from '../data/plant/plants';
@@ -6,6 +6,7 @@ import { addRecipes } from '../data/recipe/recipe.repository';
 import { recipes } from '../data/recipe/recipes';
 import { Recipe } from '../data/recipe/recipe';
 import { Plant } from '../data/plant/plant';
+import { PlantsFirebaseService } from './firebase.service';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,8 @@ import { Plant } from '../data/plant/plant';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
+  private plantsService = inject(PlantsFirebaseService);
+
   constructor() {
     const plantsWithImageUrl = this.addImageUrlsToPlants(plants);
     const recipesWithImageUrl = this.addImageUrlsToRecipes(recipes);
@@ -23,6 +26,10 @@ export class AppComponent {
     // Add all data to the store
     addPlants(plantsWithImageUrl);
     addRecipes(recipesWithImageUrl);
+
+    this.plantsService.getPlants().subscribe((plants) => {
+      console.log('Plants:', plants);
+    });
   }
 
   private addImageUrlsToPlants(plants: Omit<Plant, 'imageUrl'>[]): Plant[] {

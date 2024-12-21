@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "dndprofessions",
+    "production": "dndprofessions"
+  },
+  "targets": {},
+  "etags": {}
+}
