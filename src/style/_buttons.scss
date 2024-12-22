@@ -1,0 +1,26 @@
+/* Button styles */
+button {
+  background: $primary-color;
+  color: $white;
+  border: none;
+  border-radius: $border-radius;
+  padding: $padding-medium;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: $dark-hover;
+  }
+
+  &:disabled {
+    background: $light-gray;
+    cursor: not-allowed;
+  }
+}
+
+/* Additional button variations */
+.button-secondary {
+  background: $secondary-color;
+  color: $text-color;
+}

@@ -1,0 +1,25 @@
+/* Color variables */
+$primary-color: #2a5d34;
+$secondary-color: #a8d5a8;
+$background-gradient: linear-gradient(135deg, #d4e8d4, $secondary-color);
+$text-color: #333;
+$light-gray: #ccc;
+$white: #fff;
+$dark-hover: #1f4729;
+$light-hover: #69c56c;
+
+/* Padding variables */
+$padding-small: 0.5rem;
+$padding-medium: 0.8rem;
+$padding-large: 1.5rem;
+
+/* Border radius */
+$border-radius: 6px;
+$large-border-radius: 12px;
+
+/* Shadow variables */
+$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+// TODO add border color variable for buttons?
+// TODO add font-family variable for buttons?
+// TODO add _tables.scss partial

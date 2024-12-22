@@ -1,0 +1,77 @@
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: $padding-medium;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: $padding-small;
+
+  /* Labels */
+  label {
+    font-size: 16px;
+    font-weight: bold;
+    color: $text-color;
+  }
+}
+
+/* Error Message */
+.error-message {
+  font-size: 12px;
+  color: red;
+  margin-top: -5px;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $padding-small;
+}
+
+/* Submit Button */
+.btn-submit {
+  @extend button;
+  padding: $padding-small $padding-medium;
+  font-size: 16px;
+  align-self: center;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  gap: $padding-small;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $text-color;
+}
+
+input {
+  padding: $padding-medium;
+  border: 1px solid $light-gray;
+  border-radius: $border-radius;
+  font-size: 1rem;
+
+  &:focus {
+    border-color: $primary-color;
+    outline: none;
+  }
+}
+
+textarea {
+  padding: $padding-medium;
+  border: 1px solid $light-gray;
+  border-radius: $border-radius;
+  font-size: 1rem;
+
+  &:focus {
+    border-color: $primary-color;
+    outline: none;
+  }
+}
