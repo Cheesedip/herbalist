@@ -15,7 +15,14 @@
       </td>
       <td>{{ plant.name }}</td>
       <td>{{ plant.appearance }}</td>
-      <td [style.color]="PlantRarityColor[plant.rarity]">{{ plant.rarity }}</td>
+      <!-- <td [style.color]="PlantRarityColor[plant.rarity]">{{ plant.rarity }}</td> -->
+      <td>
+        <img
+          loading="lazy"
+          [src]="getRarityImgUrl(plant.rarity)"
+          alt="{{ plant.rarity }}"
+        />
+      </td>
       <td>{{ plant.biome }}</td>
     </tr>
   </tbody>
