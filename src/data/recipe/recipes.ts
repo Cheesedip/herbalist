@@ -1,209 +1,488 @@
-import { Recipe } from './recipe';
-
-export const recipes: Omit<Recipe, 'imageUrl'>[] = [
+export const recipes = [
   {
     id: 0,
-    name: 'Healing Tea',
-    ingredients: [{ count: 1, plantId: 0 }],
-    effect: 'Grants minor healing (1d4 HP).',
+    name: 'Potion of Swift Scribbling',
+    ingredients: [
+      { count: 1, plantId: 0 },
+      { count: 3, plantId: 1 },
+    ],
+    effect:
+      'You can write or draw twice as fast as normal, with perfect legibility, for the next hour.',
   },
   {
     id: 1,
-    name: 'Burn Soothing Ointment',
-    ingredients: [{ count: 2, plantId: 1 }],
-    effect: 'Soothes burns and minor wounds.',
+    name: 'Potion of Delicate Drizzle',
+    ingredients: [{ count: 2, plantId: 2 }],
+    effect:
+      'You no longer get wet in light rain or drizzle, though heavy rain still soaks you.',
   },
   {
     id: 2,
-    name: 'Charisma Boost Elixir',
-    ingredients: [{ count: 2, plantId: 2 }],
-    effect: 'Boosts charisma for an hour (+1 Charisma).',
+    name: 'Potion of Perfect Memory',
+    ingredients: [
+      { count: 2, plantId: 5 },
+      { count: 1, plantId: 7 },
+    ],
+    effect:
+      'You can perfectly recall any event that happened within the last 24 hours, with vivid detail, for the next hour.',
   },
   {
     id: 3,
-    name: 'Focus Elixir',
-    ingredients: [{ count: 2, plantId: 5 }],
-    effect: 'Grants advantage on concentration checks.',
+    name: 'Potion of Featherweight',
+    ingredients: [
+      { count: 1, plantId: 8 },
+      { count: 2, plantId: 11 },
+    ],
+    effect:
+      'Your footsteps make no sound, and you leave no tracks on soft ground.',
   },
   {
     id: 4,
-    name: 'Light Essence',
-    ingredients: [{ count: 3, plantId: 7 }],
-    effect: 'Creates a potion that lights dim areas.',
+    name: 'Potion of Masked Scent',
+    ingredients: [
+      { count: 2, plantId: 13 },
+      { count: 1, plantId: 16 },
+    ],
+    effect:
+      'For the next 8 hours, you emit no body odor or scent, making it harder for animals or creatures to track you by smell.',
   },
   {
     id: 5,
-    name: 'Energy Drink',
-    ingredients: [{ count: 2, plantId: 8 }],
-    effect: 'Temporarily reduces exhaustion by 1 level.',
+    name: 'Potion of Nimble Digits',
+    ingredients: [{ count: 3, plantId: 17 }],
+    effect:
+      'For the next hour, your fingers are unusually dexterous, giving you advantage on Sleight of Hand checks involving delicate tasks (picking locks, performing tricks, sewing, etc.).',
   },
   {
     id: 6,
-    name: 'Paralysis Paralysis',
-    ingredients: [{ count: 2, plantId: 11 }],
-    effect: 'Diluted to cause paralysis for a short duration.',
+    name: 'Potion of Endless Breath',
+    ingredients: [
+      { count: 1, plantId: 18 },
+      { count: 3, plantId: 23 },
+    ],
+    effect: 'You can hold your breath for up to 10 minutes without discomfort.',
   },
   {
     id: 7,
-    name: 'Antidote to Minor Poison',
-    ingredients: [{ count: 2, plantId: 13 }],
-    effect: 'Cures minor poisons.',
+    name: 'Potion of Faultless Translation',
+    ingredients: [
+      { count: 1, plantId: 24 },
+      { count: 2, plantId: 26 },
+    ],
+    effect:
+      'For the next 30 minutes, you can read and understand any written language you encounter, though you cannot speak or write it.',
   },
   {
     id: 8,
-    name: 'Necrotic Counter-Potion',
-    ingredients: [{ count: 2, plantId: 16 }],
-    effect: 'Counteracts necrotic damage effects for 1 hour.',
+    name: 'Potion of Effortless Elegance',
+    ingredients: [
+      { count: 1, plantId: 28 },
+      { count: 3, plantId: 29 },
+    ],
+    effect:
+      'For the next 4 hours, your clothes remain clean and wrinkle-free, no matter what you do.',
   },
   {
     id: 9,
-    name: 'Binding Elixir',
-    ingredients: [{ count: 2, plantId: 17 }],
-    effect: 'Used in binding potions or spells.',
+    name: 'Potion of Weightless Carrying',
+    ingredients: [
+      { count: 2, plantId: 30 },
+      { count: 2, plantId: 31 },
+    ],
+    effect:
+      'For 1 hour, any non-living object you carry feels 50% lighter, though its actual weight remains the same.',
   },
   {
     id: 10,
-    name: 'Nature’s Boost',
-    ingredients: [{ count: 2, plantId: 18 }],
-    effect: 'Enhances nature-based spell effects for 1 hour.',
+    name: 'Potion of Harmonious Presence',
+    ingredients: [{ count: 4, plantId: 32 }],
+    effect:
+      'For the next hour, minor social faux pas (like interrupting someone or forgetting a name) are overlooked or easily forgiven by those around you.',
   },
   {
     id: 11,
     name: 'Darkvision Draught',
-    ingredients: [{ count: 2, plantId: 26 }],
+    ingredients: [
+      { count: 2, plantId: 39 },
+      { count: 2, plantId: 40 },
+    ],
     effect: 'Grants temporary darkvision (up to 30 feet) for 1 hour.',
   },
   {
     id: 12,
-    name: 'Smoke Bomb Powder',
-    ingredients: [{ count: 2, plantId: 23 }],
-    effect: 'Ground into powder for use in smoke bombs or obscuring potions.',
+    name: 'Potion of Lingering Warmth',
+    ingredients: [
+      { count: 1, plantId: 41 },
+      { count: 3, plantId: 42 },
+    ],
+    effect:
+      'You remain comfortably warm in cold weather for the next 8 hours, regardless of wind or frost.',
   },
   {
     id: 13,
-    name: 'Fear Immunity Brew',
-    ingredients: [{ count: 2, plantId: 24 }],
-    effect: 'Grants temporary immunity to fear effects for 1 hour.',
+    name: 'Elixir of Iron Stomach',
+    ingredients: [
+      { count: 2, plantId: 0 },
+      { count: 1, plantId: 8 },
+    ],
+    effect:
+      'For the next 24 hours, you can safely consume any food or drink, no matter how spoiled, bitter, or unusual. You’re immune to mild food poisoning or discomfort caused by exotic cuisine.',
   },
   {
     id: 14,
-    name: 'Minor Healing Salve',
+    name: 'Potion of Verdant Whispers',
     ingredients: [
-      { count: 1, plantId: 0 },
-      { count: 1, plantId: 11 },
+      { count: 2, plantId: 5 },
+      { count: 2, plantId: 11 },
     ],
-    effect: 'Minor healing (1d4 HP) and removes paralysis for a short time.',
+    effect:
+      'For the next 10 minutes, you can sense the general health and needs of plants within 30 feet.',
   },
   {
     id: 15,
     name: 'Soothing Poultice',
     ingredients: [
-      { count: 1, plantId: 1 },
-      { count: 1, plantId: 13 },
+      { count: 1, plantId: 7 },
+      { count: 3, plantId: 16 },
     ],
-    effect: 'Soothes minor wounds and poisons (Cures poison for 1 hour).',
+    effect:
+      'Causes a deep, healing sleep and wards off nightmares for 8 hours.',
   },
   {
     id: 16,
-    name: 'Charisma Boost Tea',
+    name: 'Potion of Subtle Influence',
     ingredients: [
-      { count: 1, plantId: 2 },
-      { count: 1, plantId: 5 },
+      { count: 2, plantId: 2 },
+      { count: 2, plantId: 13 },
     ],
     effect:
-      'Boosts charisma for 1 hour (+1 Charisma) and grants advantage on concentration checks.',
+      'For the next hour, your posture, tone, and demeanor exude confidence, giving you advantage on Persuasion checks involving non-hostile NPCs.',
   },
   {
     id: 17,
     name: 'Cooling Draught',
     ingredients: [
-      { count: 1, plantId: 4 },
-      { count: 1, plantId: 7 },
+      { count: 1, plantId: 17 },
+      { count: 3, plantId: 18 },
     ],
     effect: 'Creates a mild cooling effect that soothes fever or heat.',
   },
   {
     id: 18,
-    name: 'Antidote Elixir',
+    name: 'TODO',
     ingredients: [
-      { count: 1, plantId: 13 },
-      { count: 1, plantId: 16 },
+      { count: 2, plantId: 24 },
+      { count: 2, plantId: 23 },
     ],
-    effect: 'Antidote to both minor poisons and necrotic damage.',
+    effect: 'TODO',
   },
   {
     id: 19,
-    name: 'Energy Reviver',
+    name: 'TODO',
     ingredients: [
-      { count: 2, plantId: 8 },
-      { count: 1, plantId: 5 },
+      { count: 1, plantId: 26 },
+      { count: 3, plantId: 28 },
     ],
-    effect: 'Temporarily reduces exhaustion and boosts focus for 1 hour.',
+    effect: 'TODO',
   },
   {
     id: 20,
-    name: 'Paralysis Remedy',
+    name: 'TODO',
     ingredients: [
-      { count: 1, plantId: 11 },
-      { count: 1, plantId: 16 },
+      { count: 2, plantId: 29 },
+      { count: 2, plantId: 30 },
     ],
-    effect: 'Used to counter paralysis or poison-induced paralysis.',
+    effect: 'TODO',
   },
   {
     id: 21,
-    name: 'Stealthy Elixir',
+    name: 'TODO',
     ingredients: [
-      { count: 1, plantId: 17 },
-      { count: 1, plantId: 15 },
+      { count: 1, plantId: 31 },
+      { count: 3, plantId: 32 },
     ],
-    effect: 'Enhances stealth in forested environments for 1 hour.',
+    effect: 'TODO',
   },
   {
     id: 22,
     name: 'Healing Mist',
     ingredients: [
-      { count: 1, plantId: 0 },
-      { count: 1, plantId: 16 },
+      { count: 2, plantId: 39 },
+      { count: 2, plantId: 42 },
     ],
-    effect:
-      'A refreshing mist that heals minor wounds and counteracts necrotic damage.',
+    effect: 'For one hour anyone you touch feels ticklish for one minute.',
   },
   {
     id: 23,
     name: 'Cold Resistance Tonic',
     ingredients: [
-      { count: 1, plantId: 4 },
-      { count: 1, plantId: 20 },
+      { count: 3, plantId: 40 },
+      { count: 1, plantId: 41 },
     ],
-    effect: 'Grants resistance to cold damage for 1 hour.',
+    effect: 'Your whole body is covered in long hairs for 6 hours.',
   },
   {
     id: 24,
     name: 'Night Vision Tea',
     ingredients: [
-      { count: 1, plantId: 26 },
-      { count: 1, plantId: 10 },
+      { count: 1, plantId: 1 },
+      { count: 3, plantId: 8 },
     ],
-    effect: 'Grants darkvision and mild night vision effects for 1 hour.',
+    effect:
+      'Everything you say is sang in an opera voice instead for 2 minutes.',
   },
   {
     id: 25,
-    name: "Nature's Shield",
+    name: 'TODO',
     ingredients: [
-      { count: 1, plantId: 18 },
-      { count: 1, plantId: 22 },
+      { count: 1, plantId: 3 },
+      { count: 3, plantId: 4 },
     ],
-    effect:
-      'Enhances nature-based spells and temporarily grants resistance to physical damage.',
+    effect: 'TODO',
   },
   {
     id: 26,
-    name: 'Mind Focus Draught',
+    name: 'TODO',
+    ingredients: [{ count: 2, plantId: 12 }],
+    effect: 'TODO',
+  },
+  {
+    id: 27,
+    name: 'Fear Calming Elixir',
     ingredients: [
-      { count: 1, plantId: 5 },
+      { count: 2, plantId: 14 },
+      { count: 1, plantId: 15 },
+    ],
+    effect: 'Immune to being frightened for 1 hour.',
+  },
+  {
+    id: 28,
+    name: 'Frostshield Brew',
+    ingredients: [
+      { count: 1, plantId: 20 },
+      { count: 2, plantId: 22 },
+    ],
+    effect: 'Grants resistance to cold damage for 1 hour.',
+  },
+  {
+    id: 29,
+    name: 'Insight Elixir',
+    ingredients: [
+      { count: 2, plantId: 25 },
+      { count: 1, plantId: 33 },
+    ],
+    effect: 'Advantage on insight checks for 1 hour.',
+  },
+  {
+    id: 30,
+    name: 'Invisibility Tonic',
+    ingredients: [{ count: 3, plantId: 34 }],
+    effect: 'You completely turn to stone for 30 seconds.',
+  },
+  {
+    id: 31,
+    name: 'TODO',
+    ingredients: [
+      { count: 1, plantId: 35 },
+      { count: 3, plantId: 43 },
+    ],
+    effect: 'TODO',
+  },
+  {
+    id: 32,
+    name: 'TODO',
+    ingredients: [
+      { count: 1, plantId: 44 },
+      { count: 2, plantId: 45 },
+    ],
+    effect: 'TODO',
+  },
+  {
+    id: 33,
+    name: 'TODO',
+    ingredients: [
+      { count: 2, plantId: 3 },
+      { count: 2, plantId: 20 },
+    ],
+    effect: 'TODO',
+  },
+  {
+    id: 34,
+    name: 'Chillwind Draught',
+    ingredients: [
       { count: 1, plantId: 14 },
+      { count: 3, plantId: 22 },
+    ],
+    effect: 'Grants resistance to fire damage for 1 hour.',
+  },
+  {
+    id: 35,
+    name: 'Silent Steps Elixir',
+    ingredients: [
+      { count: 2, plantId: 15 },
+      { count: 2, plantId: 25 },
+    ],
+    effect: 'Grants advantage on stealth checks for 1 hour.',
+  },
+  {
+    id: 36,
+    name: 'Stone Skin Draught',
+    ingredients: [
+      { count: 1, plantId: 33 },
+      { count: 3, plantId: 34 },
     ],
     effect:
-      'Boosts concentration and mental focus, granting advantage on Intelligence checks for 1 hour.',
+      'Turns the skin into stone-like material, granting temporary hit points (1d6) for 1 hour.',
+  },
+  {
+    id: 37,
+    name: 'TODO',
+    ingredients: [
+      { count: 2, plantId: 43 },
+      { count: 2, plantId: 45 },
+    ],
+    effect: 'TODO',
+  },
+  {
+    id: 38,
+    name: 'TODO',
+    ingredients: [
+      { count: 3, plantId: 44 },
+      { count: 1, plantId: 12 },
+    ],
+    effect: 'TODO',
+  },
+  {
+    id: 39,
+    name: 'Armor of Frost',
+    ingredients: [
+      { count: 1, plantId: 4 },
+      { count: 3, plantId: 35 },
+    ],
+    effect: 'Temporarily enhances physical defense (grants +1 AC for 1 hour).',
+  },
+  {
+    id: 40,
+    name: 'TODO',
+    ingredients: [
+      { count: 2, plantId: 3 },
+      { count: 2, plantId: 15 },
+    ],
+    effect: 'TODO',
+  },
+  {
+    id: 41,
+    name: 'TODO',
+    ingredients: [
+      { count: 3, plantId: 14 },
+      { count: 1, plantId: 25 },
+    ],
+    effect: 'TODO',
+  },
+  {
+    id: 42,
+    name: 'TODO',
+    ingredients: [
+      { count: 2, plantId: 4 },
+      { count: 2, plantId: 43 },
+    ],
+    effect: 'TODO',
+  },
+  {
+    id: 43,
+    name: 'Decurse Draught',
+    ingredients: [
+      { count: 1, plantId: 6 },
+      { count: 3, plantId: 9 },
+    ],
+    effect: 'Removes a curse.',
+  },
+  {
+    id: 44,
+    name: 'TODO',
+    ingredients: [
+      { count: 2, plantId: 10 },
+      { count: 2, plantId: 19 },
+    ],
+    effect: 'TODO',
+  },
+  {
+    id: 45,
+    name: 'TODO',
+    ingredients: [
+      { count: 2, plantId: 21 },
+      { count: 2, plantId: 36 },
+    ],
+    effect: 'TODO',
+  },
+  {
+    id: 46,
+    name: 'TODO',
+    ingredients: [
+      { count: 1, plantId: 37 },
+      { count: 3, plantId: 46 },
+    ],
+    effect: 'TODO',
+  },
+  {
+    id: 47,
+    name: 'TODO',
+    ingredients: [{ count: 4, plantId: 47 }],
+    effect: 'TODO',
+  },
+  {
+    id: 48,
+    name: 'TODO',
+    ingredients: [
+      { count: 2, plantId: 6 },
+      { count: 2, plantId: 21 },
+    ],
+    effect: 'TODO',
+  },
+  {
+    id: 49,
+    name: 'TODO',
+    ingredients: [
+      { count: 3, plantId: 10 },
+      { count: 1, plantId: 37 },
+    ],
+    effect: 'TODO',
+  },
+  {
+    id: 50,
+    name: 'TODO',
+    ingredients: [
+      { count: 2, plantId: 19 },
+      { count: 2, plantId: 46 },
+    ],
+    effect: 'TODO',
+  },
+  {
+    id: 51,
+    name: 'TODO',
+    ingredients: [
+      { count: 1, plantId: 27 },
+      { count: 1, plantId: 38 },
+      { count: 1, plantId: 48 },
+    ],
+    effect: 'TODO',
+  },
+  {
+    id: 52,
+    name: 'TODO',
+    ingredients: [
+      { count: 2, plantId: 27 },
+      { count: 1, plantId: 48 },
+    ],
+    effect: 'TODO',
+  },
+  {
+    id: 53,
+    name: 'TODO',
+    ingredients: [
+      { count: 3, plantId: 38 },
+      { count: 1, plantId: 48 },
+    ],
+    effect: 'TODO',
   },
 ];

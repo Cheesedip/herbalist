@@ -4,16 +4,13 @@ import {
   signal,
   WritableSignal,
 } from '@angular/core';
-import { addPlants, getPlants } from '../../../data/plant/plant.repository';
+import { getPlants } from '../../../data/plant/plant.repository';
 import { Plant } from '../../../data/plant/plant';
-import { plants } from '../../../data/plant/plants';
-import { Recipe, RecipeWithPlants } from '../../../data/recipe/recipe';
+import { RecipeWithPlants } from '../../../data/recipe/recipe';
 import {
   addPlantsToRecipes,
-  addRecipes,
   getRecipes,
 } from '../../../data/recipe/recipe.repository';
-import { recipes } from '../../../data/recipe/recipes';
 import { CommonModule } from '@angular/common';
 import { DisplayPlantsComponent } from '../../display-plants/display-plants.component';
 import { DisplayRecipesComponent } from '../../display-recipes/display-recipes.component';

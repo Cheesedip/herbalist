@@ -3,10 +3,10 @@ import { RouterModule } from '@angular/router';
 import { addPlants } from '../data/plant/plant.repository';
 import { plants } from '../data/plant/plants';
 import { addRecipes } from '../data/recipe/recipe.repository';
-import { recipes } from '../data/recipe/recipes';
 import { Recipe } from '../data/recipe/recipe';
 import { Plant } from '../data/plant/plant';
 import { PlantsFirebaseService } from './firebase.service';
+import { recipes } from '../data/recipe/recipes';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +35,7 @@ export class AppComponent {
   private addImageUrlsToPlants(plants: Omit<Plant, 'imageUrl'>[]): Plant[] {
     return plants.map((plant) => ({
       ...plant,
-      imageUrl: `assets/plants/plant_${plant.id}.jpeg`,
+      imageUrl: `assets/plants/plant_${plant.id}.webp`,
     }));
   }
 

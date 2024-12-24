@@ -1,19 +1,12 @@
-<div class="plant-page">
-  <button class="back-button" (click)="goBack()">Back</button>
-  <div class="plant-details" *ngIf="plant() as plant">
-    <div class="plant-image">
-      <img [src]="plant.imageUrl" alt="{{ plant.name }}" />
-    </div>
-    <div class="plant-info">
-      <h2>{{ plant.name }}</h2>
-      <p><strong>Appearance:</strong> {{ plant.appearance }}</p>
-      <p><strong>Rarity:</strong> {{ plant.rarity }}</p>
-      <p><strong>Biome:</strong> {{ plant.biome }}</p>
+<div class="book-content" *ngIf="plant() as plant">
+  <div class="title">{{ plant.name }}</div>
+  <div class="content">
+    <div class="plant-details">
+      <img class="plant-image" [src]="plant.imageUrl" alt="{{ plant.name }}" />
+      <div class="plant-info">
+        <p><strong>Rarity:</strong> {{ plant.rarity }}</p>
+        <p><strong>Biome:</strong> {{ plant.biome }}</p>
+      </div>
     </div>
   </div>
-
-  <h3 class="recipes-title">Relevant recipes</h3>
-  <app-display-recipes
-    [recipesWithPlants]="filteredRecipes()"
-  ></app-display-recipes>
 </div>
