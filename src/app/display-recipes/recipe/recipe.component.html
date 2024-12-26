@@ -1,0 +1,6 @@
+<app-item
+  *ngFor="let ingredient of recipe().ingredients"
+  [count]="ingredient.count"
+  [item]="ingredient.plant"
+></app-item>
+<app-item [item]="recipe()"></app-item>

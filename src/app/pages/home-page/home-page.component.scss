@@ -28,32 +28,33 @@
   margin-bottom: $padding-large;
 }
 
-/* Tabs Navigation */
-.tab-navigation {
+/* Navigation Links */
+.navigation-links {
   display: flex;
   justify-content: space-around;
   margin-bottom: $padding-large;
-}
 
-.tab {
-  padding: $padding-small $padding-medium;
-  border: 1px solid $primary-color;
-  border-radius: $border-radius;
-  background-color: $white;
-  color: $primary-color;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  a {
+    padding: $padding-small $padding-medium;
+    border: 1px solid $primary-color;
+    border-radius: $border-radius;
+    background-color: $white;
+    color: $primary-color;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none;
 
-  &:hover {
-    background-color: $dark-hover;
-    color: $white;
+    &:hover {
+      background-color: $dark-hover;
+      color: $white;
+    }
+
+    &.active {
+      background-color: $primary-color;
+      color: $white;
+    }
   }
-}
-
-.tab.active {
-  background-color: $primary-color;
-  color: $white;
 }
 
 /* Tab Content */

@@ -104,7 +104,7 @@ export class GatherHerbsComponent {
 
     const storedForm = localStorage.getItem('gatherHerbsForm');
     if (storedForm) {
-      this.form.setValue(JSON.parse(storedForm));
+      this.form.patchValue(JSON.parse(storedForm));
     }
   }
 }

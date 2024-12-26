@@ -1,0 +1,4 @@
+<div class="item-card with-tooltip" [attr.data-hover-text]="item().name">
+  <img [src]="item().imageUrl" alt="item" class="item-image" />
+  <span *ngIf="count()" class="count">{{ count() }}</span>
+</div>

@@ -42,7 +42,7 @@ export class AppComponent {
   private addImageUrlsToRecipes(recipes: Omit<Recipe, 'imageUrl'>[]): Recipe[] {
     return recipes.map((recipe) => ({
       ...recipe,
-      imageUrl: `assets/recipes/recipe_${recipe.id}.jpeg`,
+      imageUrl: `assets/recipes/recipe_${recipe.id}.webp`,
     }));
   }
 }

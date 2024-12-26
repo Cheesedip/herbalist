@@ -1,0 +1,57 @@
+.with-tooltip:not([data-hover-text=""]) {
+  position: relative;
+
+  &:after {
+    content: attr(data-hover-text);
+
+    position: absolute;
+    z-index: 20; // Higher than 15 from rc-toolbar
+    top: 0;
+    left: calc(var(--padding-small) * -1);
+    transform: translateY(-100%);
+
+    display: none;
+
+    width: max-content;
+    padding: var(--padding-small);
+
+    font-size: var(--default-font-size);
+    color: var(--text-color);
+
+    opacity: 0;
+    background-color: var(--color-tint-1);
+    border: 1px solid var(--color-tint-5);
+    border-radius: var(--border-radius);
+  }
+
+  &.left-tooltip:after {
+    right: calc(var(--padding-small) * -1);
+    left: unset;
+  }
+
+  &.right-center-tooltip:after {
+    top: 50%;
+    left: calc(100% + var(--padding-small));
+    transform: translateY(-50%);
+  }
+
+  &.bottom-tooltip:after {
+    top: unset;
+    bottom: 0;
+    transform: translateY(100%);
+  }
+
+  &.bottom-right-tooltip:after {
+    top: unset;
+    bottom: 0;
+    left: 100%;
+    transform: translateY(100%);
+  }
+
+  &:hover {
+    &:after {
+      display: block;
+      opacity: 1;
+    }
+  }
+}

@@ -8,5 +8,7 @@
         <p><strong>Biome:</strong> {{ plant.biome }}</p>
       </div>
     </div>
+
+    <app-recipe *ngFor="let recipe of recipes()" [recipe]="recipe"></app-recipe>
   </div>
 </div>

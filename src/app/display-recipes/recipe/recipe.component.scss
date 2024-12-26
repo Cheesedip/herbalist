@@ -1,0 +1,11 @@
+@import "../../../styles.scss";
+
+:host {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+:host ::ng-deep app-item:last-of-type {
+  margin-left: 1rem;
+}
