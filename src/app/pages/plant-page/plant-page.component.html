@@ -1,13 +1,17 @@
 <div class="book-content" *ngIf="plant() as plant">
   <div class="title">{{ plant.name }}</div>
   <div class="content">
-    <div class="plant-details">
-      <img class="plant-image" [src]="plant.imageUrl" alt="{{ plant.name }}" />
-      <div class="plant-info">
-        <p><strong>Rarity:</strong> {{ plant.rarity }}</p>
-        <p><strong>Biome:</strong> {{ plant.biome }}</p>
-      </div>
+    <div class="plant-info">
+      <div><strong>Rarity:</strong> {{ plant.rarity }}</div>
+      <div><strong>Biome:</strong> {{ plant.biome }}</div>
     </div>
+    <img
+      class="plant-image"
+      [src]="plant.imageUrl"
+      alt="{{ plant.name }}"
+      onerror="this.src='/assets/plants/todo.webp';"
+      loading="lazy"
+    />
 
     <app-recipe *ngFor="let recipe of recipes()" [recipe]="recipe"></app-recipe>
   </div>

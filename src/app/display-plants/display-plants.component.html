@@ -11,19 +11,26 @@
   <tbody>
     <tr *ngFor="let plant of plants()" [routerLink]="['/plants', plant.id]">
       <td>
-        <img loading="lazy" [src]="plant.imageUrl" alt="{{ plant.name }}" />
+        <img
+          loading="lazy"
+          [src]="plant.imageUrl"
+          alt="{{ plant.name }}"
+          onerror="this.src='/assets/plants/todo.webp';"
+        />
       </td>
       <td>{{ plant.name }}</td>
       <td>{{ plant.appearance }}</td>
-      <!-- <td [style.color]="PlantRarityColor[plant.rarity]">{{ plant.rarity }}</td> -->
       <td>
         <img
           loading="lazy"
           [src]="getRarityImgUrl(plant.rarity)"
           alt="{{ plant.rarity }}"
+          onerror="this.src='/assets/plants/todo.webp';"
         />
       </td>
-      <td>{{ plant.biome }}</td>
+      <td>
+        <app-item [item]="getBiomeItem(plant.biome)"></app-item>
+      </td>
     </tr>
   </tbody>
 </table>

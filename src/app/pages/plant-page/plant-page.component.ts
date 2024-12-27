@@ -29,21 +29,21 @@ export class PlantPageComponent {
   protected recipes: WritableSignal<RecipeWithPlants[]> = signal([]);
 
   constructor(private route: ActivatedRoute, private location: Location) {
-    const plantId = Number(this.route.snapshot.paramMap.get('plantId'));
-    const plant = getPlantById(plantId);
-    this.plant.set(plant);
-
-    // Filter recipes that include this plant
-    this.recipes.set(
-      // TODO: make this reactive (computed)
-      addPlantsToRecipes(
-        getRecipes().filter((recipe) =>
-          recipe.ingredients.some(
-            (ingredient) => ingredient.plantId === plantId
+    this.route.paramMap.subscribe((params) => {
+      const plantId = Number(params.get('plantId'));
+      const plant = getPlantById(plantId);
+      this.plant.set(plant);
+  
+      this.recipes.set(
+        addPlantsToRecipes(
+          getRecipes().filter((recipe) =>
+            recipe.ingredients.some(
+              (ingredient) => ingredient.plantId === plantId
+            )
           )
         )
-      )
-    );
+      );
+    });
   }
 
   goBack() {

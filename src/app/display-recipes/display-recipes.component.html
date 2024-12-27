@@ -10,7 +10,12 @@
   <tbody>
     <tr *ngFor="let recipe of recipesWithPlants()">
       <td>
-        <img [src]="recipe.imageUrl" alt="{{ recipe.name }}" />
+        <img
+          [src]="recipe.imageUrl"
+          alt="{{ recipe.name }}"
+          loading="lazy"
+          onerror="this.src='/assets/plants/todo.webp';"
+        />
       </td>
       <td>{{ recipe.name }}</td>
       <td>

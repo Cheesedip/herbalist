@@ -1,4 +1,14 @@
-<div class="item-card with-tooltip" [attr.data-hover-text]="item().name">
-  <img [src]="item().imageUrl" alt="item" class="item-image" />
+<div
+  [routerLink]="getNavLink()"
+  class="item-card hover-container"
+  [attr.data-tooltip]="item().name"
+>
+  <img
+    [src]="item().imageUrl"
+    alt="item"
+    class="item-image"
+    onerror="this.src='/assets/plants/todo.webp';"
+    loading="lazy"
+  />
   <span *ngIf="count()" class="count">{{ count() }}</span>
 </div>
