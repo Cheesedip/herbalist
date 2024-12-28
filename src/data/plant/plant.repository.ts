@@ -39,7 +39,6 @@ export const activePlants$ = store.pipe(selectActiveEntities());
 
 export const activePlant$ = store.pipe(
   selectActiveEntity(),
-  tap(console.log),
   filter((plant) => !!plant)
 );
 
@@ -78,6 +77,5 @@ export function toggleActivePlantsIds(ids: Array<Plant['id']>) {
 }
 
 export function getPlantById(id: number): Plant | undefined {
-  console.log('store', store.getValue());
   return store.getValue().entities[id];
 }

@@ -13,4 +13,12 @@ import { NgFor } from '@angular/common';
 })
 export class RecipeComponent {
   public recipe = input.required<RecipeWithPlants>();
+
+  protected getNavLinkPlant(plantId: number): string {
+    return `/plants/${plantId}`;
+  }
+
+  protected getNavLinkRecipe(recipeId: number): string {
+    return `/recipes/${recipeId}`;
+  }
 }

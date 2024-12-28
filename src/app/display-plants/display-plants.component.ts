@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { PlantRarity, PlantRarityColor } from '../../data/plant/rarity';
 import { Biome } from '../../data/plant/biome';
 import { ItemComponent } from '../display-recipes/item/item.component';
+import { getBiomeImageUrl, getRarityImageUrl } from '../utils/image-utils';
 
 @Component({
   selector: 'app-display-plants',
@@ -18,15 +19,11 @@ export class DisplayPlantsComponent {
   public plants = input.required<Plant[]>();
   protected PlantRarityColor = PlantRarityColor;
 
-  protected getRarityImgUrl(rarity: PlantRarity): string {
-    console.log({ rarity });
-    return `/assets/rarity/${rarity}.webp`;
+  protected getRarityImageUrl(rarity: PlantRarity): string {
+    return getRarityImageUrl(rarity);
   }
 
-  protected getBiomeItem(biome: Biome): { name: string; imageUrl: string } {
-    return {
-      imageUrl: `/assets/biomes/${biome}.webp`,
-      name: biome,
-    };
+  protected getBiomeImageUrl(biome: Biome): string {
+    return getBiomeImageUrl(biome);
   }
 }

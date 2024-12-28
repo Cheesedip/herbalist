@@ -18,8 +18,6 @@ export function gather(roll: number, biomes: Biome[]): Plant[] {
 
   const gatherRarity = calculateGatherRarity(roll);
 
-  console.log({ gatherRarity });
-
   return pickPlants(gatherRarity, plantsInBiomes);
 }
 

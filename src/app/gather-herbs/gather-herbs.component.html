@@ -17,22 +17,16 @@
     </div>
   </div>
 
-  <!-- Checkboxes for Biomes -->
-  <div class="form-group">
-    <label>Biomes:</label>
-    <div formGroupName="biomes" class="checkbox-group">
-      <div class="checkbox-item" *ngFor="let biome of biomes">
-        <input
-          type="checkbox"
-          [formControlName]="biome"
-          id="{{ biome }}"
-          class="checkbox-input"
-        />
-        <label [for]="biome" class="checkbox-label">{{ biome }}</label>
-      </div>
-    </div>
+  <app-biome-selector formControlName="biomes"></app-biome-selector>
+  <div
+    *ngIf="
+      form.get('biomes')?.hasError('atLeastOneBiomeChecked') &&
+      form.get('biomes')?.touched
+    "
+    class="error-message"
+  >
+    {{ getErrorMessage() }}
   </div>
-
   <button (click)="gatherHerbs()" class="btn-submit" [disabled]="form.invalid">
     Gather herbs in selected biomes
   </button>

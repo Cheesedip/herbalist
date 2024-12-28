@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   effect,
+  inject,
   signal,
   WritableSignal,
 } from '@angular/core';
@@ -10,6 +11,7 @@ import {
   FormControl,
   Validators,
   ReactiveFormsModule,
+  NonNullableFormBuilder,
 } from '@angular/forms';
 import { Biome } from '../../data/plant/biome';
 import { gather } from '../../data/plant/gather';
@@ -17,10 +19,16 @@ import { CommonModule } from '@angular/common';
 import { DisplayPlantsComponent } from '../display-plants/display-plants.component';
 import { atLeastOneBiomeChecked } from '../../form-validators/at-least-one-biome.validator';
 import { Plant } from '../../data/plant/plant';
+import { BiomeSelectorComponent } from './biome-selector/biome-selector.component';
 
 @Component({
   selector: 'app-gather-herbs',
-  imports: [CommonModule, ReactiveFormsModule, DisplayPlantsComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    DisplayPlantsComponent,
+    BiomeSelectorComponent,
+  ],
   templateUrl: './gather-herbs.component.html',
   styleUrl: './gather-herbs.component.scss',
   standalone: true,
@@ -35,13 +43,17 @@ export class GatherHerbsComponent {
   protected form = new FormGroup({
     roll: new FormControl<null | number>(null, [
       Validators.required,
-      Validators.min(1), // Ensures a positive number
+      Validators.min(1),
+      Validators.max(40),
     ]),
-    biomes: new FormGroup(
-      Object.values(Biome).reduce((controls, biome) => {
-        controls[biome] = new FormControl(false); // Each biome starts unchecked
-        return controls;
-      }, {} as Record<Biome, FormControl<boolean | null>>),
+    biomes: new FormControl(
+      {
+        [Biome.MEADOW]: new FormControl(false),
+        [Biome.FOREST]: new FormControl(false),
+        [Biome.CAVE]: new FormControl(false),
+        [Biome.HILLS]: new FormControl(false),
+        [Biome.MOUNTAINS]: new FormControl(false),
+      },
       { validators: atLeastOneBiomeChecked }
     ),
   });
@@ -61,6 +73,9 @@ export class GatherHerbsComponent {
     if (this.form.controls.roll.hasError('min')) {
       return 'The value must be a number higher than 0';
     }
+    if (this.form.controls.roll.hasError('max')) {
+      return 'The value must be no higher than 40';
+    }
     if (this.form.controls.biomes.hasError('atLeastOneBiomeChecked')) {
       return 'You must select at least one biome';
     }
@@ -76,7 +91,6 @@ export class GatherHerbsComponent {
       form.roll,
       this.getBiomeListFromForm(form.biomes)
     );
-    console.log({ gatheredPlants });
 
     this.gatheredPlants.set(gatheredPlants);
   }

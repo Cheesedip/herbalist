@@ -15,7 +15,7 @@
           loading="lazy"
           [src]="plant.imageUrl"
           alt="{{ plant.name }}"
-          onerror="this.src='/assets/plants/todo.webp';"
+          onerror="this.src=todoImageUrl"
         />
       </td>
       <td>{{ plant.name }}</td>
@@ -23,13 +23,16 @@
       <td>
         <img
           loading="lazy"
-          [src]="getRarityImgUrl(plant.rarity)"
+          [src]="getRarityImageUrl(plant.rarity)"
           alt="{{ plant.rarity }}"
-          onerror="this.src='/assets/plants/todo.webp';"
+          onerror="this.src=todoImageUrl"
         />
       </td>
       <td>
-        <app-item [item]="getBiomeItem(plant.biome)"></app-item>
+        <app-item
+          [name]="plant.biome"
+          [imageUrl]="getBiomeImageUrl(plant.biome)"
+        ></app-item>
       </td>
     </tr>
   </tbody>

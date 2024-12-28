@@ -1,0 +1,12 @@
+<div class="biome-selector">
+  <app-item
+    *ngFor="let biome of biomes"
+    [name]="biome"
+    [imageUrl]="itemInputs()[biome].imageUrl"
+    [borderSize]="itemInputs()[biome].borderSize"
+    [borderColor]="itemInputs()[biome].borderColor"
+    [borderRadius]="itemInputs()[biome].borderRadius"
+    [imageBorderRadius]="itemInputs()[biome].imageBorderRadius"
+    (click)="toggleBiome(biome)"
+  ></app-item>
+</div>

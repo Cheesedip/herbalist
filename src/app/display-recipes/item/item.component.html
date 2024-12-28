@@ -1,14 +1,21 @@
 <div
-  [routerLink]="getNavLink()"
+  [routerLink]="navLink()"
   class="item-card hover-container"
-  [attr.data-tooltip]="item().name"
+  [attr.data-tooltip]="name()"
+  [ngStyle]="{
+    'border-color': borderColor(),
+    'border-width.px': borderSize(),
+    'border-radius.px': borderRadius()
+  }"
 >
   <img
-    [src]="item().imageUrl"
-    alt="item"
+    [src]="imageUrl()"
     class="item-image"
-    onerror="this.src='/assets/plants/todo.webp';"
+    onerror="this.src=todoImageUrl"
     loading="lazy"
+    [ngStyle]="{
+      'border-radius.px': imageBorderRadius()
+    }"
   />
   <span *ngIf="count()" class="count">{{ count() }}</span>
 </div>
