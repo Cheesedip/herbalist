@@ -48,11 +48,11 @@ export class GatherHerbsComponent {
     ]),
     biomes: new FormControl(
       {
-        [Biome.MEADOW]: new FormControl(false),
-        [Biome.FOREST]: new FormControl(false),
-        [Biome.CAVE]: new FormControl(false),
-        [Biome.HILLS]: new FormControl(false),
-        [Biome.MOUNTAINS]: new FormControl(false),
+        [Biome.MEADOW]: false,
+        [Biome.FOREST]: false,
+        [Biome.CAVE]: false,
+        [Biome.HILLS]: false,
+        [Biome.MOUNTAINS]: false,
       },
       { validators: atLeastOneBiomeChecked }
     ),
