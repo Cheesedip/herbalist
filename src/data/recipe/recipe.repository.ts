@@ -17,6 +17,8 @@ import {
 import { Recipe, RecipeWithPlants } from './recipe';
 import { getPlants } from '../plant/plant.repository';
 
+//TODO: replace this clown fiesta with rxjs signal store
+
 export interface RecipeUI {
   id: number;
 }
@@ -69,6 +71,10 @@ export function setActiveRecipesId(id: Recipe['id']) {
 
 export function toggleActiveRecipesIds(ids: Array<Recipe['id']>) {
   store.update(toggleActiveIds(ids));
+}
+
+export function getRecipeById(id: number): Recipe | undefined {
+  return store.getValue().entities[id];
 }
 
 export function addPlantsToRecipes(recipes: Recipe[]) {

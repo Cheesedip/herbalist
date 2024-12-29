@@ -6,6 +6,7 @@ import { LoginPageComponent } from './pages/login/login-page.component';
 import { GatherHerbsComponent } from './gather-herbs/gather-herbs.component';
 import { PlantCompendiumComponent } from './plant-compendium/plant-compendium.component';
 import { ConcoctionCatalogComponent } from './concoction-catalog/concoction-catalog.component';
+import { RecipePageComponent } from './pages/recipe-page/recipe-page.component';
 
 export const routes: Routes = [
   // App routes
@@ -28,6 +29,10 @@ export const routes: Routes = [
       {
         path: 'recipes',
         component: ConcoctionCatalogComponent,
+      },
+      {
+        path: 'recipes/:recipeId',
+        component: RecipePageComponent,
       },
     ],
   },

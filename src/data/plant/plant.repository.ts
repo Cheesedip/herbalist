@@ -19,6 +19,8 @@ import {
 import { Plant } from './plant';
 import { filter, tap } from 'rxjs';
 
+//TODO: replace this clown fiesta with rxjs signal store
+
 export interface PlantUI {
   id: number;
 }

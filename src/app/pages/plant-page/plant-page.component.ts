@@ -33,7 +33,7 @@ export class PlantPageComponent {
       const plantId = Number(params.get('plantId'));
       const plant = getPlantById(plantId);
       this.plant.set(plant);
-  
+
       this.recipes.set(
         addPlantsToRecipes(
           getRecipes().filter((recipe) =>

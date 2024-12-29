@@ -1,3 +1,5 @@
+import { PotionStrength } from './recipe';
+
 export const recipes = [
   {
     id: 0,
@@ -8,6 +10,7 @@ export const recipes = [
     ],
     effect:
       'You can write or draw twice as fast as normal, with perfect legibility, for the next hour.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 1,
@@ -15,6 +18,7 @@ export const recipes = [
     ingredients: [{ count: 2, plantId: 2 }],
     effect:
       'You no longer get wet in light rain or drizzle, though heavy rain still soaks you.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 2,
@@ -25,6 +29,7 @@ export const recipes = [
     ],
     effect:
       'You can perfectly recall any event that happened within the last 24 hours, with vivid detail, for the next hour.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 3,
@@ -35,6 +40,7 @@ export const recipes = [
     ],
     effect:
       'Your footsteps make no sound, and you leave no tracks on soft ground.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 4,
@@ -45,6 +51,7 @@ export const recipes = [
     ],
     effect:
       'For the next 8 hours, you emit no body odor or scent, making it harder for animals or creatures to track you by smell.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 5,
@@ -52,6 +59,7 @@ export const recipes = [
     ingredients: [{ count: 3, plantId: 17 }],
     effect:
       'For the next hour, your fingers are unusually dexterous, giving you advantage on Sleight of Hand checks involving delicate tasks (picking locks, performing tricks, sewing, etc.).',
+    strength: PotionStrength.Mild,
   },
   {
     id: 6,
@@ -61,6 +69,7 @@ export const recipes = [
       { count: 3, plantId: 23 },
     ],
     effect: 'You can hold your breath for up to 10 minutes without discomfort.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 7,
@@ -71,6 +80,7 @@ export const recipes = [
     ],
     effect:
       'For the next 30 minutes, you can read and understand any written language you encounter, though you cannot speak or write it.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 8,
@@ -81,6 +91,7 @@ export const recipes = [
     ],
     effect:
       'For the next 4 hours, your clothes remain clean and wrinkle-free, no matter what you do.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 9,
@@ -91,6 +102,7 @@ export const recipes = [
     ],
     effect:
       'For 1 hour, any non-living object you carry feels 50% lighter, though its actual weight remains the same.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 10,
@@ -98,6 +110,7 @@ export const recipes = [
     ingredients: [{ count: 4, plantId: 32 }],
     effect:
       'For the next hour, minor social faux pas (like interrupting someone or forgetting a name) are overlooked or easily forgiven by those around you.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 11,
@@ -107,6 +120,7 @@ export const recipes = [
       { count: 2, plantId: 40 },
     ],
     effect: 'Grants temporary darkvision (up to 30 feet) for 1 hour.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 12,
@@ -117,6 +131,7 @@ export const recipes = [
     ],
     effect:
       'You remain comfortably warm in cold weather for the next 8 hours, regardless of wind or frost.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 13,
@@ -127,6 +142,7 @@ export const recipes = [
     ],
     effect:
       'For the next 24 hours, you can safely consume any food or drink, no matter how spoiled, bitter, or unusual. You’re immune to mild food poisoning or discomfort caused by exotic cuisine.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 14,
@@ -137,6 +153,7 @@ export const recipes = [
     ],
     effect:
       'For the next 10 minutes, you can sense the general health and needs of plants within 30 feet.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 15,
@@ -147,6 +164,7 @@ export const recipes = [
     ],
     effect:
       'Causes a deep, healing sleep and wards off nightmares for 8 hours.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 16,
@@ -157,6 +175,7 @@ export const recipes = [
     ],
     effect:
       'For the next hour, your posture, tone, and demeanor exude confidence, giving you advantage on Persuasion checks involving non-hostile NPCs.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 17,
@@ -166,6 +185,7 @@ export const recipes = [
       { count: 3, plantId: 18 },
     ],
     effect: 'Creates a mild cooling effect that soothes fever or heat.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 18,
@@ -175,6 +195,7 @@ export const recipes = [
       { count: 2, plantId: 23 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Mild,
   },
   {
     id: 19,
@@ -184,6 +205,7 @@ export const recipes = [
       { count: 3, plantId: 28 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Mild,
   },
   {
     id: 20,
@@ -193,6 +215,7 @@ export const recipes = [
       { count: 2, plantId: 30 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Mild,
   },
   {
     id: 21,
@@ -202,6 +225,7 @@ export const recipes = [
       { count: 3, plantId: 32 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Mild,
   },
   {
     id: 22,
@@ -211,6 +235,7 @@ export const recipes = [
       { count: 2, plantId: 42 },
     ],
     effect: 'For one hour anyone you touch feels ticklish for one minute.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 23,
@@ -220,6 +245,7 @@ export const recipes = [
       { count: 1, plantId: 41 },
     ],
     effect: 'Your whole body is covered in long hairs for 6 hours.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 24,
@@ -229,7 +255,8 @@ export const recipes = [
       { count: 3, plantId: 8 },
     ],
     effect:
-      'Everything you say is sang in an opera voice instead for 2 minutes.',
+      'Everything you say is sung in an opera voice instead for 2 minutes.',
+    strength: PotionStrength.Mild,
   },
   {
     id: 25,
@@ -239,12 +266,14 @@ export const recipes = [
       { count: 3, plantId: 4 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Potent,
   },
   {
     id: 26,
     name: 'TODO',
     ingredients: [{ count: 2, plantId: 12 }],
     effect: 'TODO',
+    strength: PotionStrength.Potent,
   },
   {
     id: 27,
@@ -254,6 +283,7 @@ export const recipes = [
       { count: 1, plantId: 15 },
     ],
     effect: 'Immune to being frightened for 1 hour.',
+    strength: PotionStrength.Potent,
   },
   {
     id: 28,
@@ -263,6 +293,7 @@ export const recipes = [
       { count: 2, plantId: 22 },
     ],
     effect: 'Grants resistance to cold damage for 1 hour.',
+    strength: PotionStrength.Potent,
   },
   {
     id: 29,
@@ -272,12 +303,14 @@ export const recipes = [
       { count: 1, plantId: 33 },
     ],
     effect: 'Advantage on insight checks for 1 hour.',
+    strength: PotionStrength.Potent,
   },
   {
     id: 30,
     name: 'Invisibility Tonic',
     ingredients: [{ count: 3, plantId: 34 }],
     effect: 'You completely turn to stone for 30 seconds.',
+    strength: PotionStrength.Potent,
   },
   {
     id: 31,
@@ -287,6 +320,7 @@ export const recipes = [
       { count: 3, plantId: 43 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Potent,
   },
   {
     id: 32,
@@ -296,6 +330,7 @@ export const recipes = [
       { count: 2, plantId: 45 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Potent,
   },
   {
     id: 33,
@@ -305,6 +340,7 @@ export const recipes = [
       { count: 2, plantId: 20 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Potent,
   },
   {
     id: 34,
@@ -314,6 +350,7 @@ export const recipes = [
       { count: 3, plantId: 22 },
     ],
     effect: 'Grants resistance to fire damage for 1 hour.',
+    strength: PotionStrength.Potent,
   },
   {
     id: 35,
@@ -323,6 +360,7 @@ export const recipes = [
       { count: 2, plantId: 25 },
     ],
     effect: 'Grants advantage on stealth checks for 1 hour.',
+    strength: PotionStrength.Potent,
   },
   {
     id: 36,
@@ -333,6 +371,7 @@ export const recipes = [
     ],
     effect:
       'Turns the skin into stone-like material, granting temporary hit points (1d6) for 1 hour.',
+    strength: PotionStrength.Potent,
   },
   {
     id: 37,
@@ -342,6 +381,7 @@ export const recipes = [
       { count: 2, plantId: 45 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Potent,
   },
   {
     id: 38,
@@ -351,6 +391,7 @@ export const recipes = [
       { count: 1, plantId: 12 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Potent,
   },
   {
     id: 39,
@@ -360,6 +401,7 @@ export const recipes = [
       { count: 3, plantId: 35 },
     ],
     effect: 'Temporarily enhances physical defense (grants +1 AC for 1 hour).',
+    strength: PotionStrength.Potent,
   },
   {
     id: 40,
@@ -369,6 +411,7 @@ export const recipes = [
       { count: 2, plantId: 15 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Potent,
   },
   {
     id: 41,
@@ -378,6 +421,7 @@ export const recipes = [
       { count: 1, plantId: 25 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Potent,
   },
   {
     id: 42,
@@ -387,6 +431,7 @@ export const recipes = [
       { count: 2, plantId: 43 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Potent,
   },
   {
     id: 43,
@@ -396,6 +441,7 @@ export const recipes = [
       { count: 3, plantId: 9 },
     ],
     effect: 'Removes a curse.',
+    strength: PotionStrength.Infused,
   },
   {
     id: 44,
@@ -405,6 +451,7 @@ export const recipes = [
       { count: 2, plantId: 19 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Infused,
   },
   {
     id: 45,
@@ -414,6 +461,7 @@ export const recipes = [
       { count: 2, plantId: 36 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Infused,
   },
   {
     id: 46,
@@ -423,12 +471,14 @@ export const recipes = [
       { count: 3, plantId: 46 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Infused,
   },
   {
     id: 47,
     name: 'TODO',
     ingredients: [{ count: 4, plantId: 47 }],
     effect: 'TODO',
+    strength: PotionStrength.Infused,
   },
   {
     id: 48,
@@ -438,6 +488,7 @@ export const recipes = [
       { count: 2, plantId: 21 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Infused,
   },
   {
     id: 49,
@@ -447,6 +498,7 @@ export const recipes = [
       { count: 1, plantId: 37 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Infused,
   },
   {
     id: 50,
@@ -456,6 +508,7 @@ export const recipes = [
       { count: 2, plantId: 46 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Infused,
   },
   {
     id: 51,
@@ -466,6 +519,7 @@ export const recipes = [
       { count: 1, plantId: 48 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Mythic,
   },
   {
     id: 52,
@@ -475,6 +529,7 @@ export const recipes = [
       { count: 1, plantId: 48 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Mythic,
   },
   {
     id: 53,
@@ -484,5 +539,6 @@ export const recipes = [
       { count: 1, plantId: 48 },
     ],
     effect: 'TODO',
+    strength: PotionStrength.Mythic,
   },
 ];

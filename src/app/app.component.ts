@@ -7,9 +7,6 @@ import { Recipe } from '../data/recipe/recipe';
 import { Plant } from '../data/plant/plant';
 import { PlantsFirebaseService } from './firebase.service';
 import { recipes } from '../data/recipe/recipes';
-declare global {
-  const todoImageUrl = '/assets/plants/todo.webp';
-}
 
 @Component({
   selector: 'app-root',
@@ -30,8 +27,7 @@ export class AppComponent {
     addPlants(plantsWithImageUrl);
     addRecipes(recipesWithImageUrl);
 
-    this.plantsService.getPlants().subscribe((plants) => {
-    });
+    this.plantsService.getPlants().subscribe((plants) => {});
   }
 
   private addImageUrlsToPlants(plants: Omit<Plant, 'imageUrl'>[]): Plant[] {

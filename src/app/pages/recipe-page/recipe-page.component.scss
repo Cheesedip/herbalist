@@ -1,0 +1,75 @@
+@import "../../../styles.scss";
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: url("/assets/parchment.webp") center / cover no-repeat; /* Adjust the path */
+}
+
+.book-content {
+  position: relative;
+  top: 2%;
+  width: 45%;
+  height: 65%;
+}
+
+.recipe-image {
+  width: 150px;
+  height: auto;
+  padding-block: $padding-small;
+}
+
+.recipe-effect {
+  margin: 0 10%;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: "MedievalSharp"; /* Fallback if one fails */
+  color: #4b3f3c; /* Dark brown ink color */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "MedievalSharp"; /* Fallback if one fails */
+  color: #4b3f3c; /* Dark brown ink color */
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-items: center;
+}
+.ingredients {
+  grid-column: 1;
+  grid-row: 1;
+}
+.strength {
+  grid-column: 2;
+  grid-row: 1;
+}
+.cost {
+  grid-column: 1;
+  grid-row: 2;
+}
+.time {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.ingredients h3,
+.strength h3,
+.cost h3,
+.time h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}

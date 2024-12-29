@@ -1,0 +1,42 @@
+<div class="book-content" *ngIf="recipe() as recipe">
+  <div class="title">{{ recipe.name }}</div>
+  <div class="content">
+    <img
+      class="recipe-image"
+      [src]="recipe.imageUrl"
+      alt="{{ recipe.name }}"
+      onerror="this.src='/assets/plants/todo.webp';"
+      loading="lazy"
+    />
+
+    <div class="recipe-effect">
+      {{ recipe.effect }}
+    </div>
+
+    <div class="recipe-grid">
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+
+        <app-item
+          *ngFor="let ingredient of recipe.ingredients"
+          [name]="ingredient.plant.name"
+          [imageUrl]="ingredient.plant.imageUrl"
+          [count]="ingredient.count"
+          [navLink]="'/plants/' + ingredient.plant.id"
+        ></app-item>
+      </div>
+      <div class="strength">
+        <h3>Strength</h3>
+        {{ recipe.strength }}
+      </div>
+      <div class="cost">
+        <h3>Brewing Cost</h3>
+        {{ brewingCost[recipe.strength] }}
+      </div>
+      <div class="time">
+        <h3>Brewing Time</h3>
+        {{ brewingTime[recipe.strength] }}
+      </div>
+    </div>
+  </div>
+</div>
