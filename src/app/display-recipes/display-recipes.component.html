@@ -8,7 +8,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let recipe of recipesWithPlants()">
+    <tr
+      *ngFor="let recipe of recipesWithPlants()"
+      [routerLink]="['/recipes', recipe.id]"
+    >
       <td>
         <img
           [src]="recipe.imageUrl"

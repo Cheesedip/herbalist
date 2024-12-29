@@ -1,1 +1,6 @@
 @import "../../styles.scss";
+tr {
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -9,6 +9,10 @@
   border: 2px solid $primary-color;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 img {
