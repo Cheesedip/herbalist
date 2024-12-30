@@ -1,6 +1,11 @@
 @import "../../styles.scss";
-tr {
+app-item,
+img {
   &:hover {
     cursor: pointer;
   }
+}
+
+ul {
+  display: flex;
 }

@@ -1,0 +1,14 @@
+@import "../../../styles.scss";
+
+input {
+  padding: $padding-small;
+  border: 1px solid $light-gray;
+  border-radius: $border-radius;
+  font-size: 1rem;
+  color: $text-color;
+
+  &:focus {
+    border-color: $primary-color;
+    outline: none;
+  }
+}

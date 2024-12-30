@@ -1,3 +1,4 @@
+<app-search-bar (search)="filterRecipes($event)"></app-search-bar>
 <app-display-recipes
-  [recipesWithPlants]="recipesWithPlants()"
+  [recipesWithPlants]="filteredRecipes()"
 ></app-display-recipes>

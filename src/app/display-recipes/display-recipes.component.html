@@ -5,15 +5,14 @@
       <th>Name</th>
       <th>Ingredients</th>
       <th>Effect</th>
+      <th>Strength</th>
     </tr>
   </thead>
   <tbody>
-    <tr
-      *ngFor="let recipe of recipesWithPlants()"
-      [routerLink]="['/recipes', recipe.id]"
-    >
+    <tr *ngFor="let recipe of recipesWithPlants()">
       <td>
         <img
+          [routerLink]="['/recipes', recipe.id]"
           [src]="recipe.imageUrl"
           alt="{{ recipe.name }}"
           loading="lazy"
@@ -23,12 +22,18 @@
       <td>{{ recipe.name }}</td>
       <td>
         <ul>
-          <li *ngFor="let ingredient of recipe.ingredients">
-            {{ ingredient.count }} x {{ ingredient.plant.name }}
-          </li>
+          <app-item
+            *ngFor="let ingredient of recipe.ingredients"
+            [name]="ingredient.plant.name"
+            [id]="ingredient.plant.id"
+            [imageUrl]="ingredient.plant.imageUrl"
+            [count]="ingredient.count"
+            [navLink]="'/plants/' + ingredient.plant.id"
+          ></app-item>
         </ul>
       </td>
       <td>{{ recipe.effect }}</td>
+      <td>{{ recipe.strength }}</td>
     </tr>
   </tbody>
 </table>
