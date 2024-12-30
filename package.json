@@ -15112,6 +15112,7 @@
     "@angular/forms": "^19.0.1",
     "@angular/platform-browser": "^19.0.1",
     "@angular/router": "^19.0.1",
+    "@ng-select/ng-select": "^14.1.0",
     "@ngneat/elf": "^2.5.1",
     "@ngneat/elf-entities": "^5.0.2",
     "firebase-tools": "^13.29.1",

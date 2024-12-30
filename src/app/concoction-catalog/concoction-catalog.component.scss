@@ -1,3 +1,5 @@
+@import "../../styles.scss";
+
 app-search-bar {
   display: flex;
   justify-content: center;
@@ -6,5 +8,17 @@ app-search-bar {
   input {
     width: 100%;
     max-width: 300px;
+  }
+}
+
+.filter-pane {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  label {
+    font-weight: bold;
+    margin-right: 0.5rem;
   }
 }

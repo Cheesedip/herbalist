@@ -1,4 +1,14 @@
-<app-search-bar (search)="filterRecipes($event)"></app-search-bar>
+<div class="filter-pane">
+  <label>Filter by Strength:</label>
+  <ng-select
+    [items]="potionStrengths"
+    multiple="true"
+    (change)="onStrengthChange($event)"
+    closeOnSelect="false"
+  >
+  </ng-select>
+  <app-search-bar (search)="setSearchTerm($event)"></app-search-bar>
+</div>
 <app-display-recipes
   [recipesWithPlants]="filteredRecipes()"
 ></app-display-recipes>

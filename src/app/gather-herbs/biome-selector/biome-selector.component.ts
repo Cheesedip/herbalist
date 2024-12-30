@@ -63,7 +63,6 @@ export class BiomeSelectorComponent implements ControlValueAccessor {
 
   writeValue(value: Record<Biome, boolean>): void {
     if (value) {
-      console.log({ value });
       this.value = value;
       this.updateItemInputs();
     }
@@ -78,7 +77,6 @@ export class BiomeSelectorComponent implements ControlValueAccessor {
   }
 
   private updateItemInputs(): void {
-    console.log('meadow value',this.value['meadow']);
     const a = this.value['meadow'];
     const baseUrl = 'assets/biomes/';
     this.itemInputs.set(
@@ -99,6 +97,5 @@ export class BiomeSelectorComponent implements ControlValueAccessor {
         ])
       ) as Record<Biome, ItemInputs>
     );
-    console.log(this.itemInputs());
   }
 }
