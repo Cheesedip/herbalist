@@ -1,1 +1,4 @@
-<app-display-plants [plants]="plants()"></app-display-plants>
+<div class="filter-pane">
+  <app-search-bar (search)="setSearchTerm($event)"></app-search-bar>
+</div>
+<app-display-plants [plants]="filteredPlants()"></app-display-plants>

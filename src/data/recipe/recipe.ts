@@ -5,10 +5,10 @@ export type RecipeWithPlants = Omit<Recipe, 'ingredients'> & {
 };
 
 export enum PotionStrength {
-  Mild = 'mild',
-  Potent = 'potent',
-  Infused = 'infused',
-  Mythic = 'mythic',
+  Mild = 'Mild',
+  Potent = 'Potent',
+  Infused = 'Infused',
+  Mythic = 'Mythic',
 }
 
 export interface Recipe {

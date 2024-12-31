@@ -11,7 +11,6 @@ import {
   FormControl,
   Validators,
   ReactiveFormsModule,
-  NonNullableFormBuilder,
 } from '@angular/forms';
 import { Biome } from '../../data/plant/biome';
 import { gather } from '../../data/plant/gather';
@@ -39,6 +38,7 @@ export class GatherHerbsComponent {
   protected biomes = Object.values(Biome);
 
   protected gatheredPlants: WritableSignal<Plant[]> = signal([]);
+  protected counts: WritableSignal<number[]> = signal([]);
 
   protected form = new FormGroup({
     roll: new FormControl<null | number>(null, [
@@ -92,7 +92,8 @@ export class GatherHerbsComponent {
       this.getBiomeListFromForm(form.biomes)
     );
 
-    this.gatheredPlants.set(gatheredPlants);
+    this.gatheredPlants.set(gatheredPlants.map((result) => result.plant));
+    this.counts.set(gatheredPlants.map((result) => result.count));
   }
 
   private getBiomeListFromForm(formBiomes: any): Biome[] {
@@ -104,6 +105,7 @@ export class GatherHerbsComponent {
       'gatheredPlants',
       JSON.stringify(this.gatheredPlants())
     );
+    localStorage.setItem('counts', JSON.stringify(this.counts()));
     localStorage.setItem(
       'gatherHerbsForm',
       JSON.stringify(this.form.getRawValue())
@@ -114,6 +116,11 @@ export class GatherHerbsComponent {
     const storedPlants = localStorage.getItem('gatheredPlants');
     if (storedPlants) {
       this.gatheredPlants.set(JSON.parse(storedPlants));
+    }
+
+    const storedCounts = localStorage.getItem('counts');
+    if (storedCounts) {
+      this.counts.set(JSON.parse(storedCounts));
     }
 
     const storedForm = localStorage.getItem('gatherHerbsForm');

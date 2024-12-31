@@ -34,13 +34,12 @@ import { FormsModule } from '@angular/forms';
 })
 export class ConcoctionCatalogComponent {
   private allRecipes = addPlantsToRecipes(getRecipes());
-
   private searchTerm = signal('');
-  protected selectedStrengths: WritableSignal<PotionStrength[]> = signal([]);
 
+  protected selectedStrengths: WritableSignal<PotionStrength[]> = signal([]);
   protected potionStrengths = Object.values(PotionStrength);
 
-  protected filteredRecipes: Signal<RecipeWithPlants[]> = computed(() => {
+  protected filteredRecipes = computed(() => {
     const searchTerm = this.searchTerm();
     const strengths = this.selectedStrengths();
     const lower = searchTerm.toLowerCase();

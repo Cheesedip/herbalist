@@ -36,7 +36,7 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     name: 'Frostpetal Violet',
     appearance: 'Purple flower with frost-tipped petals.',
     rarity: PlantRarity.UNCOMMON,
-    biome: Biome.MEADOW,
+    biome: Biome.MOUNTAINS,
   },
   {
     id: 5,
@@ -216,7 +216,8 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
   {
     id: 30,
     name: 'Hillspur Bloom',
-    appearance: 'Bright orange flower with spiked petals, growing in rocky crevices.',
+    appearance:
+      'Bright orange flower with spiked petals, growing in rocky crevices.',
     rarity: PlantRarity.COMMON,
     biome: Biome.HILLS,
   },
@@ -230,7 +231,8 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
   {
     id: 32,
     name: 'Stoneshade Moss',
-    appearance: 'Dark green moss with a faint metallic sheen, covering large rocks.',
+    appearance:
+      'Dark green moss with a faint metallic sheen, covering large rocks.',
     rarity: PlantRarity.COMMON,
     biome: Biome.HILLS,
   },
@@ -244,7 +246,8 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
   {
     id: 34,
     name: 'Golden Fern',
-    appearance: 'A short fern with vibrant golden fronds that glimmer in sunlight.',
+    appearance:
+      'A short fern with vibrant golden fronds that glimmer in sunlight.',
     rarity: PlantRarity.UNCOMMON,
     biome: Biome.HILLS,
   },
@@ -258,21 +261,24 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
   {
     id: 36,
     name: 'Ironbark Shrub',
-    appearance: 'Sturdy shrubs with bark as hard as iron and dark green foliage.',
+    appearance:
+      'Sturdy shrubs with bark as hard as iron and dark green foliage.',
     rarity: PlantRarity.RARE,
     biome: Biome.HILLS,
   },
   {
     id: 37,
     name: 'Cloudblossom',
-    appearance: 'White, fluffy flowers resembling small clouds atop slender stalks.',
+    appearance:
+      'White, fluffy flowers resembling small clouds atop slender stalks.',
     rarity: PlantRarity.RARE,
     biome: Biome.HILLS,
   },
   {
     id: 38,
     name: 'Emberleaf',
-    appearance: 'Red-tinged leaves that seem to flicker like flames in the wind.',
+    appearance:
+      'Red-tinged leaves that seem to flicker like flames in the wind.',
     rarity: PlantRarity.EPIC,
     biome: Biome.HILLS,
   },
@@ -286,28 +292,32 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
   {
     id: 40,
     name: 'Stonepine',
-    appearance: 'A hardy conifer with dark gray bark and short, needle-like leaves.',
+    appearance:
+      'A hardy conifer with dark gray bark and short, needle-like leaves.',
     rarity: PlantRarity.COMMON,
     biome: Biome.MOUNTAINS,
   },
   {
     id: 41,
     name: 'Cragthorn Vine',
-    appearance: 'Thorny vines with a rugged, brown texture, clinging to cliff faces.',
+    appearance:
+      'Thorny vines with a rugged, brown texture, clinging to cliff faces.',
     rarity: PlantRarity.COMMON,
     biome: Biome.MOUNTAINS,
   },
   {
     id: 42,
     name: 'Glacier Fern',
-    appearance: 'Silver-hued ferns with frost-covered fronds, thriving near icy crevices.',
+    appearance:
+      'Silver-hued ferns with frost-covered fronds, thriving near icy crevices.',
     rarity: PlantRarity.COMMON,
     biome: Biome.MOUNTAINS,
   },
   {
     id: 43,
     name: 'Firepeak Orchid',
-    appearance: 'Bright red orchid with golden veins, growing near volcanic vents.',
+    appearance:
+      'Bright red orchid with golden veins, growing near volcanic vents.',
     rarity: PlantRarity.UNCOMMON,
     biome: Biome.MOUNTAINS,
   },
@@ -321,28 +331,32 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
   {
     id: 45,
     name: 'Cloudveil Moss',
-    appearance: 'Soft, white moss that looks like patches of cloud on high cliffs.',
+    appearance:
+      'Soft, white moss that looks like patches of cloud on high cliffs.',
     rarity: PlantRarity.UNCOMMON,
     biome: Biome.MOUNTAINS,
   },
   {
     id: 46,
     name: 'Thunderleaf',
-    appearance: 'Large, jagged leaves that vibrate in strong winds, producing a faint hum.',
+    appearance:
+      'Large, jagged leaves that vibrate in strong winds, producing a faint hum.',
     rarity: PlantRarity.RARE,
     biome: Biome.MOUNTAINS,
   },
   {
     id: 47,
     name: 'Shardbloom',
-    appearance: 'A crystalline flower that sparkles in sunlight, often found in mineral-rich areas.',
+    appearance:
+      'A crystalline flower that sparkles in sunlight, often found in mineral-rich areas.',
     rarity: PlantRarity.RARE,
     biome: Biome.MOUNTAINS,
   },
   {
     id: 48,
     name: 'Peaksage Herb',
-    appearance: 'A low-growing herb with silvery leaves, often found in sheltered mountain crevices.',
+    appearance:
+      'A low-growing herb with silvery leaves, often found in sheltered mountain crevices.',
     rarity: PlantRarity.EPIC,
     biome: Biome.MOUNTAINS,
   },

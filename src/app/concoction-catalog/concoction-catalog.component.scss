@@ -3,7 +3,6 @@
 app-search-bar {
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
 
   input {
     width: 100%;
@@ -15,7 +14,8 @@ app-search-bar {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 1rem;
+  align-items: center;
+  padding-block: $padding-medium;
 
   label {
     font-weight: bold;

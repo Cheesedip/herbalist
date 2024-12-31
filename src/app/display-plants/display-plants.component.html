@@ -9,21 +9,33 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let plant of plants()" [routerLink]="['/plants', plant.id]">
+    <tr *ngFor="let plant of plants(); let i = index">
       <td>
-        <img
-          loading="lazy"
-          [src]="plant.imageUrl"
-          alt="{{ plant.name }}"
-          onerror="this.src='/assets/plants/todo.webp';"
-        />
+        <app-item
+          *ngIf="counts() as counts; else showPlantWithoutCount"
+          [name]="plant.name"
+          [id]="plant.id"
+          [imageUrl]="plant.imageUrl"
+          [count]="counts[i]"
+          [navLink]="'/plants/' + plant.id"
+        ></app-item>
+        <ng-template #showPlantWithoutCount>
+          <img
+            class="plant-image"
+            loading="lazy"
+            [src]="plant.imageUrl"
+            alt="{{ plant.name }}"
+            onerror="this.src='/assets/plants/todo.webp';"
+            [routerLink]="['/plants', plant.id]"
+          />
+        </ng-template>
       </td>
       <td>{{ plant.name }}</td>
       <td>{{ plant.appearance }}</td>
       <td>
         <img
           loading="lazy"
-          [src]="getRarityImageUrl(plant.rarity)"
+          [src]="'/assets/rarities/' + plant.rarity + '.webp'"
           alt="{{ plant.rarity }}"
           onerror="this.src='/assets/plants/todo.webp';"
         />
@@ -31,7 +43,7 @@
       <td>
         <app-item
           [name]="plant.biome"
-          [imageUrl]="getBiomeImageUrl(plant.biome)"
+          [imageUrl]="'assets/biomes/' + plant.biome + '.webp'"
         ></app-item>
       </td>
     </tr>

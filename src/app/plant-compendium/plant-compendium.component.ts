@@ -1,14 +1,29 @@
-import { Component, signal, WritableSignal } from '@angular/core';
-import { Plant } from '../../data/plant/plant';
+import { Component, computed, signal } from '@angular/core';
 import { getPlants } from '../../data/plant/plant.repository';
 import { DisplayPlantsComponent } from '../display-plants/display-plants.component';
+import { SearchBarComponent } from '../components/search-bar/search-bar.component';
 
 @Component({
   selector: 'app-plant-compendium',
-  imports: [DisplayPlantsComponent],
+  imports: [DisplayPlantsComponent, SearchBarComponent],
   templateUrl: './plant-compendium.component.html',
   styleUrl: './plant-compendium.component.scss',
 })
 export class PlantCompendiumComponent {
-  protected plants: WritableSignal<Plant[]> = signal(getPlants());
+  private allPlants = getPlants();
+  private searchTerm = signal('');
+
+  protected filteredPlants = computed(() => {
+    const searchTerm = this.searchTerm();
+    const lower = searchTerm.toLowerCase();
+    return this.allPlants.filter(
+      (plant) =>
+        plant.name.toLowerCase().includes(lower) ||
+        plant.appearance.toLowerCase().includes(lower)
+    );
+  });
+
+  protected setSearchTerm(term: string) {
+    this.searchTerm.set(term);
+  }
 }
