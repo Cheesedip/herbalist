@@ -5,7 +5,8 @@
   "requires": true,
   "scripts": {
     "start": "ng serve",
-    "build": "ng build"
+    "build": "ng build",
+    "firebase:deploy": "ng build --configuration production && firebase deploy"
   },
   "packages": {
     "": {
