@@ -27,5 +27,6 @@ export class HomePageComponent {
             : ''
         );
       });
+    this.router.navigate(['gather']);
   }
 }
