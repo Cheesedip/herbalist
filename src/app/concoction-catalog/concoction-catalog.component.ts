@@ -11,7 +11,7 @@ import {
   getRecipes,
 } from '../../data/recipe/recipe.repository';
 import { DisplayRecipesComponent } from '../display-recipes/display-recipes.component';
-import { SearchBarComponent } from '../components/search-bar/search-bar.component';
+import { SearchBarComponent } from '../ui-components/search-bar/search-bar.component';
 import {
   NgLabelTemplateDirective,
   NgOptionTemplateDirective,

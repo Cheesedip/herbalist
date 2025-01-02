@@ -11,7 +11,7 @@ import { NgFor } from '@angular/common';
 
 export interface ItemInputs {
   imageUrl: string;
-  borderSize?: number;
+  borderWidth?: number;
   borderColor?: string;
   borderRadius?: number;
   imageBorderRadius?: number;
@@ -77,7 +77,6 @@ export class BiomeSelectorComponent implements ControlValueAccessor {
   }
 
   private updateItemInputs(): void {
-    const a = this.value['meadow'];
     const baseUrl = 'assets/biomes/';
     this.itemInputs.set(
       Object.fromEntries(
@@ -88,7 +87,7 @@ export class BiomeSelectorComponent implements ControlValueAccessor {
               this.value[biome] ? '' : '_unselected'
             }.webp`,
             ...(this.value[biome] && {
-              borderSize: 4,
+              borderWidth: 4,
               borderColor: '#a8d5a8',
               borderRadius: 2,
               imageBorderRadius: 0,

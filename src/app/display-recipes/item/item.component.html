@@ -4,8 +4,12 @@
   [attr.data-tooltip]="name()"
   [ngStyle]="{
     'border-color': borderColor(),
-    'border-width.px': borderSize(),
-    'border-radius.px': borderRadius()
+    'border-width.px': borderWidth(),
+    'border-radius.px': borderRadius(),
+    'background-color': backgroundColor()
+  }"
+  [ngClass]="{
+    showPointerOnHover: showPointerOnHover()
   }"
 >
   <img

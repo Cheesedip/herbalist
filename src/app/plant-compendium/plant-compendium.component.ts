@@ -1,7 +1,7 @@
 import { Component, computed, signal } from '@angular/core';
 import { getPlants } from '../../data/plant/plant.repository';
 import { DisplayPlantsComponent } from '../display-plants/display-plants.component';
-import { SearchBarComponent } from '../components/search-bar/search-bar.component';
+import { SearchBarComponent } from '../ui-components/search-bar/search-bar.component';
 
 @Component({
   selector: 'app-plant-compendium',

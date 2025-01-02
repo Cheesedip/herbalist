@@ -1,0 +1,18 @@
+<div class="ngneat-dialog-container">
+  <div class="modal-toolbar">
+    <span class="modal-title">Rarity Explanation</span>
+    <span class="close-icon" (click)="closeDialog()">×</span>
+  </div>
+  <div class="modal-body">
+    <div class="rarity-grid">
+      <div class="rarity-card" *ngFor="let rarity of plantRarities">
+        <app-item
+          [name]="rarity"
+          [imageUrl]="'assets/rarities/' + rarity + '.webp'"
+          [showPointerOnHover]="false"
+        ></app-item>
+        <p class="rarity-description">{{ rarityExplanation[rarity] }}</p>
+      </div>
+    </div>
+  </div>
+</div>

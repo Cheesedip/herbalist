@@ -34,16 +34,16 @@
       <td>{{ plant.appearance }}</td>
       <td>
         <img
-          loading="lazy"
+          class="rarity-image"
+          (click)="openRarityExplanationModal()"
           [src]="'/assets/rarities/' + plant.rarity + '.webp'"
-          alt="{{ plant.rarity }}"
-          onerror="this.src='/assets/plants/todo.webp';"
         />
       </td>
       <td>
         <app-item
           [name]="plant.biome"
           [imageUrl]="'assets/biomes/' + plant.biome + '.webp'"
+          [showPointerOnHover]="false"
         ></app-item>
       </td>
     </tr>
