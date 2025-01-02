@@ -11,8 +11,16 @@
           [imageUrl]="'assets/rarities/' + rarity + '.webp'"
           [showPointerOnHover]="false"
         ></app-item>
-        <p class="rarity-description">{{ rarityExplanation[rarity] }}</p>
+        <p>
+          {{ rarityExplanation[rarity].description }}
+          <span class="percentage">{{ rarityExplanation[rarity].chance }}</span>
+          chance of finding these plants.
+        </p>
       </div>
+    </div>
+
+    <div class="odds">
+      Odds to find plants increase linearly with the value of your roll
     </div>
   </div>
 </div>

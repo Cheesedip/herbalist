@@ -16,6 +16,7 @@ export interface ItemInputs {
   borderRadius?: number;
   imageBorderRadius?: number;
 }
+
 @Component({
   selector: 'app-biome-selector',
   templateUrl: './biome-selector.component.html',
@@ -86,15 +87,26 @@ export class BiomeSelectorComponent implements ControlValueAccessor {
             imageUrl: `${baseUrl}${biome}${
               this.value[biome] ? '' : '_unselected'
             }.webp`,
-            ...(this.value[biome] && {
-              borderWidth: 4,
-              borderColor: '#a8d5a8',
-              borderRadius: 2,
-              imageBorderRadius: 0,
-            }),
+            ...(this.value[biome]
+              ? this.itemUnselectedValues
+              : this.itemDefaultValues),
           },
         ])
       ) as Record<Biome, ItemInputs>
     );
   }
+
+  private itemDefaultValues = {
+    borderWidth: 2,
+    borderColor: '#2a5d34', // $primary-color
+    borderRadius: 6,
+    imageBorderRadius: 4,
+  };
+
+  private itemUnselectedValues = {
+    borderWidth: 4,
+    borderColor: '#a8d5a8', // $secondary-color
+    borderRadius: 2,
+    imageBorderRadius: 0,
+  };
 }

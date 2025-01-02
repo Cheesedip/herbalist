@@ -21,14 +21,22 @@ export class RarityExplanationModalComponent {
     this.dialogRef.close();
   }
 
-  protected rarityExplanation: Record<PlantRarity, string> = {
-    [PlantRarity.COMMON]:
-      'Common plants are easy to find, you have a 20% chance of finding these plants',
-    [PlantRarity.UNCOMMON]:
-      'Uncommon plants are a little harder to find, you have a 10% chance of finding these plants',
-    [PlantRarity.RARE]:
-      'Rare plants are difficult to find, you have a 3% chance of finding these plants',
-    [PlantRarity.EPIC]:
-      'Epic plants are extremely difficult to find, you have a 1% chance of finding these plants',
+  protected rarityExplanation: Record<PlantRarity, { description: string; chance: string }> = {
+    [PlantRarity.COMMON]: {
+      description: 'Common plants are easy to find, you have a',
+      chance: '20%',
+    },
+    [PlantRarity.UNCOMMON]: {
+      description: 'Uncommon plants are a little harder to find, you have a',
+      chance: '10%',
+    },
+    [PlantRarity.RARE]: {
+      description: 'Rare plants are difficult to find, you have a',
+      chance: '3%',
+    },
+    [PlantRarity.EPIC]: {
+      description: 'Epic plants are extremely difficult to find, you have a',
+      chance: '1%',
+    },
   };
 }

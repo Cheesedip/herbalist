@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { toObservable } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-item',
@@ -27,12 +26,4 @@ export class ItemComponent {
   // other styling
   public backgroundColor = input<string | undefined>('#fff'); // $white
   public showPointerOnHover = input<boolean>(true);
-
-  constructor() {
-    toObservable(this.backgroundColor).subscribe((backgroundColor) => {
-      if (this.name() === 'Uncommon') {
-        console.log('background color', backgroundColor);
-      }
-    });
-  }
 }

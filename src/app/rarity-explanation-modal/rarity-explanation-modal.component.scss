@@ -1,3 +1,5 @@
+@import "../../styles.scss";
+
 .rarity-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -14,4 +16,15 @@
 .rarity-description {
   margin-top: 0.5rem;
   font-size: 0.9rem;
+}
+
+.odds {
+  color: $primary-color;
+  font-weight: bold;
+  padding-block: $padding-small;
+}
+
+.percentage {
+  font-weight: bold;
+  color: #2a5d34;
 }
