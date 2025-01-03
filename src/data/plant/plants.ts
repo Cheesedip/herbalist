@@ -318,7 +318,7 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     name: 'Firepeak Orchid',
     appearance:
       'Bright red orchid with golden veins, growing near volcanic vents.',
-    rarity: PlantRarity.UNCOMMON,
+    rarity: PlantRarity.EPIC,
     biome: Biome.MOUNTAINS,
   },
   {
@@ -357,7 +357,7 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     name: 'Peaksage Herb',
     appearance:
       'A low-growing herb with silvery leaves, often found in sheltered mountain crevices.',
-    rarity: PlantRarity.EPIC,
+    rarity: PlantRarity.UNCOMMON,
     biome: Biome.MOUNTAINS,
   },
 ];
