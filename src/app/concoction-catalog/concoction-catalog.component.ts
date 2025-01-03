@@ -43,15 +43,17 @@ export class ConcoctionCatalogComponent {
     const searchTerm = this.searchTerm();
     const strengths = this.selectedStrengths();
     const lower = searchTerm.toLowerCase();
-    return this.allRecipes.filter(
-      (recipe) =>
-        (strengths.length === 0 || strengths.includes(recipe.strength)) &&
-        (recipe.name.toLowerCase().includes(lower) ||
-          recipe.effect.toLowerCase().includes(lower) ||
-          recipe.ingredients.some((ingredient) =>
-            ingredient.plant.name.toLowerCase().includes(lower)
-          ))
-    );
+    return this.allRecipes
+      .filter(
+        (recipe) =>
+          (strengths.length === 0 || strengths.includes(recipe.strength)) &&
+          (recipe.name.toLowerCase().includes(lower) ||
+            recipe.effect.toLowerCase().includes(lower) ||
+            recipe.ingredients.some((ingredient) =>
+              ingredient.plant.name.toLowerCase().includes(lower)
+            ))
+      )
+      .sort((a, b) => a.name.localeCompare(b.name));
   });
 
   protected setSearchTerm(term: string) {
