@@ -1,8 +1,10 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   effect,
   inject,
+  output,
   signal,
   WritableSignal,
 } from '@angular/core';
@@ -17,8 +19,10 @@ import { gather } from '../../data/plant/gather';
 import { CommonModule } from '@angular/common';
 import { DisplayPlantsComponent } from '../display-plants/display-plants.component';
 import { atLeastOneBiomeChecked } from '../../form-validators/at-least-one-biome.validator';
-import { Plant } from '../../data/plant/plant';
+import { PlantWithCount } from '../../data/plant/plant';
 import { BiomeSelectorComponent } from './biome-selector/biome-selector.component';
+import { InventoryStore } from '../../data/inventory/inventory.store';
+import { BackpackComponent } from '../ui-components/backpack/backpack.component';
 
 @Component({
   selector: 'app-gather-herbs',
@@ -34,11 +38,15 @@ import { BiomeSelectorComponent } from './biome-selector/biome-selector.componen
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GatherHerbsComponent {
+  private inventoryStore = inject(InventoryStore);
   protected Biome = Biome;
   protected biomes = Object.values(Biome);
 
-  protected gatheredPlants: WritableSignal<Plant[]> = signal([]);
+  protected gatheredPlants: WritableSignal<PlantWithCount[]> = signal([]);
   protected counts: WritableSignal<number[]> = signal([]);
+
+  protected herbsGathered = computed(() => this.gatheredPlants().length);
+  protected plantsAdded = signal(false);
 
   protected form = new FormGroup({
     roll: new FormControl<null | number>(null, [
@@ -87,13 +95,38 @@ export class GatherHerbsComponent {
     if (!form.roll) {
       return;
     }
-    const gatheredPlants = gather(
+    const gatherResult = gather(
       form.roll,
       this.getBiomeListFromForm(form.biomes)
     );
+    this.gatheredPlants.set(gatherResult);
+  }
 
-    this.gatheredPlants.set(gatheredPlants.map((result) => result.plant));
-    this.counts.set(gatheredPlants.map((result) => result.count));
+  protected addPlantsToInventory() {
+    this.gatheredPlants().forEach((plant) => {
+      this.inventoryStore.addPlant(plant);
+    });
+
+    this.plantsAdded.set(true);
+    if (!this.inventoryStore.isOpen()) {
+      this.inventoryStore.toggleInventory();
+    }
+  }
+
+  protected reset() {
+    this.form.reset({
+      roll: null,
+      biomes: {
+        [Biome.MEADOW]: false,
+        [Biome.FOREST]: false,
+        [Biome.CAVE]: false,
+        [Biome.HILLS]: false,
+        [Biome.MOUNTAINS]: false,
+      },
+    });
+    this.gatheredPlants.set([]);
+    this.counts.set([]);
+    this.plantsAdded.set(false);
   }
 
   private getBiomeListFromForm(formBiomes: any): Biome[] {

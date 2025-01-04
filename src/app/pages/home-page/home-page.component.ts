@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter } from 'rxjs';
+import { BackpackComponent } from '../../ui-components/backpack/backpack.component';
 
 @Component({
   selector: 'app-home-page',
-  imports: [RouterModule],
+  imports: [RouterModule, BackpackComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
   standalone: true,

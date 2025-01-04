@@ -4,3 +4,9 @@
 .herbalist-form {
   padding-bottom: $padding-large;
 }
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: $padding-small;
+}

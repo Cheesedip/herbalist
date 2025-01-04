@@ -1,0 +1,64 @@
+@import "../../../styles.scss";
+
+:host {
+  display: contents;
+}
+
+.backpack {
+  opacity: 0.9;
+  top: calc(25% + 75px);
+  right: 0;
+  position: fixed;
+  padding: $padding-medium;
+  display: flex;
+
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+
+  background-color: $secondary-color;
+  border-radius: 4px;
+
+  img {
+    position: relative;
+    right: calc(75px + $padding-medium);
+    top: -$padding-medium;
+    width: 75px;
+    height: 75px;
+    &:hover {
+      box-shadow: $box-shadow;
+      cursor: pointer;
+    }
+  }
+
+  .inventory {
+    position: relative;
+    right: 75px;
+    margin-top: 1rem;
+    h3 {
+      font-size: 1.2rem;
+      color: $primary-color;
+      margin-bottom: 0.5rem;
+    }
+    app-item {
+      margin-right: 0.25rem;
+    }
+    .plants,
+    .potions {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.2rem;
+    }
+  }
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  .title {
+    font-size: 1.5rem;
+    color: $primary-color;
+    font-family: "MedievalSharp", sans-serif;
+    font-weight: bold;
+    margin-bottom: $padding-small;
+  }
+}

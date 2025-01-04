@@ -1,11 +1,9 @@
 import { Biome } from './biome';
-import { Plant, PlantOdds } from './plant';
+import { Plant, PlantOdds, PlantWithCount } from './plant';
 import { getPlants } from './plant.repository';
 import { PlantRarity } from './rarity';
 
-export type GatherResult = { plant: Plant; count: number };
-
-export function gather(roll: number, biomes: Biome[]): GatherResult[] {
+export function gather(roll: number, biomes: Biome[]): PlantWithCount[] {
   if (roll < 0) {
     throw Error('Roll can not be lower than 0');
   }
@@ -21,6 +19,13 @@ export function gather(roll: number, biomes: Biome[]): GatherResult[] {
   const gatherRarity = calculateGatherRarity(roll);
 
   const plants = pickPlants(gatherRarity, plantsInBiomes);
+
+  // If no plants were gathered add a random common plant to prevent sadPepe
+  if (plants.length === 0) {
+    plants.push(
+      plantsInBiomes.find((plant) => plant.rarity === PlantRarity.COMMON)!
+    );
+  }
 
   return countPlants(plants);
 }
@@ -89,14 +94,14 @@ function pickPlants(
  * @param plants
  * @returns
  */
-function countPlants(plants: Plant[]): GatherResult[] {
+function countPlants(plants: Plant[]): PlantWithCount[] {
   return plants.reduce((acc, plant) => {
-    const existing = acc.find((p) => p.plant.id === plant.id);
+    const existing = acc.find((p) => p.id === plant.id);
     if (existing) {
       existing.count++;
     } else {
-      acc.push({ plant, count: 1 });
+      acc.push({ ...plant, count: 1 });
     }
     return acc;
-  }, [] as GatherResult[]);
+  }, [] as PlantWithCount[]);
 }

@@ -1,6 +1,8 @@
 import { Biome } from './biome';
 import { PlantRarity } from './rarity';
 
+export type PlantWithCount = Plant & { count: number };
+
 export interface Plant {
   id: number;
   name: string;
