@@ -5,7 +5,6 @@ import { plants } from '../data/plant/plants';
 import { addRecipes } from '../data/recipe/recipe.repository';
 import { Recipe } from '../data/recipe/recipe';
 import { Plant } from '../data/plant/plant';
-import { PlantsFirebaseService } from './firebase.service';
 import { recipes } from '../data/recipe/recipes';
 
 @Component({
@@ -17,8 +16,6 @@ import { recipes } from '../data/recipe/recipes';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  private plantsService = inject(PlantsFirebaseService);
-
   constructor() {
     const plantsWithImageUrl = this.addImageUrlsToPlants(plants);
     const recipesWithImageUrl = this.addImageUrlsToRecipes(recipes);
@@ -26,8 +23,6 @@ export class AppComponent {
     // Add all data to the store
     addPlants(plantsWithImageUrl);
     addRecipes(recipesWithImageUrl);
-
-    this.plantsService.getPlants().subscribe((plants) => {});
   }
 
   private addImageUrlsToPlants(plants: Omit<Plant, 'imageUrl'>[]): Plant[] {
