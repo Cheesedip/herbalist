@@ -9,9 +9,9 @@ import {
 import { computed, effect } from '@angular/core';
 import { Recipe, RecipeWithCount } from '../recipe/recipe';
 import { PlantWithCount } from '../plant/plant';
-import { Ingredient } from '../recipe/ingredient';
+import { LOCAL_STORAGE_VERSION_KEY } from '../../app/version';
 
-const LOCAL_STORAGE_KEY = 'inventoryState';
+const LOCAL_STORAGE_PAGE_KEY = 'inventoryStore';
 
 type InventoryState = {
   isOpen: boolean;
@@ -119,10 +119,15 @@ export const InventoryStore = signalStore(
 );
 
 function loadStateFromLocalStorage(): InventoryState {
-  const savedState = localStorage.getItem(LOCAL_STORAGE_KEY);
+  const savedState = localStorage.getItem(
+    `${LOCAL_STORAGE_VERSION_KEY}-${LOCAL_STORAGE_PAGE_KEY}-state`
+  );
   return savedState ? JSON.parse(savedState) : initialState;
 }
 
 function saveStateToLocalStorage(state: InventoryState): void {
-  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(state));
+  localStorage.setItem(
+    `${LOCAL_STORAGE_VERSION_KEY}-${LOCAL_STORAGE_PAGE_KEY}-state`,
+    JSON.stringify(state)
+  );
 }

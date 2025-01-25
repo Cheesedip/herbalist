@@ -22,7 +22,9 @@ import { atLeastOneBiomeChecked } from '../../form-validators/at-least-one-biome
 import { PlantWithCount } from '../../data/plant/plant';
 import { BiomeSelectorComponent } from './biome-selector/biome-selector.component';
 import { InventoryStore } from '../../data/inventory/inventory.store';
-import { BackpackComponent } from '../ui-components/backpack/backpack.component';
+import { LOCAL_STORAGE_VERSION_KEY } from '../version';
+
+const LOCAL_STORAGE_PAGE_KEY = 'gatherHerbsPageState';
 
 @Component({
   selector: 'app-gather-herbs',
@@ -135,28 +137,37 @@ export class GatherHerbsComponent {
 
   private storeStateToLocalStorage() {
     localStorage.setItem(
-      'gatheredPlants',
+      `${LOCAL_STORAGE_VERSION_KEY}-${LOCAL_STORAGE_PAGE_KEY}-gatheredPlants`,
       JSON.stringify(this.gatheredPlants())
     );
-    localStorage.setItem('counts', JSON.stringify(this.counts()));
     localStorage.setItem(
-      'gatherHerbsForm',
+      `${LOCAL_STORAGE_VERSION_KEY}-${LOCAL_STORAGE_PAGE_KEY}-counts`,
+      JSON.stringify(this.counts())
+    );
+    localStorage.setItem(
+      `${LOCAL_STORAGE_VERSION_KEY}-${LOCAL_STORAGE_PAGE_KEY}-gatherHerbsForm`,
       JSON.stringify(this.form.getRawValue())
     );
   }
 
   private getStateFromLocalStorage() {
-    const storedPlants = localStorage.getItem('gatheredPlants');
+    const storedPlants = localStorage.getItem(
+      `${LOCAL_STORAGE_VERSION_KEY}-${LOCAL_STORAGE_PAGE_KEY}-gatheredPlants`
+    );
     if (storedPlants) {
       this.gatheredPlants.set(JSON.parse(storedPlants));
     }
 
-    const storedCounts = localStorage.getItem('counts');
+    const storedCounts = localStorage.getItem(
+      `${LOCAL_STORAGE_VERSION_KEY}-${LOCAL_STORAGE_PAGE_KEY}-counts`
+    );
     if (storedCounts) {
       this.counts.set(JSON.parse(storedCounts));
     }
 
-    const storedForm = localStorage.getItem('gatherHerbsForm');
+    const storedForm = localStorage.getItem(
+      `${LOCAL_STORAGE_VERSION_KEY}-${LOCAL_STORAGE_PAGE_KEY}-gatherHerbsForm`
+    );
     if (storedForm) {
       this.form.patchValue(JSON.parse(storedForm));
     }
