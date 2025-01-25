@@ -17,6 +17,7 @@ export interface Recipe {
   id: number;
   ingredients: Ingredient[];
   effect: string;
+  description?: string;
   name: string;
   imageUrl: string;
   strength: PotionStrength;

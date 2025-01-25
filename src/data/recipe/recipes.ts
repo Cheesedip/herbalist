@@ -6,16 +6,20 @@ export const recipes = [
     name: 'Potion of Swift Scribbling',
     ingredients: [
       { count: 1, plantId: 0 },
-      { count: 3, plantId: 1 },
+      { count: 2, plantId: 1 },
     ],
     effect:
-      'You can write or draw twice as fast as normal, with perfect legibility, for the next hour.',
+      'You can write or draw twice as fast as normal, with perfect legibility, for the next 24 hours.',
+    description:
+      'Upon drinking this potion, the drinker feels a surge of energy in your hands, as if your fingers move of their own accord. The sensation is like a rapid flow of inspiration, allowing them to write or draw with remarkable speed and precision, all while maintaining flawless legibility.',
     strength: PotionStrength.Mild,
   },
   {
     id: 1,
     name: 'Potion of Delicate Drizzle',
     ingredients: [{ count: 2, plantId: 2 }],
+    description:
+      'After drinking this potion, the drinker feels a subtle, comforting warmth on their skin, as if shielded by an invisible barrier.',
     effect:
       'You no longer get wet in light rain or drizzle, though heavy rain still soaks you.',
     strength: PotionStrength.Mild,
@@ -28,7 +32,9 @@ export const recipes = [
       { count: 1, plantId: 7 },
     ],
     effect:
-      'You can perfectly recall any event that happened within the last 24 hours, with vivid detail, for the next hour.',
+      'You can perfectly recall a distant memory or detail that you focus on while drinking the potion, that you would normally struggle to remember.',
+    description:
+      'As the potion takes effect, a wave of clarity washes over the drinker’s mind, as if a fog has lifted. The memory they focus on sharpens with vivid detail, filling their senses with sights, sounds, and emotions long forgotten, as though reliving the moment itself with perfect lucidity.',
     strength: PotionStrength.Mild,
   },
   {
@@ -334,12 +340,15 @@ export const recipes = [
   },
   {
     id: 33,
-    name: 'TODO',
+    name: `Mage's Bane Potion`,
     ingredients: [
       { count: 2, plantId: 3 },
       { count: 2, plantId: 20 },
     ],
-    effect: 'TODO',
+    description:
+      'When the potion is applied, the weapon shimmers faintly with shifting arcs of violet and silver light, as if rippling with trapped magical energy. Upon striking a target, the energy surges into them, briefly illuminating your body with flickering, fading glyphs as the magic forcefully disrupts their arcane reserves.',
+    effect:
+      'For one action this potion can be applied to a melee weapon, ranged weapon or projectile. The first target hit by the weapon burns their lowest-level available spell slot, losing access to that magic until it can be restored by normal means. Targets without spell slots remain unaffected.',
     strength: PotionStrength.Potent,
   },
   {
@@ -359,7 +368,9 @@ export const recipes = [
       { count: 2, plantId: 15 },
       { count: 2, plantId: 25 },
     ],
-    effect: 'Grants advantage on stealth checks for 1 hour.',
+    description:
+      'Your movements becomes unnaturally smooth and soundless, as if your very presence is cushioned by an invisible force. In addition a subtle shadow-like aura seems to blur your outline, making you blend seamlessly into your surroundings.',
+    effect: 'Throw an additional 1d8 when rolling for stealth',
     strength: PotionStrength.Potent,
   },
   {
@@ -398,9 +409,13 @@ export const recipes = [
     name: 'Armor of Frost',
     ingredients: [
       { count: 1, plantId: 4 },
-      { count: 3, plantId: 35 },
+      { count: 1, plantId: 35 },
+      { count: 1, plantId: 7 },
     ],
-    effect: 'Temporarily enhances physical defense (grants +1 AC for 1 hour).',
+    effect:
+      'For the next minute, your Armor Class is increased by 1 and any creature that hits you with a melee attack takes 1d6 cold damage and has their movement reduced by half.',
+    description:
+      'As the potion takes effect, a shimmering layer of frost envelops your body, forming a crystalline armor that glints with icy blue hues. Your breath turns to mist, and the frost absorbs impacts like a protective shield.',
     strength: PotionStrength.Potent,
   },
   {

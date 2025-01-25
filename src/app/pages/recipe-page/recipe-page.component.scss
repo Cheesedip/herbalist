@@ -8,21 +8,10 @@
   margin: 0;
 }
 
-.book-content {
-  position: relative;
-  top: 2%;
-  width: 45%;
-  height: 65%;
-}
-
 .recipe-image {
   width: 150px;
   height: auto;
   padding-block: $padding-small;
-}
-
-.recipe-effect {
-  margin: 0 10%;
 }
 
 .title {
@@ -46,23 +35,31 @@
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
   margin-top: 1rem;
-  justify-items: center;
+}
+
+.effect {
+  grid-column: 1;
+  grid-row: 1;
+}
+.description {
+  grid-column: 2;
+  grid-row: 1;
 }
 .ingredients {
   grid-column: 1;
-  grid-row: 1;
+  grid-row: 2;
 }
 .strength {
   grid-column: 2;
-  grid-row: 1;
+  grid-row: 2;
 }
 .cost {
   grid-column: 1;
-  grid-row: 2;
+  grid-row: 3;
 }
 .time {
   grid-column: 2;
-  grid-row: 2;
+  grid-row: 3;
 }
 
 h3 {

@@ -9,11 +9,17 @@
       loading="lazy"
     />
 
-    <div class="recipe-effect">
-      {{ recipe.effect }}
-    </div>
-
     <div class="recipe-grid">
+      <div class="effect">
+        <h3>Effect</h3>
+        {{ recipe.effect }}
+      </div>
+
+      <div class="description">
+        <h3>Description</h3>
+        {{ recipe?.description ?? 'No description available' }}
+      </div>
+ 
       <div class="ingredients">
         <h3>Ingredients</h3>
 
