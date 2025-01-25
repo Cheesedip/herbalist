@@ -6,7 +6,6 @@
   align-items: center;
   height: 100vh;
   margin: 0;
-  background: url("/assets/parchment.webp") center / cover no-repeat; /* Adjust the path */
 }
 
 .book-content {
@@ -78,6 +77,7 @@ h3 {
   border: none;
   border-radius: $border-radius;
   padding: $padding-medium;
+  margin-block: $padding-large;
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.3s ease;
