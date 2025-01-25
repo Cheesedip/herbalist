@@ -71,3 +71,36 @@ h3 {
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
 }
+
+.craft-potion-btn {
+  background-color: $primary-color;
+  color: $white;
+  border: none;
+  border-radius: $border-radius;
+  padding: $padding-medium;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background-color: $dark-hover;
+  }
+
+  &:disabled {
+    background-color: $light-gray;
+    cursor: not-allowed;
+  }
+}
+
+.progress-container {
+  width: 100%;
+  background-color: $white;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 20px;
+  background-color: $secondary-color;
+  width: 0;
+}

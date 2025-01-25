@@ -27,9 +27,21 @@
   >
     {{ getErrorMessage() }}
   </div>
-  <button (click)="gatherHerbs()" class="btn-submit" [disabled]="form.invalid">
-    Gather herbs in selected biomes
-  </button>
+  <div class="button-group">
+    <button
+      (click)="gatherHerbs()"
+      [disabled]="form.invalid || herbsGathered()"
+    >
+      Gather herbs in selected biomes
+    </button>
+    <button
+      (click)="addPlantsToInventory()"
+      [disabled]="!herbsGathered() || plantsAdded()"
+    >
+      Add gathered plants to inventory
+    </button>
+    <button (click)="reset()">Reset</button>
+  </div>
 </form>
 
 <div class="plant-table-container">

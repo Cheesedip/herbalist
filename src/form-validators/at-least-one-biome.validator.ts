@@ -1,6 +1,5 @@
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 
-// Custom validator function
 export function atLeastOneBiomeChecked(
   control: AbstractControl
 ): ValidationErrors | null {

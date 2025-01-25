@@ -4,6 +4,8 @@ export type RecipeWithPlants = Omit<Recipe, 'ingredients'> & {
   ingredients: IngredientWithPlant[];
 };
 
+export type RecipeWithCount = Recipe & { count: number };
+
 export enum PotionStrength {
   Mild = 'Mild',
   Potent = 'Potent',

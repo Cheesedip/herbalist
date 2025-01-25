@@ -1,0 +1,48 @@
+<div class="backpack" [ngClass]="{ open: inventoryStore.isOpen() }">
+  <img
+    src="assets/other/backpack.webp"
+    alt="Backpack"
+    (click)="inventoryStore.toggleInventory()"
+    class="hover-container"
+    [attr.data-tooltip]="'Toggle inventory'"
+  />
+
+  <div class="inventory">
+    <!-- Display plants in the inventory -->
+    <div class="plant-inventory">
+      <div class="title">Plants</div>
+      <div *ngIf="sortedPlants().length; else noPlants" class="plants">
+        <app-item
+          *ngFor="let plant of sortedPlants()"
+          [id]="plant.id"
+          [count]="plant.count"
+          [name]="plant.name"
+          [imageUrl]="'assets/plants/plant_' + plant.id + '.webp'"
+          [navLink]="'/plants/' + plant.id"
+        ></app-item>
+      </div>
+
+      <ng-template #noPlants>
+        <div class="no-items">No plants gathered yet</div>
+      </ng-template>
+    </div>
+
+    <!-- Display recipes in the inventory -->
+    <div class="recipe-inventory">
+      <div class="title">Potions</div>
+      <div *ngIf="sortedPotions().length; else noPotions" class="potions">
+        <app-item
+          *ngFor="let potion of sortedPotions()"
+          [id]="potion.id"
+          [count]="potion.count"
+          [name]="potion.name"
+          [imageUrl]="'assets/recipes/recipe_' + potion.id + '.webp'"
+          [navLink]="'/recipes/' + potion.id"
+        ></app-item>
+      </div>
+      <ng-template #noPotions>
+        <div class="no-items">No potions brewed yet</div>
+      </ng-template>
+    </div>
+  </div>
+</div>

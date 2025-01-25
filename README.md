@@ -1,11 +1,21 @@
 # Herbalist
 
-to install dependencies
+To install dependencies
+
 ```
 yarn
 ```
 
-to run app
+To run app
+
+```
+cd src/environment
+cp environment.example.ts environment.ts
+cp environment.example.ts environment.production.ts
+```
+
+and then
+
 ```
 yarn start
 ```

@@ -38,5 +38,11 @@
         {{ brewingTime[recipe.strength] }}
       </div>
     </div>
+    <button [disabled]="!canCraft(recipe)" (click)="craftPotion()" class="craft-potion-btn">
+      Craft Potion
+    </button>
+    <div class="progress-container">
+      <div class="progress-bar" [style.width.%]="progress()"></div>
+    </div>
   </div>
 </div>
