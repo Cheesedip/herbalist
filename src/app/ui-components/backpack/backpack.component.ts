@@ -19,6 +19,8 @@ import { InventoryStore } from '../../../data/inventory/inventory.store';
 export class BackpackComponent {
   readonly inventoryStore = inject(InventoryStore);
 
+  protected clearInventory = this.inventoryStore.clearInventory;
+
   protected toggleInventory(): void {
     this.inventoryStore.toggleInventory();
   }

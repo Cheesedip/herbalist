@@ -102,6 +102,11 @@ export const InventoryStore = signalStore(
         return plant && plant.count >= ingredient.count;
       });
     },
+    clearInventory(): void {
+      patchState(store, () => {
+        return { ...initialState, isOpen: true };
+      });
+    },
   })),
   // Computed signal to automatically save state on any update
   withHooks({
