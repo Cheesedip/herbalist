@@ -1,7 +1,7 @@
 export enum Biome {
-  MEADOW = 'meadow',
-  FOREST = 'forest',
-  CAVE = 'cave',
-  HILLS = 'hills',
-  MOUNTAINS = 'mountains',
+  MEADOW = 'Meadow',
+  FOREST = 'Forest',
+  CAVE = 'Cave',
+  HILLS = 'Hills',
+  MOUNTAINS = 'Mountains',
 }

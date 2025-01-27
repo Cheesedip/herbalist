@@ -28,7 +28,6 @@ export class DisplayPlantsComponent {
   protected PlantRarityColor = PlantRarityColor;
 
   protected openRarityExplanationModal(): void {
-    console.log('hey');
     this.dialog.open(RarityExplanationModalComponent);
   }
 }

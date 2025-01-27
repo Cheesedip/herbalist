@@ -245,12 +245,16 @@ export const recipes = [
   },
   {
     id: 23,
-    name: 'Cold Resistance Tonic',
+    name: 'Furry Floof Tonic',
     ingredients: [
-      { count: 3, plantId: 40 },
+      { count: 1, plantId: 40 },
       { count: 1, plantId: 41 },
+      { count: 1, plantId: 42 },
     ],
-    effect: 'Your whole body is covered in long hairs for 6 hours.',
+    effect:
+      'Your body always has a comfortable temperature, even in extreme cold or heat.',
+    description:
+      'Upon drinking this tonic, the drinker grows a soft layer of fluffy, downy hair across their body. The fur provides gentle warmth and insulation, giving them the cozy appearance of a winter creature.',
     strength: PotionStrength.Mild,
   },
   {
@@ -288,7 +292,8 @@ export const recipes = [
       { count: 2, plantId: 14 },
       { count: 1, plantId: 15 },
     ],
-    effect: 'Immune to being frightened for 1 hour.',
+    effect: 'Immune to being frightened for 1 minute.',
+    description: `Drinking this elixir brings an immediate wave of soothing calm, as if a comforting presence has settled deep within. The drinker's heart steadies, their mind clears, and even the most terrifying sights fail to unsettle them, leaving them calm and resolute in the face of fear.`,
     strength: PotionStrength.Potent,
   },
   {
@@ -351,16 +356,16 @@ export const recipes = [
       'For one action this potion can be applied to a melee weapon, ranged weapon or projectile. The first target hit by the weapon burns their lowest-level available spell slot, losing access to that magic until it can be restored by normal means. Targets without spell slots remain unaffected.',
     strength: PotionStrength.Potent,
   },
-  {
-    id: 34,
-    name: 'Chillwind Draught',
-    ingredients: [
-      { count: 1, plantId: 14 },
-      { count: 3, plantId: 22 },
-    ],
-    effect: 'Grants resistance to fire damage for 1 hour.',
-    strength: PotionStrength.Potent,
-  },
+  // {
+  //   id: 34,
+  //   name: 'Chillwind Draught',
+  //   ingredients: [
+  //     { count: 1, plantId: 14 },
+  //     { count: 3, plantId: 22 },
+  //   ],
+  //   effect: 'Grants resistance to fire damage for 1 hour.',
+  //   strength: PotionStrength.Potent,
+  // },
   {
     id: 35,
     name: 'Silent Steps Elixir',
@@ -413,7 +418,7 @@ export const recipes = [
       { count: 1, plantId: 7 },
     ],
     effect:
-      'For the next minute, your Armor Class is increased by 1 and any creature that hits you with a melee attack takes 1d6 cold damage and has their movement reduced by half.',
+      'For the next minute, your Armor Class is increased by 1 and any creature that hits you with a melee attack takes 1d4 cold damage and has their movement reduced by half until the end of their next turn.',
     description:
       'As the potion takes effect, a shimmering layer of frost envelops your body, forming a crystalline armor that glints with icy blue hues. Your breath turns to mist, and the frost absorbs impacts like a protective shield.',
     strength: PotionStrength.Potent,

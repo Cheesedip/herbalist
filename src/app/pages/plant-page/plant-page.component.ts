@@ -1,24 +1,33 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  inject,
   signal,
   WritableSignal,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { getPlantById, getPlants } from '../../../data/plant/plant.repository';
+import { getPlantById } from '../../../data/plant/plant.repository';
 import { Plant } from '../../../data/plant/plant';
 import { CommonModule, Location } from '@angular/common';
-import { Recipe, RecipeWithPlants } from '../../../data/recipe/recipe';
+import { RecipeWithPlants } from '../../../data/recipe/recipe';
 import {
   addPlantsToRecipes,
   getRecipes,
 } from '../../../data/recipe/recipe.repository';
 import { DisplayRecipesComponent } from '../../display-recipes/display-recipes.component';
 import { RecipeComponent } from '../../display-recipes/recipe/recipe.component';
+import { ItemComponent } from '../../display-recipes/item/item.component';
+import { DialogService } from '@ngneat/dialog';
+import { RarityExplanationModalComponent } from '../../rarity-explanation-modal/rarity-explanation-modal.component';
 
 @Component({
   selector: 'app-plant-page',
-  imports: [CommonModule, DisplayRecipesComponent, RecipeComponent],
+  imports: [
+    CommonModule,
+    DisplayRecipesComponent,
+    RecipeComponent,
+    ItemComponent,
+  ],
   templateUrl: './plant-page.component.html',
   styleUrl: './plant-page.component.scss',
   standalone: true,
@@ -48,5 +57,11 @@ export class PlantPageComponent {
 
   goBack() {
     this.location.back();
+  }
+
+  private dialog = inject(DialogService);
+
+  protected openRarityExplanationModal(): void {
+    this.dialog.open(RarityExplanationModalComponent);
   }
 }

@@ -1,4 +1,4 @@
-<div class="book-content" *ngIf="plant() as plant">
+<div *ngIf="plant() as plant">
   <div class="title">{{ plant.name }}</div>
   <div class="content">
     <img
@@ -9,10 +9,35 @@
       loading="lazy"
     />
 
-    <div class="plant-info">
-      <div><strong>Rarity:</strong> {{ plant.rarity }}</div>
-      <div><strong>Biome:</strong> {{ plant.biome }}</div>
+    <div class="plant-grid">
+      <div class="rarity">
+        <h3>Rarity:</h3>
+        <app-item
+          [name]="plant.rarity"
+          [imageUrl]="'/assets/rarities/' + plant.rarity + '.webp'"
+          (click)="openRarityExplanationModal()"
+        ></app-item>
+      </div>
+      <div class="biome">
+        <h3>Biome:</h3>
+        <app-item
+          [name]="plant.biome"
+          [imageUrl]="'/assets/biomes/' + plant.biome + '.webp'"
+        ></app-item>
+      </div>
+
+      <div class="recipes">
+        <h3>Recipes:</h3>
+        <app-recipe
+          *ngFor="let recipe of recipes()"
+          [recipe]="recipe"
+        ></app-recipe>
+      </div>
+
+      <div class="appearance">
+        <h3>Appearance</h3>
+        {{ plant.appearance }}
+      </div>
     </div>
-    <app-recipe *ngFor="let recipe of recipes()" [recipe]="recipe"></app-recipe>
   </div>
 </div>
