@@ -39,13 +39,12 @@ export const recipes = [
   },
   {
     id: 3,
-    name: 'Potion of Featherweight',
+    name: 'TODO',
     ingredients: [
       { count: 1, plantId: 8 },
       { count: 2, plantId: 11 },
     ],
-    effect:
-      'Your footsteps make no sound, and you leave no tracks on soft ground.',
+    effect: 'TODO',
     strength: PotionStrength.Mild,
   },
   {
@@ -75,6 +74,8 @@ export const recipes = [
       { count: 3, plantId: 23 },
     ],
     effect: 'You can hold your breath for up to 10 minutes without discomfort.',
+    description:
+      'Drinking this potion fills the drinker’s lungs with a cool, refreshing sensation, as if breathing in the purest mountain air. Their chest feels light and unstrained, granting them the ability to hold their breath effortlessly, even in the most suffocating conditions.',
     strength: PotionStrength.Mild,
   },
   {
@@ -87,6 +88,8 @@ export const recipes = [
     effect:
       'For the next 30 minutes, you can read and understand any written language you encounter, though you cannot speak or write it.',
     strength: PotionStrength.Mild,
+    description:
+      'Upon drinking this potion, the drinker’s mind tingles with a strange clarity, as if unseen threads of meaning weave themselves together. Words in unfamiliar scripts or forgotten languages seem to rearrange before their eyes, revealing their true meaning with perfect clarity.',
   },
   {
     id: 8,
@@ -97,6 +100,8 @@ export const recipes = [
     ],
     effect:
       'For the next 4 hours, your clothes remain clean and wrinkle-free, no matter what you do.',
+    description:
+      'As the potion takes effect, the drinker feels a faint warmth that seems to flow outward, enveloping their attire. Dirt, stains, and wrinkles seem to vanish on contact, leaving their clothes immaculate and perfectly pressed, as if untouched by the rigors of the day.',
     strength: PotionStrength.Mild,
   },
   {
@@ -270,13 +275,15 @@ export const recipes = [
   },
   {
     id: 25,
-    name: 'TODO',
+    name: 'Smoke grenade',
     ingredients: [
       { count: 1, plantId: 3 },
-      { count: 3, plantId: 4 },
+      { count: 3, plantId: 45 },
     ],
-    effect: 'TODO',
+    effect: `As an action, a character can throw a grenade at a point up to 60 feet away. One round after a smoke grenade lands, it emits a cloud of smoke that creates a heavily obscured area in a 20-foot radius. A moderate wind (at least 10 miles per hour) disperses the smoke in 4 rounds; a strong wind (20 or more miles per hour) disperses it in 1 round.`,
     strength: PotionStrength.Potent,
+    description:
+      'This small, spherical container hums faintly with contained energy, its surface etched with swirling patterns resembling rising smoke. When thrown, it shatters with a sharp crack, releasing a thick, billowing cloud of smoke that blankets the area in a dense, obscuring fog.',
   },
   {
     id: 26,
