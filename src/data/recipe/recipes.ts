@@ -519,12 +519,12 @@ export const recipes = [
   },
   {
     id: 49,
-    name: 'TODO',
+    name: 'Potion of temporary zeal',
     ingredients: [
       { count: 3, plantId: 10 },
       { count: 1, plantId: 37 },
     ],
-    effect: 'TODO',
+    effect: 'You turn into a heroic fighter for 1 round, you get AC 20, 4 attacks with a +10 to hit and 1d12+5 damage. You then fall unconscious for 1d4 rounds.',
     strength: PotionStrength.Infused,
   },
   {
