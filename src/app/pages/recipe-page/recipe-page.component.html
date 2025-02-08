@@ -17,9 +17,9 @@
 
       <div class="description">
         <h3>Description</h3>
-        {{ recipe?.description ?? 'No description available' }}
+        {{ recipe?.description ?? "No description available" }}
       </div>
- 
+
       <div class="ingredients">
         <h3>Ingredients</h3>
 
@@ -44,11 +44,29 @@
         {{ brewingTime[recipe.strength] }}
       </div>
     </div>
-    <button [disabled]="!canCraft(recipe)" (click)="craftPotion()" class="craft-potion-btn">
-      Craft Potion
-    </button>
-    <div class="progress-container">
-      <div class="progress-bar" [style.width.%]="progress()"></div>
+    <div>
+      <button
+        [disabled]="!canCraft(recipe)"
+        (click)="craftPotion()"
+        class="craft-potion-btn"
+      >
+        Craft Potion
+      </button>
+      <div class="progress-container">
+        <div class="progress-bar" [style.width.%]="craftingProgress()"></div>
+      </div>
+    </div>
+    <div>
+      <button
+        [disabled]="!canDrink(recipe)"
+        (click)="drinkPotion()"
+        class="craft-potion-btn"
+      >
+        Drink Potion
+      </button>
+      <div class="progress-container">
+        <div class="progress-bar" [style.width.%]="drinkingProgress()"></div>
+      </div>
     </div>
   </div>
 </div>

@@ -91,6 +91,21 @@ export const InventoryStore = signalStore(
         };
       });
     },
+    drinkPotion(recipe: Recipe): void {
+      patchState(store, () => {
+        const potion = store.potions().find((p) => p.id === recipe.id);
+        if (!potion) {
+          return { potions: store.potions() };
+        }
+
+        const updatedPotions = store
+          .potions()
+          .map((p) => (p.id === recipe.id ? { ...p, count: p.count - 1 } : p))
+          .filter((p) => p.count > 0);
+
+        return { potions: updatedPotions };
+      });
+    },
     toggleInventory(): void {
       patchState(store, () => ({ isOpen: !store.isOpen() }));
     },
@@ -101,6 +116,9 @@ export const InventoryStore = signalStore(
           .find((plant) => plant.id === ingredient.plantId);
         return plant && plant.count >= ingredient.count;
       });
+    },
+    canDrink(recipe: Recipe): boolean {
+      return store.potions().some((potion) => potion.id === recipe.id);
     },
     clearInventory(): void {
       patchState(store, () => {

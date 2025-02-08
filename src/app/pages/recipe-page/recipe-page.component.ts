@@ -21,6 +21,9 @@ import { InventoryStore } from '../../../data/inventory/inventory.store';
   styleUrl: './recipe-page.component.scss',
 })
 export class RecipePageComponent {
+  private CRAFT_POTION_TIME_MS = 2000;
+  private DRINK_POTION_TIME_MS = 1000;
+
   protected inventoryStore = inject(InventoryStore);
 
   protected recipe: WritableSignal<RecipeWithPlants | undefined> =
@@ -29,9 +32,12 @@ export class RecipePageComponent {
   protected brewingTime = brewingTime;
 
   protected canCraft = this.inventoryStore.canCraft;
-
   protected isCrafting = signal(false);
-  protected progress = signal(0);
+  protected craftingProgress = signal(0);
+
+  protected canDrink = this.inventoryStore.canDrink;
+  protected isDrinking = signal(false);
+  protected drinkingProgress = signal(0);
 
   constructor(private route: ActivatedRoute) {
     this.route.paramMap.subscribe((params) => {
@@ -53,17 +59,17 @@ export class RecipePageComponent {
       return;
     }
 
-    let interval = 2000 / 100;
-    let increment = 100 / (2000 / interval);
+    let interval = this.CRAFT_POTION_TIME_MS / 100;
+    let increment = 100 / (this.CRAFT_POTION_TIME_MS / interval);
 
-    this.progress.set(0);
+    this.craftingProgress.set(0);
 
     // Wait for 2 seconds for dramatic potion brewing immersion effects
     await new Promise<void>((resolve) => {
       const timer = setInterval(() => {
-        this.progress.set(this.progress() + increment);
-        if (this.progress() >= 100) {
-          this.progress.set(100);
+        this.craftingProgress.set(this.craftingProgress() + increment);
+        if (this.craftingProgress() >= 100) {
+          this.craftingProgress.set(100);
           clearInterval(timer);
           resolve();
         }
@@ -74,5 +80,38 @@ export class RecipePageComponent {
     if (!this.inventoryStore.isOpen()) {
       this.inventoryStore.toggleInventory();
     }
+
+    this.craftingProgress.set(0);
+  }
+
+  protected async drinkPotion(): Promise<void> {
+    const recipe = this.recipe();
+    if (!recipe) {
+      return;
+    }
+
+    let interval = this.DRINK_POTION_TIME_MS / 100;
+    let increment = 100 / (this.DRINK_POTION_TIME_MS / interval);
+
+    this.drinkingProgress.set(0);
+
+    // Wait for 2 seconds for dramatic potion brewing immersion effects
+    await new Promise<void>((resolve) => {
+      const timer = setInterval(() => {
+        this.drinkingProgress.set(this.drinkingProgress() + increment);
+        if (this.drinkingProgress() >= 100) {
+          this.drinkingProgress.set(100);
+          clearInterval(timer);
+          resolve();
+        }
+      }, interval);
+    });
+    this.inventoryStore.drinkPotion(recipe);
+
+    if (!this.inventoryStore.isOpen()) {
+      this.inventoryStore.toggleInventory();
+    }
+
+    this.drinkingProgress.set(0);
   }
 }
