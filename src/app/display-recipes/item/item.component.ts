@@ -17,6 +17,8 @@ export class ItemComponent {
   public count = input<number>(); // Only provided for entities, e.g. plants and recipes
   public navLink = input<string | undefined>(undefined);
 
+  public drinkable = true;
+
   // border styling
   public borderColor = input<string | undefined>('#2a5d34'); // $primary-color
   public borderWidth = input<number | undefined>(2);
