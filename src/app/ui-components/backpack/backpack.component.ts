@@ -27,10 +27,16 @@ export class BackpackComponent {
 
   protected sortedPlants = computed(() => {
     const plants = this.inventoryStore.plants();
+    if (!plants) {
+      return [];
+    }
     return [...plants].sort((a, b) => a.name.localeCompare(b.name));
   });
 
   protected sortedPotions = computed(() => {
+    if (!this.sortedPotions) {
+      return [];
+    }
     const potions = this.inventoryStore.potions();
     return [...potions].sort((a, b) => a.name.localeCompare(b.name));
   });
