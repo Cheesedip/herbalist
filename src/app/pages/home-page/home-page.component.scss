@@ -66,3 +66,14 @@
   max-width: 800px;
   margin: 0 auto;
 }
+
+.header {
+  position: relative;
+}
+
+.about-link {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}

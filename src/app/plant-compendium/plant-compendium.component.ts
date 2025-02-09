@@ -24,17 +24,15 @@ export class PlantCompendiumComponent {
 
   protected filteredPlants = computed(() => {
     const lower = this.searchTerm().toLowerCase();
-    return this.allPlants
-      .filter(
-        (plant) =>
-          (this.selectedBiomes().length === 0 ||
-            this.selectedBiomes().includes(plant.biome)) &&
-          (this.selectedRarities().length === 0 ||
-            this.selectedRarities().includes(plant.rarity)) &&
-          (plant.name.toLowerCase().includes(lower) ||
-            plant.appearance.toLowerCase().includes(lower))
-      )
-      .sort((a, b) => a.name.localeCompare(b.name));
+    return this.allPlants.filter(
+      (plant) =>
+        (this.selectedBiomes().length === 0 ||
+          this.selectedBiomes().includes(plant.biome)) &&
+        (this.selectedRarities().length === 0 ||
+          this.selectedRarities().includes(plant.rarity)) &&
+        (plant.name.toLowerCase().includes(lower) ||
+          plant.appearance.toLowerCase().includes(lower))
+    );
   });
 
   protected setSearchTerm(term: string) {

@@ -1,0 +1,21 @@
+@import "../../styles.scss";
+
+:host {
+  overflow-y: auto;
+}
+
+.about-modal-content {
+  padding: $padding-medium;
+  background: $white;
+  text-align: center;
+  box-shadow: $box-shadow;
+  border: 2px solid $primary-color;
+  h3,
+  h2,
+  a {
+    color: $primary-color;
+  }
+  p {
+    color: black;
+  }
+}

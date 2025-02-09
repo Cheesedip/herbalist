@@ -1,6 +1,7 @@
 <div class="herbalist-container">
   <header class="welcome-header">
     <h1>Welcome to Herbalist!</h1>
+    <span class="about-link" (click)="openAboutModal()">About</span>
   </header>
   <nav class="navigation-links">
     <a routerLink="/gather" [class.active]="activeTab() === 'gather'"

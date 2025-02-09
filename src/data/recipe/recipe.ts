@@ -21,6 +21,7 @@ export interface Recipe {
   name: string;
   imageUrl: string;
   strength: PotionStrength;
+  maxCraftable?: number;
 }
 
 export const brewingCost = {
@@ -36,3 +37,10 @@ export const brewingTime = {
   [PotionStrength.Infused]: '1 hour',
   [PotionStrength.Mythic]: '24 hours',
 } satisfies Record<PotionStrength, string>;
+
+export const potionStrengthOrder = {
+  [PotionStrength.Mild]: 0,
+  [PotionStrength.Potent]: 1,
+  [PotionStrength.Infused]: 2,
+  [PotionStrength.Mythic]: 3,
+} satisfies Record<PotionStrength, number>;

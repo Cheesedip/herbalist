@@ -19,7 +19,6 @@ export class DrinkableDirective {
   @HostListener('mouseenter')
   onMouseEnter() {
     console.log('mouse enter, yay');
-    const hostElementRect = this.el.nativeElement.getBoundingClientRect();
 
     this.preview = this.renderer.createElement('div');
     const image = this.renderer.createElement('img');

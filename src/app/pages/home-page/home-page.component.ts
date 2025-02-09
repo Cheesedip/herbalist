@@ -1,11 +1,18 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter } from 'rxjs';
 import { BackpackComponent } from '../../ui-components/backpack/backpack.component';
+import { DialogService } from '@ngneat/dialog';
+import { AboutModalComponent } from '../../about-modal/about-modal.component';
 
 @Component({
   selector: 'app-home-page',
-  imports: [RouterModule, BackpackComponent],
+  imports: [RouterModule, BackpackComponent, AboutModalComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
   standalone: true,
@@ -13,7 +20,9 @@ import { BackpackComponent } from '../../ui-components/backpack/backpack.compone
 })
 export class HomePageComponent {
   protected activeTab = signal('');
-  constructor(private router: Router) {
+  private router = inject(Router);
+  private dialog = inject(DialogService);
+  constructor() {
     this.router.events
       .pipe(filter((e) => e instanceof NavigationEnd))
       .subscribe(() => {
@@ -29,5 +38,9 @@ export class HomePageComponent {
         );
       });
     this.router.navigate(['gather']);
+  }
+
+  openAboutModal(): void {
+    this.dialog.open(AboutModalComponent);
   }
 }

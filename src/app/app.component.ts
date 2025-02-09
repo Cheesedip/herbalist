@@ -6,7 +6,6 @@ import { addRecipes } from '../data/recipe/recipe.repository';
 import { Recipe } from '../data/recipe/recipe';
 import { Plant } from '../data/plant/plant';
 import { recipes } from '../data/recipe/recipes';
-
 @Component({
   selector: 'app-root',
   imports: [RouterModule],

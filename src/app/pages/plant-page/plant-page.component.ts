@@ -19,6 +19,7 @@ import { RecipeComponent } from '../../display-recipes/recipe/recipe.component';
 import { ItemComponent } from '../../display-recipes/item/item.component';
 import { DialogService } from '@ngneat/dialog';
 import { RarityExplanationModalComponent } from '../../rarity-explanation-modal/rarity-explanation-modal.component';
+import { InventoryStore } from '../../../data/inventory/inventory.store';
 
 @Component({
   selector: 'app-plant-page',
@@ -34,6 +35,8 @@ import { RarityExplanationModalComponent } from '../../rarity-explanation-modal/
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PlantPageComponent {
+  private inventoryStore = inject(InventoryStore);
+
   protected plant: WritableSignal<Plant | undefined> = signal(undefined);
   protected recipes: WritableSignal<RecipeWithPlants[]> = signal([]);
 
@@ -59,9 +62,30 @@ export class PlantPageComponent {
     this.location.back();
   }
 
-  private dialog = inject(DialogService);
-
   protected openRarityExplanationModal(): void {
-    this.dialog.open(RarityExplanationModalComponent);
+    const dialog = inject(DialogService);
+    dialog.open(RarityExplanationModalComponent);
+  }
+
+  protected addPlant(): void {
+    const plant = this.plant();
+    if (plant) {
+      this.inventoryStore.addPlant({ ...plant, count: 1 });
+    }
+
+    if (!this.inventoryStore.isOpen()) {
+      this.inventoryStore.toggleInventory();
+    }
+  }
+
+  protected removePlant(): void {
+    const plant = this.plant();
+    if (plant) {
+      this.inventoryStore.removePlant({ ...plant, count: 1 });
+    }
+
+    if (!this.inventoryStore.isOpen()) {
+      this.inventoryStore.toggleInventory();
+    }
   }
 }
