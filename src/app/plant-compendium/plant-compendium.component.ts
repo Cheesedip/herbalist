@@ -1,10 +1,11 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { getPlants } from '../../data/plant/plant.repository';
 import { DisplayPlantsComponent } from '../display-plants/display-plants.component';
 import { SearchBarComponent } from '../ui-components/search-bar/search-bar.component';
 import { Biome } from '../../data/plant/biome';
 import { PlantRarity } from '../../data/plant/rarity';
 import { NgSelectComponent } from '@ng-select/ng-select';
+import { SortingService } from '../ui-components/sortable-header/sorting.service';
 
 @Component({
   selector: 'app-plant-compendium',
@@ -13,6 +14,7 @@ import { NgSelectComponent } from '@ng-select/ng-select';
   styleUrl: './plant-compendium.component.scss',
 })
 export class PlantCompendiumComponent {
+  private sortingService = inject(SortingService);
   private allPlants = getPlants();
   private searchTerm = signal('');
 
@@ -24,6 +26,7 @@ export class PlantCompendiumComponent {
 
   protected filteredPlants = computed(() => {
     const lower = this.searchTerm().toLowerCase();
+    const sortByFn = this.sortingService.sortByFn();
     return this.allPlants
       .filter(
         (plant) =>
@@ -34,7 +37,7 @@ export class PlantCompendiumComponent {
           (plant.name.toLowerCase().includes(lower) ||
             plant.appearance.toLowerCase().includes(lower))
       )
-      .sort((a, b) => a.name.localeCompare(b.name));
+      .sort(sortByFn);
   });
 
   protected setSearchTerm(term: string) {

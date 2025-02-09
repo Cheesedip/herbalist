@@ -49,6 +49,23 @@ export const InventoryStore = signalStore(
         }
       });
     },
+    removePlant(plant: PlantWithCount): void {
+      patchState(store, () => {
+        const matchingPlant = store.plants().find((p) => p.id === plant.id);
+        if (!matchingPlant) {
+          return { plants: store.plants() };
+        }
+
+        const updatedPlants = store
+          .plants()
+          .map((p) =>
+            p.id === plant.id ? { ...p, count: p.count - plant.count } : p
+          )
+          .filter((p) => p.count > 0);
+
+        return { plants: updatedPlants };
+      });
+    },
     craftPotion(recipe: Recipe): void {
       patchState(store, () => {
         const existingPotion = store.potions().find((p) => p.id === recipe.id);

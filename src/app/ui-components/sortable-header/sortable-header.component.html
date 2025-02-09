@@ -1,0 +1,7 @@
+<div class="header">
+  {{ header() }}
+</div>
+<div class="sort-buttons">
+  <img [src]="srcAscending()" (click)="toggleSort(CurrentSort.Ascending)" />
+  <img [src]="srcDescending()" (click)="toggleSort(CurrentSort.Descending)" />
+</div>

@@ -11,10 +11,11 @@ import { PlantRarityColor } from '../../data/plant/rarity';
 import { ItemComponent } from '../display-recipes/item/item.component';
 import { DialogService } from '@ngneat/dialog';
 import { RarityExplanationModalComponent } from '../rarity-explanation-modal/rarity-explanation-modal.component';
+import { SortableHeaderComponent } from '../ui-components/sortable-header/sortable-header.component';
 
 @Component({
   selector: 'app-display-plants',
-  imports: [CommonModule, RouterModule, ItemComponent],
+  imports: [CommonModule, RouterModule, ItemComponent, SortableHeaderComponent],
   templateUrl: './display-plants.component.html',
   styleUrl: './display-plants.component.scss',
   standalone: true,
@@ -26,6 +27,10 @@ export class DisplayPlantsComponent {
   public plants = input<Plant[]>();
   public counts = input<number[]>();
   protected PlantRarityColor = PlantRarityColor;
+
+  protected onSort(event: any): void {
+    console.log('Sorting by', event);
+  }
 
   protected openRarityExplanationModal(): void {
     this.dialog.open(RarityExplanationModalComponent);

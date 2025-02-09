@@ -68,24 +68,7 @@ h3 {
 }
 
 .craft-potion-btn {
-  background-color: $primary-color;
-  color: $white;
-  border: none;
-  border-radius: $border-radius;
-  padding: $padding-medium;
   margin-block: $padding-large;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-
-  &:hover {
-    background-color: $dark-hover;
-  }
-
-  &:disabled {
-    background-color: $light-gray;
-    cursor: not-allowed;
-  }
 }
 
 .progress-container {
