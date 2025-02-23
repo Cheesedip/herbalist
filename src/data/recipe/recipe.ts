@@ -1,10 +1,9 @@
-import { Ingredient, IngredientWithPlant } from './ingredient';
+import { Ingredient } from '../ingredient/ingredient';
 
-export type RecipeWithPlants = Omit<Recipe, 'ingredients'> & {
-  ingredients: IngredientWithPlant[];
+export type IdRequired<T> = Partial<T> & {
+  id: T extends { id: infer U } ? U : never;
+  count: T extends { count: infer U } ? U : never;
 };
-
-export type RecipeWithCount = Recipe & { count: number };
 
 export enum PotionStrength {
   Mild = 'Mild',
@@ -13,16 +12,21 @@ export enum PotionStrength {
   Mythic = 'Mythic',
 }
 
-export interface Recipe {
-  id: number;
-  ingredients: Ingredient[];
-  effect: string;
-  description?: string;
-  name: string;
-  imageUrl: string;
-  strength: PotionStrength;
-  maxCraftable?: number;
+export class Recipe {
+  public id!: number;
+  public ingredients: IdRequired<Ingredient>[] = [];
+  public effect!: string;
+  public description?: string;
+  public name!: string;
+  public imageUrl!: string;
+  public strength!: PotionStrength;
+  public count = 0;
+  public maxCraftable?: number;
 }
+
+export type PopulatedRecipe = Omit<Recipe, 'ingredients'>& {
+  ingredients: Ingredient[];
+};
 
 export const brewingCost = {
   [PotionStrength.Mild]: '2 silver',

@@ -14,15 +14,15 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { Biome } from '../../data/plant/biome';
-import { gather } from '../../data/plant/gather';
+import { Biome } from '../../data/ingredient/biome';
 import { CommonModule } from '@angular/common';
-import { DisplayPlantsComponent } from '../display-plants/display-plants.component';
+import { DisplayIngredientsComponent } from '../display-plants/display-ingredients.component';
 import { atLeastOneBiomeChecked } from '../../form-validators/at-least-one-biome.validator';
-import { PlantWithCount } from '../../data/plant/plant';
 import { BiomeSelectorComponent } from './biome-selector/biome-selector.component';
 import { InventoryStore } from '../../data/inventory/inventory.store';
 import { LOCAL_STORAGE_VERSION_KEY } from '../version';
+import { GatherService } from '../../data/ingredient/gather';
+import { Plant } from '../../data/ingredient/ingredient';
 
 const LOCAL_STORAGE_PAGE_KEY = 'gatherHerbsPageState';
 
@@ -31,7 +31,7 @@ const LOCAL_STORAGE_PAGE_KEY = 'gatherHerbsPageState';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    DisplayPlantsComponent,
+    DisplayIngredientsComponent,
     BiomeSelectorComponent,
   ],
   templateUrl: './gather-herbs.component.html',
@@ -41,11 +41,12 @@ const LOCAL_STORAGE_PAGE_KEY = 'gatherHerbsPageState';
 })
 export class GatherHerbsComponent {
   private inventoryStore = inject(InventoryStore);
+  private gatherService = inject(GatherService);
+
   protected Biome = Biome;
   protected biomes = Object.values(Biome);
 
-  protected gatheredPlants: WritableSignal<PlantWithCount[]> = signal([]);
-  protected counts: WritableSignal<number[]> = signal([]);
+  protected gatheredPlants: WritableSignal<Plant[]> = signal([]);
 
   protected herbsGathered = computed(() => this.gatheredPlants().length);
   protected plantsAdded = signal(false);
@@ -97,16 +98,17 @@ export class GatherHerbsComponent {
     if (!form.roll) {
       return;
     }
-    const gatherResult = gather(
+    const gatherResult = this.gatherService.gather(
       form.roll,
       this.getBiomeListFromForm(form.biomes)
     );
+    console.log({ gatherResult });
     this.gatheredPlants.set(gatherResult);
   }
 
   protected addPlantsToInventory() {
     this.gatheredPlants().forEach((plant) => {
-      this.inventoryStore.addPlant(plant);
+      this.inventoryStore.addIngredient(plant);
     });
 
     this.plantsAdded.set(true);
@@ -127,7 +129,6 @@ export class GatherHerbsComponent {
       },
     });
     this.gatheredPlants.set([]);
-    this.counts.set([]);
     this.plantsAdded.set(false);
   }
 
@@ -141,10 +142,6 @@ export class GatherHerbsComponent {
       JSON.stringify(this.gatheredPlants())
     );
     localStorage.setItem(
-      `${LOCAL_STORAGE_VERSION_KEY}-${LOCAL_STORAGE_PAGE_KEY}-counts`,
-      JSON.stringify(this.counts())
-    );
-    localStorage.setItem(
       `${LOCAL_STORAGE_VERSION_KEY}-${LOCAL_STORAGE_PAGE_KEY}-gatherHerbsForm`,
       JSON.stringify(this.form.getRawValue())
     );
@@ -156,13 +153,6 @@ export class GatherHerbsComponent {
     );
     if (storedPlants) {
       this.gatheredPlants.set(JSON.parse(storedPlants));
-    }
-
-    const storedCounts = localStorage.getItem(
-      `${LOCAL_STORAGE_VERSION_KEY}-${LOCAL_STORAGE_PAGE_KEY}-counts`
-    );
-    if (storedCounts) {
-      this.counts.set(JSON.parse(storedCounts));
     }
 
     const storedForm = localStorage.getItem(

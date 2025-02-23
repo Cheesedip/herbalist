@@ -17,4 +17,6 @@
 
   <app-search-bar (search)="setSearchTerm($event)"></app-search-bar>
 </div>
-<app-display-plants [plants]="filteredPlants()"></app-display-plants>
+<app-display-ingredients
+  [ingredients]="filteredIngredients()"
+></app-display-ingredients>

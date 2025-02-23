@@ -45,9 +45,8 @@
 </form>
 
 <div class="plant-table-container">
-  <app-display-plants
+  <app-display-ingredients
     *ngIf="gatheredPlants().length"
-    [plants]="gatheredPlants()"
-    [counts]="counts()"
-  ></app-display-plants>
+    [ingredients]="gatheredPlants()"
+  ></app-display-ingredients>
 </div>

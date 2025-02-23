@@ -7,63 +7,71 @@ import {
   withState,
 } from '@ngrx/signals';
 import { computed, effect } from '@angular/core';
-import { Recipe, RecipeWithCount } from '../recipe/recipe';
-import { PlantWithCount } from '../plant/plant';
+import { Recipe } from '../recipe/recipe';
 import { LOCAL_STORAGE_VERSION_KEY } from '../../app/version';
+import { Ingredient } from '../ingredient/ingredient';
 
 const LOCAL_STORAGE_PAGE_KEY = 'inventoryStore';
 
 type InventoryState = {
   isOpen: boolean;
-  potions: RecipeWithCount[];
-  plants: PlantWithCount[];
+  potions: Recipe[];
+  ingredients: Ingredient[];
 };
 
 const initialState: InventoryState = {
   isOpen: false,
   potions: [],
-  plants: [],
+  ingredients: [],
 };
 
 export const InventoryStore = signalStore(
   { providedIn: 'root' },
   withState(loadStateFromLocalStorage()),
-  withComputed(({ potions, plants }) => ({
+  withComputed(({ potions, ingredients }) => ({
     potionCount: computed(() => potions().length),
-    plantCount: computed(() => plants().length),
+    ingredientCount: computed(() => ingredients().length),
   })),
   withMethods((store) => ({
-    addPlant(plant: PlantWithCount): void {
+    addIngredient(ingredient: Ingredient): void {
       patchState(store, () => {
-        const existingPlant = store.plants().find((p) => p.id === plant.id);
-        if (existingPlant) {
+        const inventoryIngredient = store
+          .ingredients()
+          .find((p) => p.id === ingredient.id);
+        if (inventoryIngredient) {
           return {
-            plants: store
-              .plants()
-              .map((p) =>
-                p.id === plant.id ? { ...p, count: p.count + plant.count } : p
+            ingredients: store
+              .ingredients()
+              .map((i) =>
+                i.id === ingredient.id
+                  ? { ...i, count: i.count + ingredient.count }
+                  : i
               ),
           };
         } else {
-          return { plants: [...store.plants(), plant] };
+          return { ingredients: [...store.ingredients(), ingredient] };
         }
       });
     },
-    removePlant(plant: PlantWithCount): void {
+    removeIngredient(ingredient: Ingredient): void {
       patchState(store, () => {
-        const matchingPlant = store.plants().find((p) => p.id === plant.id);
-        if (!matchingPlant) {
-          return { plants: store.plants() };
+        const inventoryIngredient = store
+          .ingredients()
+          .find((p) => p.id === ingredient.id);
+        if (!inventoryIngredient) {
+          return { ingredients: store.ingredients() };
         }
 
-        const updatedPlants = store
-          .plants()
-          .map((p) =>
-            p.id === plant.id ? { ...p, count: p.count - plant.count } : p
+        const updatedIngredients = store
+          .ingredients()
+          .map((i) =>
+            i.id === ingredient.id
+              ? { ...i, count: i.count - ingredient.count }
+              : i
           )
           .filter((p) => p.count > 0);
 
-        return { plants: updatedPlants };
+        return { ingredients: updatedIngredients };
       });
     },
     craftPotion(recipe: Recipe): void {
@@ -81,30 +89,31 @@ export const InventoryStore = signalStore(
           updatedPotions = [...store.potions(), { ...recipe, count: 1 }];
         }
 
-        // Remove ingredients from plants
-        const updatedPlants = store
-          .plants()
-          .map((plant) => {
-            const ingredient = recipe.ingredients.find(
-              (ingredient) => ingredient.plantId === plant.id
+        // Remove ingredients from inventory
+        const updatedIngredients = store
+          .ingredients()
+          .map((ingredient) => {
+            const recipeIngredient = recipe.ingredients.find(
+              (ingredient) => ingredient.id === ingredient.id
             );
 
-            if (!ingredient) {
-              return plant;
+            if (!recipeIngredient) {
+              return ingredient;
             }
 
-            const updatedCount = plant.count - ingredient.count;
+            const updatedCount =
+              ingredient.count - (recipeIngredient.count ?? 0);
             if (updatedCount <= 0) {
               return null;
             }
 
-            return { ...plant, count: updatedCount };
+            return { ...ingredient, count: updatedCount };
           })
-          .filter((plant) => plant !== null);
+          .filter((ingredient) => ingredient !== null);
 
         return {
           potions: updatedPotions,
-          plants: updatedPlants,
+          ingredients: updatedIngredients,
         };
       });
     },
@@ -127,11 +136,11 @@ export const InventoryStore = signalStore(
       patchState(store, () => ({ isOpen: !store.isOpen() }));
     },
     canCraft(recipe: Recipe): boolean {
-      return recipe.ingredients.every((ingredient) => {
-        const plant = store
-          .plants()
-          .find((plant) => plant.id === ingredient.plantId);
-        return plant && plant.count >= ingredient.count;
+      return recipe.ingredients.every((recipeIngredient) => {
+        const ingredient = store
+          .ingredients()
+          .find((ingredient) => ingredient.id === recipeIngredient.id);
+        return ingredient && ingredient.count >= (recipeIngredient.count ?? 0);
       });
     },
     canDrink(recipe: Recipe): boolean {
@@ -149,7 +158,7 @@ export const InventoryStore = signalStore(
       effect(() => {
         const state = {
           potions: store.potions(),
-          plants: store.plants(),
+          ingredients: store.ingredients(),
           isOpen: store.isOpen(),
         };
         saveStateToLocalStorage(state);

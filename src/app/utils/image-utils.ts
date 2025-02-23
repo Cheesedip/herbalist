@@ -1,5 +1,5 @@
-import { Biome } from '../../data/plant/biome';
-import { PlantRarity } from '../../data/plant/rarity';
+import { Biome } from '../../data/ingredient/biome';
+import { PlantRarity } from '../../data/ingredient/rarity';
 
 export function getRarityImageUrl(rarity: PlantRarity): string {
   return `/assets/rarity/${rarity}.webp`;

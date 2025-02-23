@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ItemComponent } from '../display-recipes/item/item.component';
 import { CommonModule } from '@angular/common';
-import { PlantRarity } from '../../data/plant/rarity';
+import { PlantRarity } from '../../data/ingredient/rarity';
 import { DialogRef } from '@ngneat/dialog';
 
 @Component({
@@ -21,7 +21,10 @@ export class RarityExplanationModalComponent {
     this.dialogRef.close();
   }
 
-  protected rarityExplanation: Record<PlantRarity, { description: string; chance: string }> = {
+  protected rarityExplanation: Record<
+    PlantRarity,
+    { description: string; chance: string }
+  > = {
     [PlantRarity.COMMON]: {
       description: 'Common plants are easy to find, you have a',
       chance: '20%',

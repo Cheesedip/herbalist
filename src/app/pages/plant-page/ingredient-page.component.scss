@@ -8,7 +8,7 @@
   margin: 0;
 }
 
-.plant-image {
+.ingredient-image {
   width: 150px;
   height: auto;
   padding-block: $padding-small;
@@ -30,7 +30,7 @@
   color: #4b3f3c; /* Dark brown ink color */
 }
 
-.plant-grid {
+.ingredient-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
@@ -59,6 +59,6 @@ h3 {
   font-size: 1.2rem;
 }
 
-.plant-btn {
+.ingredient-btn {
   margin-block: $padding-large;
 }

@@ -1,18 +1,15 @@
 import { Component, inject, signal, WritableSignal } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import {
   brewingCost,
   brewingTime,
+  PopulatedRecipe,
   Recipe,
-  RecipeWithPlants,
 } from '../../../data/recipe/recipe';
-import {
-  addPlantsToRecipes,
-  getRecipeById,
-} from '../../../data/recipe/recipe.repository';
 import { CommonModule } from '@angular/common';
 import { ItemComponent } from '../../display-recipes/item/item.component';
 import { InventoryStore } from '../../../data/inventory/inventory.store';
+import { RecipesStore } from '../../../data/recipe/recipes.store';
 
 @Component({
   selector: 'app-recipe-page',
@@ -25,9 +22,10 @@ export class RecipePageComponent {
   private DRINK_POTION_TIME_MS = 1000;
 
   protected inventoryStore = inject(InventoryStore);
+  private recipesStore = inject(RecipesStore);
+  private router = inject(Router);
 
-  protected recipe: WritableSignal<RecipeWithPlants | undefined> =
-    signal(undefined);
+  protected recipe: WritableSignal<PopulatedRecipe | undefined> = signal(undefined);
   protected brewingCost = brewingCost;
   protected brewingTime = brewingTime;
 
@@ -42,14 +40,15 @@ export class RecipePageComponent {
   constructor(private route: ActivatedRoute) {
     this.route.paramMap.subscribe((params) => {
       const recipeId = Number(params.get('recipeId'));
-      const recipe = getRecipeById(recipeId);
+      const recipe = this.recipesStore.getRecipeByIdWithIngredients(recipeId);
 
       if (!recipe) {
+        this.router.navigate(['/notfound']);
         console.error(`Recipe with id ${recipeId} not found`);
         return;
       }
 
-      this.recipe.set(addPlantsToRecipes([recipe])[0]);
+      this.recipe.set(recipe);
     });
   }
 

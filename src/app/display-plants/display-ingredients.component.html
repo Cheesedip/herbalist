@@ -1,0 +1,53 @@
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th><app-sortable-header header="Name"></app-sortable-header></th>
+      <th><app-sortable-header header="Appearance"></app-sortable-header></th>
+      <th><app-sortable-header header="Rarity"></app-sortable-header></th>
+      <th><app-sortable-header header="Biome"></app-sortable-header></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ingredient of sortedIngredients(); let i = index">
+      <td>
+        <app-item
+          *ngIf="ingredient.count !== 0; else showIngredientWithCount"
+          [name]="ingredient.name"
+          [id]="ingredient.id"
+          [imageUrl]="ingredient.imageUrl"
+          [count]="ingredient.count"
+          [navLink]="'/ingredients/' + ingredient.id"
+        ></app-item>
+        <ng-template #showIngredientWithCount>
+          <img
+            class="ingredient-image"
+            loading="lazy"
+            [src]="ingredient.imageUrl"
+            alt="{{ ingredient.name }}"
+            onerror="this.src='/assets/plants/todo.webp';"
+            [routerLink]="['/ingredients', ingredient.id]"
+          />
+        </ng-template>
+      </td>
+      <td>{{ ingredient.name }}</td>
+      <td>{{ ingredient.appearance }}</td>
+      <td>
+        <img
+          *ngIf="isPlant(ingredient)"
+          class="rarity-image"
+          (click)="openRarityExplanationModal()"
+          [src]="'/assets/rarities/' + ingredient.rarity + '.webp'"
+        />
+      </td>
+      <td>
+        <app-item
+          *ngIf="isPlant(ingredient)"
+          [name]="ingredient.biome"
+          [imageUrl]="'assets/biomes/' + ingredient.biome + '.webp'"
+          [showPointerOnHover]="false"
+        ></app-item>
+      </td>
+    </tr>
+  </tbody>
+</table>
