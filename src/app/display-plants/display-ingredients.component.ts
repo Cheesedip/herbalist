@@ -6,9 +6,9 @@ import {
   inject,
   input,
 } from '@angular/core';
-import { Plant } from '../../data/plant/plant';
+import { AnyIngredient, Ingredient, isPlant, Plant } from '../../data/ingredient/ingredient';
 import { RouterModule } from '@angular/router';
-import { PlantRarityColor } from '../../data/plant/rarity';
+import { PlantRarityColor } from '../../data/ingredient/rarity';
 import { ItemComponent } from '../display-recipes/item/item.component';
 import { DialogService } from '@ngneat/dialog';
 import { RarityExplanationModalComponent } from '../rarity-explanation-modal/rarity-explanation-modal.component';
@@ -20,10 +20,10 @@ import {
 } from '../ui-components/sortable-header/sorting/plants-sort-functions';
 
 @Component({
-  selector: 'app-display-plants',
+  selector: 'app-display-ingredients',
   imports: [CommonModule, RouterModule, ItemComponent, SortableHeaderComponent],
-  templateUrl: './display-plants.component.html',
-  styleUrl: './display-plants.component.scss',
+  templateUrl: './display-ingredients.component.html',
+  styleUrl: './display-ingredients.component.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
@@ -34,17 +34,17 @@ import {
     },
   ],
 })
-export class DisplayPlantsComponent {
+export class DisplayIngredientsComponent {
   private dialog = inject(DialogService);
   private sortingService = inject(SortingService);
+  protected isPlant = isPlant;
 
-  public plants = input.required<Plant[]>();
-  public counts = input<number[]>();
+  public ingredients = input.required<AnyIngredient[]>();
 
-  protected sortedPlants = computed(() => {
+  protected sortedIngredients = computed(() => {
     const sortByFn = this.sortingService.sortByFn();
-    const plants = this.plants();
-    return plants.sort(sortByFn);
+    const ingredients = this.ingredients();
+    return ingredients.sort(sortByFn);
   });
 
   protected PlantRarityColor = PlantRarityColor;

@@ -1,0 +1,35 @@
+<div class="filter-pane">
+  <div class="filter-items">
+    <div class="filter-item">
+      <label>Plant biome:</label>
+      <ng-select
+        [items]="biomes"
+        multiple="true"
+        (change)="onBiomeChange($event)"
+        closeOnSelect="false"
+      ></ng-select>
+    </div>
+    <div class="filter-item">
+      <label>Plant rarity:</label>
+      <ng-select
+        [items]="plantRarities"
+        multiple="true"
+        (change)="onRarityChange($event)"
+        closeOnSelect="false"
+      ></ng-select>
+    </div>
+    <div class="filter-item">
+      <label>Ingredient Type:</label>
+      <ng-select
+        [items]="ingredientTypes"
+        multiple="true"
+        (change)="onTypeChange($event)"
+        closeOnSelect="false"
+      ></ng-select>
+    </div>
+  </div>
+  <app-search-bar (search)="setSearchTerm($event)"></app-search-bar>
+</div>
+<app-display-ingredients
+  [ingredients]="filteredIngredients()"
+></app-display-ingredients>

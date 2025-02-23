@@ -30,8 +30,8 @@ export class HomePageComponent {
         this.activeTab.set(
           path.includes('gather')
             ? 'gather'
-            : path.includes('plants')
-            ? 'plants'
+            : path.includes('ingredients')
+            ? 'ingredients'
             : path.includes('recipes')
             ? 'recipes'
             : ''

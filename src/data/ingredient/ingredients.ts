@@ -1,14 +1,22 @@
 import { Biome } from './biome';
-import { Plant } from './plant';
+import {
+  AnyIngredient,
+  BasicIngredient,
+  IngredientType,
+  Plant,
+} from './ingredient';
 import { PlantRarity } from './rarity';
 
-export const plants: Omit<Plant, 'imageUrl'>[] = [
+export const ingredients: AnyIngredient[] = [
   {
     id: 0,
     name: 'Sunspire Daisy',
     appearance: 'Tall daisy with golden petals shimmering in sunlight.',
     rarity: PlantRarity.COMMON,
     biome: Biome.MEADOW,
+    imageUrl: 'assets/plants/plant_0.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 1,
@@ -16,6 +24,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Small blue clover-like plant glowing faintly at dusk.',
     rarity: PlantRarity.COMMON,
     biome: Biome.MEADOW,
+    imageUrl: 'assets/plants/plant_1.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 2,
@@ -23,6 +34,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Yellow and white orchid with a honey-like scent.',
     rarity: PlantRarity.COMMON,
     biome: Biome.MEADOW,
+    imageUrl: 'assets/plants/plant_2.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 3,
@@ -30,6 +44,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Bright red with black and white stripes at the base.',
     rarity: PlantRarity.UNCOMMON,
     biome: Biome.MEADOW,
+    imageUrl: 'assets/plants/plant_3.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 4,
@@ -37,6 +54,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Purple flower with frost-tipped petals.',
     rarity: PlantRarity.UNCOMMON,
     biome: Biome.MOUNTAINS,
+    imageUrl: 'assets/plants/plant_4.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 5,
@@ -44,6 +64,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Small orange flower that releases sticky sap at night.',
     rarity: PlantRarity.COMMON,
     biome: Biome.MEADOW,
+    imageUrl: 'assets/plants/plant_5.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 6,
@@ -51,6 +74,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Pale green leaves with silver veins.',
     rarity: PlantRarity.RARE,
     biome: Biome.MEADOW,
+    imageUrl: 'assets/plants/plant_6.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 7,
@@ -58,6 +84,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Creeping vine with glowing green flowers.',
     rarity: PlantRarity.COMMON,
     biome: Biome.MEADOW,
+    imageUrl: 'assets/plants/plant_7.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 8,
@@ -65,6 +94,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Tiny white flowers shaped like stars.',
     rarity: PlantRarity.COMMON,
     biome: Biome.MEADOW,
+    imageUrl: 'assets/plants/plant_8.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 9,
@@ -72,6 +104,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Lavender flower with wispy petals.',
     rarity: PlantRarity.RARE,
     biome: Biome.MEADOW,
+    imageUrl: 'assets/plants/plant_9.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 10,
@@ -79,6 +114,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Small, silver bell-shaped flower blooming under moonlight.',
     rarity: PlantRarity.RARE,
     biome: Biome.FOREST,
+    imageUrl: 'assets/plants/plant_10.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 11,
@@ -86,6 +124,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Bright red flower growing among thorny bushes.',
     rarity: PlantRarity.COMMON,
     biome: Biome.FOREST,
+    imageUrl: 'assets/plants/plant_11.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 12,
@@ -93,6 +134,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Pale blue with petals vibrating in the wind.',
     rarity: PlantRarity.UNCOMMON,
     biome: Biome.FOREST,
+    imageUrl: 'assets/plants/plant_12.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 13,
@@ -100,6 +144,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Rose-like flower with moss-covered stems.',
     rarity: PlantRarity.COMMON,
     biome: Biome.FOREST,
+    imageUrl: 'assets/plants/plant_13.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 14,
@@ -107,6 +154,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Glowing fern-like flower with faint blue luminescence.',
     rarity: PlantRarity.UNCOMMON,
     biome: Biome.FOREST,
+    imageUrl: 'assets/plants/plant_14.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 15,
@@ -114,6 +164,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Gold and orange blossoms sparkling faintly in darkness.',
     rarity: PlantRarity.UNCOMMON,
     biome: Biome.FOREST,
+    imageUrl: 'assets/plants/plant_15.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 16,
@@ -121,6 +174,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'White petals with black streaks.',
     rarity: PlantRarity.COMMON,
     biome: Biome.FOREST,
+    imageUrl: 'assets/plants/plant_16.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 17,
@@ -128,6 +184,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Green flower with long, vine-like tendrils.',
     rarity: PlantRarity.COMMON,
     biome: Biome.FOREST,
+    imageUrl: 'assets/plants/plant_17.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 18,
@@ -135,6 +194,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Tall stalk with bright green, flame-like flowers.',
     rarity: PlantRarity.COMMON,
     biome: Biome.FOREST,
+    imageUrl: 'assets/plants/plant_18.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 19,
@@ -142,6 +204,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Small, bioluminescent blue mushroom.',
     rarity: PlantRarity.RARE,
     biome: Biome.CAVE,
+    imageUrl: 'assets/plants/plant_19.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 20,
@@ -149,6 +214,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Icy-blue reeds with frozen tips.',
     rarity: PlantRarity.UNCOMMON,
     biome: Biome.CAVE,
+    imageUrl: 'assets/plants/plant_20.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 21,
@@ -156,6 +224,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Black rose with silver edges.',
     rarity: PlantRarity.RARE,
     biome: Biome.CAVE,
+    imageUrl: 'assets/plants/plant_21.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 22,
@@ -163,6 +234,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Small, gray flower with thorny stems as hard as iron.',
     rarity: PlantRarity.UNCOMMON,
     biome: Biome.CAVE,
+    imageUrl: 'assets/plants/plant_22.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 23,
@@ -170,6 +244,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Charcoal-gray petals with ashy dust.',
     rarity: PlantRarity.COMMON,
     biome: Biome.CAVE,
+    imageUrl: 'assets/plants/plant_23.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 24,
@@ -177,6 +254,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Dark purple petals with a faintly sweet aroma.',
     rarity: PlantRarity.COMMON,
     biome: Biome.CAVE,
+    imageUrl: 'assets/plants/plant_24.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 25,
@@ -184,6 +264,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Translucent flower resembling icy crystals.',
     rarity: PlantRarity.UNCOMMON,
     biome: Biome.CAVE,
+    imageUrl: 'assets/plants/plant_25.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 26,
@@ -191,6 +274,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Deep black fern with faint purple highlights.',
     rarity: PlantRarity.COMMON,
     biome: Biome.CAVE,
+    imageUrl: 'assets/plants/plant_26.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 27,
@@ -198,6 +284,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Yellow flower releasing spores when disturbed.',
     rarity: PlantRarity.EPIC,
     biome: Biome.CAVE,
+    imageUrl: 'assets/plants/plant_27.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 28,
@@ -205,6 +294,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Thick, dark red vines with sap resembling blood.',
     rarity: PlantRarity.COMMON,
     biome: Biome.CAVE,
+    imageUrl: 'assets/plants/plant_28.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 29,
@@ -212,6 +304,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Long, silver-tipped blades that shimmer in the wind.',
     rarity: PlantRarity.COMMON,
     biome: Biome.HILLS,
+    imageUrl: 'assets/plants/plant_29.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 30,
@@ -220,6 +315,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
       'Bright orange flower with spiked petals, growing in rocky crevices.',
     rarity: PlantRarity.COMMON,
     biome: Biome.HILLS,
+    imageUrl: 'assets/plants/plant_30.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 31,
@@ -227,6 +325,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Thick, stone-colored vines clinging to boulders.',
     rarity: PlantRarity.COMMON,
     biome: Biome.HILLS,
+    imageUrl: 'assets/plants/plant_31.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 32,
@@ -235,6 +336,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
       'Dark green moss with a faint metallic sheen, covering large rocks.',
     rarity: PlantRarity.COMMON,
     biome: Biome.HILLS,
+    imageUrl: 'assets/plants/plant_32.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 33,
@@ -242,6 +346,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Pale purple thistles with sharp, bluish-green leaves.',
     rarity: PlantRarity.UNCOMMON,
     biome: Biome.HILLS,
+    imageUrl: 'assets/plants/plant_33.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 34,
@@ -250,6 +357,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
       'A short fern with vibrant golden fronds that glimmer in sunlight.',
     rarity: PlantRarity.UNCOMMON,
     biome: Biome.HILLS,
+    imageUrl: 'assets/plants/plant_34.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 35,
@@ -257,6 +367,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Small, twisted saplings with pale, whispering leaves.',
     rarity: PlantRarity.UNCOMMON,
     biome: Biome.HILLS,
+    imageUrl: 'assets/plants/plant_35.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 36,
@@ -265,6 +378,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
       'Sturdy shrubs with bark as hard as iron and dark green foliage.',
     rarity: PlantRarity.RARE,
     biome: Biome.HILLS,
+    imageUrl: 'assets/plants/plant_36.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 37,
@@ -273,6 +389,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
       'White, fluffy flowers resembling small clouds atop slender stalks.',
     rarity: PlantRarity.RARE,
     biome: Biome.HILLS,
+    imageUrl: 'assets/plants/plant_37.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 38,
@@ -281,6 +400,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
       'Red-tinged leaves that seem to flicker like flames in the wind.',
     rarity: PlantRarity.EPIC,
     biome: Biome.HILLS,
+    imageUrl: 'assets/plants/plant_38.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 39,
@@ -288,6 +410,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'A small, pale blue flower with icy, translucent petals.',
     rarity: PlantRarity.COMMON,
     biome: Biome.MOUNTAINS,
+    imageUrl: 'assets/plants/plant_39.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 40,
@@ -296,6 +421,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
       'A hardy conifer with dark gray bark and short, needle-like leaves.',
     rarity: PlantRarity.COMMON,
     biome: Biome.MOUNTAINS,
+    imageUrl: 'assets/plants/plant_40.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 41,
@@ -304,6 +432,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
       'Thorny vines with a rugged, brown texture, clinging to cliff faces.',
     rarity: PlantRarity.COMMON,
     biome: Biome.MOUNTAINS,
+    imageUrl: 'assets/plants/plant_41.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 42,
@@ -312,6 +443,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
       'Silver-hued ferns with frost-covered fronds, thriving near icy crevices.',
     rarity: PlantRarity.COMMON,
     biome: Biome.MOUNTAINS,
+    imageUrl: 'assets/plants/plant_42.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 43,
@@ -320,6 +454,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
       'Bright red orchid with golden veins, growing near volcanic vents.',
     rarity: PlantRarity.EPIC,
     biome: Biome.MOUNTAINS,
+    imageUrl: 'assets/plants/plant_43.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 44,
@@ -327,6 +464,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
     appearance: 'Tiny, gnarled shrubs with roots that burrow into solid rock.',
     rarity: PlantRarity.UNCOMMON,
     biome: Biome.MOUNTAINS,
+    imageUrl: 'assets/plants/plant_44.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 45,
@@ -335,6 +475,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
       'Soft, white moss that looks like patches of cloud on high cliffs.',
     rarity: PlantRarity.UNCOMMON,
     biome: Biome.MOUNTAINS,
+    imageUrl: 'assets/plants/plant_45.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 46,
@@ -343,6 +486,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
       'Large, jagged leaves that vibrate in strong winds, producing a faint hum.',
     rarity: PlantRarity.RARE,
     biome: Biome.MOUNTAINS,
+    imageUrl: 'assets/plants/plant_46.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 47,
@@ -351,6 +497,9 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
       'A crystalline flower that sparkles in sunlight, often found in mineral-rich areas.',
     rarity: PlantRarity.RARE,
     biome: Biome.MOUNTAINS,
+    imageUrl: 'assets/plants/plant_47.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
   },
   {
     id: 48,
@@ -359,5 +508,26 @@ export const plants: Omit<Plant, 'imageUrl'>[] = [
       'A low-growing herb with silvery leaves, often found in sheltered mountain crevices.',
     rarity: PlantRarity.UNCOMMON,
     biome: Biome.MOUNTAINS,
+    imageUrl: 'assets/plants/plant_48.webp',
+    ingredientType: IngredientType.Plant,
+    count: 0,
+  },
+  {
+    id: 49,
+    name: 'Adult Dragon Scale',
+    appearance:
+      'A thick, rugged plate of armor-like keratin, often shimmering with iridescent hues or deep, weathered tones and imbued with elemental resilience.',
+    imageUrl: 'assets/basic-ingredients/basic_ingredient_49.webp',
+    ingredientType: IngredientType.Other,
+    count: 0,
+  },
+  {
+    id: 50,
+    name: 'Tongue of a Giant Clam',
+    appearance:
+      'A thick, fleshy strip with a rippled texture, colored in deep purples and blues, resembling the inner lining of a giant clam. It has a faintly salty scent and a slightly rubbery feel when touched.',
+    imageUrl: 'assets/basic-ingredients/basic_ingredient_49.webp',
+    ingredientType: IngredientType.Other,
+    count: 0,
   },
 ];

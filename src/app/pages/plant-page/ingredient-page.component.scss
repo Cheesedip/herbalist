@@ -4,11 +4,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   margin: 0;
 }
 
-.plant-image {
+.ingredient-image {
   width: 150px;
   height: auto;
   padding-block: $padding-small;
@@ -30,7 +29,7 @@
   color: #4b3f3c; /* Dark brown ink color */
 }
 
-.plant-grid {
+.ingredient-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
@@ -53,12 +52,18 @@
   }
 }
 
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
 h3 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
 }
 
-.plant-btn {
+.ingredient-btn {
   margin-block: $padding-large;
 }

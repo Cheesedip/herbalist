@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { PlantPageComponent } from './pages/plant-page/plant-page.component';
+import { IngredientPageComponent } from './pages/plant-page/ingredient-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SignUpPageComponent } from './pages/login/sign-up-page.component';
 import { LoginPageComponent } from './pages/login/login-page.component';
 import { GatherHerbsComponent } from './gather-herbs/gather-herbs.component';
-import { PlantCompendiumComponent } from './plant-compendium/plant-compendium.component';
+import { IngredientCompendiumComponent } from './plant-compendium/ingredient-compendium.component';
 import { ConcoctionCatalogComponent } from './concoction-catalog/concoction-catalog.component';
 import { RecipePageComponent } from './pages/recipe-page/recipe-page.component';
 
@@ -15,12 +15,12 @@ export const routes: Routes = [
     component: HomePageComponent,
     children: [
       {
-        path: 'plants/:plantId',
-        component: PlantPageComponent,
+        path: 'ingredients/:ingredientId',
+        component: IngredientPageComponent,
       },
       {
-        path: 'plants',
-        component: PlantCompendiumComponent,
+        path: 'ingredients',
+        component: IngredientCompendiumComponent,
       },
       {
         path: 'gather',

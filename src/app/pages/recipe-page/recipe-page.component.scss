@@ -4,7 +4,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   margin: 0;
 }
 
@@ -67,19 +66,24 @@ h3 {
   font-size: 1.2rem;
 }
 
-.craft-potion-btn {
-  margin-block: $padding-large;
-}
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  .craft-potion-btn {
+    margin-block: $padding-large;
+  }
 
-.progress-container {
-  width: 100%;
-  background-color: $white;
-  border-radius: 5px;
-  overflow: hidden;
-}
+  .progress-container {
+    width: 100%;
+    background-color: $white;
+    border-radius: 5px;
+    overflow: hidden;
+  }
 
-.progress-bar {
-  height: 20px;
-  background-color: $secondary-color;
-  width: 0;
+  .progress-bar {
+    height: 20px;
+    background-color: $secondary-color;
+    width: 0;
+  }
 }

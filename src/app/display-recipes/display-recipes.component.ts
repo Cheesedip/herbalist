@@ -6,7 +6,6 @@ import {
   input,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RecipeWithPlants } from '../../data/recipe/recipe';
 import { RouterModule } from '@angular/router';
 import { ItemComponent } from './item/item.component';
 import { InventoryStore } from '../../data/inventory/inventory.store';
@@ -16,6 +15,7 @@ import {
   RecipeSortByOptions,
   recipesSortFunctions,
 } from '../ui-components/sortable-header/sorting/recipe-sort-functions';
+import { PopulatedRecipe } from '../../data/recipe/recipe';
 
 @Component({
   selector: 'app-display-recipes',
@@ -34,24 +34,29 @@ import {
 })
 export class DisplayRecipesComponent {
   protected inventoryStore = inject(InventoryStore);
-  public recipesWithPlants = input.required<RecipeWithPlants[]>();
+  public recipes = input.required<PopulatedRecipe[]>();
   private sortingService = inject(SortingService);
 
-  protected recipes = computed(() => {
-    const inventory = this.inventoryStore.plants();
-    const recipes = this.recipesWithPlants();
+  protected sortedRecipes = computed(() => {
+    const inventoryIngredients = this.inventoryStore.ingredients();
+    const recipes = this.recipes();
     const sortByFn = this.sortingService.sortByFn();
     return recipes
       .map((recipe) => {
         const maxCraftable = Math.min(
-          ...recipe.ingredients.map((ingredient) => {
-            const plant = inventory.find(
-              (plant) => plant.id === ingredient.plant.id
+          ...recipe.ingredients.map((recipeIngredient) => {
+            const ingredient = inventoryIngredients.find(
+              (ingredient) => ingredient.id === recipeIngredient.id
             );
-            return plant ? Math.floor(plant.count / ingredient.count) : 0;
+
+            if (!recipeIngredient.count || !ingredient) {
+              return 0;
+            }
+            return ingredient
+              ? Math.floor(ingredient.count / recipeIngredient.count)
+              : 0;
           })
         );
-
         return {
           ...recipe,
           maxCraftable,

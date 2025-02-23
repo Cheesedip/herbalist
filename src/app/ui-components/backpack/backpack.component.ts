@@ -25,12 +25,12 @@ export class BackpackComponent {
     this.inventoryStore.toggleInventory();
   }
 
-  protected sortedPlants = computed(() => {
-    const plants = this.inventoryStore.plants();
-    if (!plants) {
+  protected sortedIngredients = computed(() => {
+    const ingredients = this.inventoryStore.ingredients();
+    if (!ingredients) {
       return [];
     }
-    return [...plants].sort((a, b) => a.name.localeCompare(b.name));
+    return [...ingredients].sort((a, b) => a.name.localeCompare(b.name));
   });
 
   protected sortedPotions = computed(() => {
