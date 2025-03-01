@@ -36,7 +36,7 @@ export class GatherService {
   }
 
   /**
-   * Generates an array of length roll with values between 0-100
+   * Generates an array of length 'roll' with values between 0-100
    * based on the PlantRarity enum, each entry in the array will possibily
    * result in a plant of a certain rarity (The lower the random value the
    * higher quality the plant)
@@ -79,8 +79,9 @@ export class GatherService {
     for (const rarityKey of Object.keys(gatherRarity)) {
       const rarity = rarityKey as PlantRarity;
       const count = gatherRarity[rarity];
-      const plantsMatchingRarity = plantsInBiomes.filter(
-        (plant) => plant.rarity === rarity
+      const plantsMatchingRarity = this.getPlantsMatchingRarity(
+        rarity,
+        plantsInBiomes
       );
       for (let i = 0; i < count; i++) {
         const randomIndex = Math.floor(
@@ -92,6 +93,44 @@ export class GatherService {
     }
 
     return gatheredPlants;
+  }
+
+  /**
+   * Fixes edge case, if no plants of the desired rarity are found
+   * E.g.there are no epic plants in the forest biome so then we give the
+   * gatherer a rare plant instead
+   * @param rarity
+   * @param plantsInBiomes
+   * @returns
+   */
+  private getPlantsMatchingRarity(
+    rarity: PlantRarity,
+    plantsInBiomes: Plant[]
+  ): Plant[] {
+    let plantsMatchingRarity: Plant[] = [];
+    while (1) {
+      plantsMatchingRarity = plantsInBiomes.filter(
+        (plant) => plant.rarity === rarity
+      );
+      if (plantsMatchingRarity.length > 0) {
+        break;
+      }
+      rarity = this.reduceRarity(rarity);
+    }
+    return plantsMatchingRarity;
+  }
+
+  private reduceRarity(rarity: PlantRarity): PlantRarity {
+    switch (rarity) {
+      case PlantRarity.EPIC:
+        return PlantRarity.RARE;
+      case PlantRarity.RARE:
+        return PlantRarity.UNCOMMON;
+      case PlantRarity.UNCOMMON:
+        return PlantRarity.COMMON;
+      case PlantRarity.COMMON:
+        return PlantRarity.COMMON;
+    }
   }
 
   /**

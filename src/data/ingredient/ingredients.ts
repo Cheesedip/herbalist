@@ -1,9 +1,7 @@
 import { Biome } from './biome';
 import {
   AnyIngredient,
-  BasicIngredient,
   IngredientType,
-  Plant,
 } from './ingredient';
 import { PlantRarity } from './rarity';
 

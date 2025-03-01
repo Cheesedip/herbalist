@@ -49,6 +49,7 @@ export class IngredientPageComponent {
       this.ingredient.set(
         this.ingredientsStore.getIngredientById(ingredientId)
       );
+      console.log(this.ingredient());
 
       this.recipes.set(
         this.recipesStore
@@ -63,7 +64,6 @@ export class IngredientPageComponent {
           )
           .filter((recipe) => !!recipe)
       );
-      console.log(this.recipes());
     });
   }
 
