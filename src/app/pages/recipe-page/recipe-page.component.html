@@ -25,10 +25,10 @@
 
         <app-item
           *ngFor="let ingredient of recipe.ingredients"
-          [name]="ingredient.plant.name"
-          [imageUrl]="ingredient.plant.imageUrl"
+          [name]="ingredient.name"
+          [imageUrl]="ingredient.imageUrl"
           [count]="ingredient.count"
-          [navLink]="'/plants/' + ingredient.plant.id"
+          [navLink]="'/ingredients/' + ingredient.id"
         ></app-item>
       </div>
       <div class="strength">
@@ -44,28 +44,30 @@
         {{ brewingTime[recipe.strength] }}
       </div>
     </div>
-    <div>
-      <button
-        [disabled]="!canCraft(recipe)"
-        (click)="craftPotion()"
-        class="craft-potion-btn"
-      >
-        Craft Potion
-      </button>
-      <div class="progress-container">
-        <div class="progress-bar" [style.width.%]="craftingProgress()"></div>
+    <div class="buttons">
+      <div class="button-with-bar">
+        <button
+          [disabled]="!canCraft(recipe)"
+          (click)="craftPotion()"
+          class="craft-potion-btn"
+        >
+          Craft Potion
+        </button>
+        <div class="progress-container">
+          <div class="progress-bar" [style.width.%]="craftingProgress()"></div>
+        </div>
       </div>
-    </div>
-    <div>
-      <button
-        [disabled]="!canDrink(recipe)"
-        (click)="drinkPotion()"
-        class="craft-potion-btn"
-      >
-        Drink Potion
-      </button>
-      <div class="progress-container">
-        <div class="progress-bar" [style.width.%]="drinkingProgress()"></div>
+      <div class="button-with-bar">
+        <button
+          [disabled]="!canDrink(recipe)"
+          (click)="drinkPotion()"
+          class="craft-potion-btn"
+        >
+          Drink Potion
+        </button>
+        <div class="progress-container">
+          <div class="progress-bar" [style.width.%]="drinkingProgress()"></div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,0 +1,51 @@
+<div *ngIf="ingredient() as ingredient">
+  <div class="title">{{ ingredient.name }}</div>
+  <div class="content">
+    <img
+      class="ingredient-image"
+      [src]="ingredient.imageUrl"
+      alt="{{ ingredient.name }}"
+      onerror="this.src='/assets/ingredients/todo.webp';"
+      loading="lazy"
+    />
+
+    <div class="ingredient-grid">
+      <div *ngIf="isPlant(ingredient)" class="rarity">
+        <h3>Rarity:</h3>
+        <app-item
+          [name]="ingredient.rarity"
+          [imageUrl]="'/assets/rarities/' + ingredient.rarity + '.webp'"
+          (click)="openRarityExplanationModal()"
+        ></app-item>
+      </div>
+      <div *ngIf="isPlant(ingredient)" class="biome">
+        <h3>Biome:</h3>
+        <app-item
+          [name]="ingredient.biome"
+          [imageUrl]="'/assets/biomes/' + ingredient.biome + '.webp'"
+        ></app-item>
+      </div>
+
+      <div class="recipes">
+        <h3>Recipes:</h3>
+        <app-recipe
+          *ngFor="let recipe of recipes()"
+          [recipe]="recipe"
+        ></app-recipe>
+      </div>
+
+      <div class="appearance">
+        <h3>Appearance</h3>
+        {{ ingredient.appearance }}
+      </div>
+    </div>
+    <div class="buttons">
+      <button (click)="addIngredient()" class="ingredient-btn">
+        Add Ingredient
+      </button>
+      <button (click)="removeIngredient()" class="ingredient-btn">
+        Remove Ingredient
+      </button>
+    </div>
+  </div>
+</div>

@@ -16,6 +16,14 @@ app-search-bar {
   gap: 1rem;
   align-items: center;
   padding-block: $padding-medium;
+  flex-direction: column;
+
+  .filter-items {
+    width: 80%;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+  }
 
   label {
     font-weight: bold;

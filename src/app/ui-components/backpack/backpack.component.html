@@ -8,22 +8,25 @@
   />
 
   <div class="inventory">
-    <!-- Display plants in the inventory -->
-    <div class="plant-inventory">
-      <div class="title">Plants</div>
-      <div *ngIf="sortedPlants().length; else noPlants" class="plants">
+    <!-- Display ingredients in the inventory -->
+    <div class="ingredient-inventory">
+      <div class="title">Ingredients</div>
+      <div
+        *ngIf="sortedIngredients().length; else noIngredients"
+        class="ingredients"
+      >
         <app-item
-          *ngFor="let plant of sortedPlants()"
-          [id]="plant.id"
-          [count]="plant.count"
-          [name]="plant.name"
-          [imageUrl]="'assets/plants/plant_' + plant.id + '.webp'"
-          [navLink]="'/plants/' + plant.id"
+          *ngFor="let ingredient of sortedIngredients()"
+          [id]="ingredient.id"
+          [count]="ingredient.count"
+          [name]="ingredient.name"
+          [imageUrl]="ingredient.imageUrl"
+          [navLink]="'/ingredients/' + ingredient.id"
         ></app-item>
       </div>
 
-      <ng-template #noPlants>
-        <div class="no-items">No plants gathered yet</div>
+      <ng-template #noIngredients>
+        <div class="no-items">No ingredients gathered yet</div>
       </ng-template>
     </div>
 
@@ -36,7 +39,7 @@
           [id]="potion.id"
           [count]="potion.count"
           [name]="potion.name"
-          [imageUrl]="'assets/recipes/recipe_' + potion.id + '.webp'"
+          [imageUrl]="potion.imageUrl"
           [navLink]="'/recipes/' + potion.id"
         ></app-item>
       </div>

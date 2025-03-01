@@ -1,14 +1,14 @@
 <app-item
   *ngFor="let ingredient of recipe().ingredients"
   [count]="ingredient.count"
-  [name]="ingredient.plant.name"
-  [imageUrl]="ingredient.plant.imageUrl"
-  [id]="ingredient.plant.id"
-  [navLink]="getNavLinkPlant(ingredient.plant.id)"
+  [name]="ingredient.name"
+  [imageUrl]="ingredient.imageUrl"
+  [id]="ingredient.id"
+  [navLink]="'/ingredients/' + ingredient.id"
 ></app-item>
 <app-item
   [name]="recipe().name"
   [imageUrl]="recipe().imageUrl"
   [id]="recipe().id"
-  [navLink]="getNavLinkRecipe(recipe().id)"
+  [navLink]="'/recipes/' + recipe().id"
 ></app-item>

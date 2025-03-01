@@ -1,4 +1,4 @@
-<table class="recipe-table">
+<table>
   <thead>
     <tr>
       <th>Image</th>
@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let recipe of recipes()">
+    <tr *ngFor="let recipe of sortedRecipes()">
       <td>
         <img
           [routerLink]="['/recipes', recipe.id]"
@@ -22,16 +22,14 @@
       </td>
       <td>{{ recipe.name }}</td>
       <td>
-        <ul>
           <app-item
             *ngFor="let ingredient of recipe.ingredients"
-            [name]="ingredient.plant.name"
-            [id]="ingredient.plant.id"
-            [imageUrl]="ingredient.plant.imageUrl"
+            [name]="ingredient.name"
+            [id]="ingredient.id"
+            [imageUrl]="ingredient.imageUrl"
             [count]="ingredient.count"
-            [navLink]="'/plants/' + ingredient.plant.id"
+            [navLink]="'/ingredients/' + ingredient.id"
           ></app-item>
-        </ul>
       </td>
       <td>{{ recipe.effect }}</td>
       <td>{{ recipe.strength }}</td>

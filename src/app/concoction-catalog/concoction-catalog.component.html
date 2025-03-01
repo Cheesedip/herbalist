@@ -1,14 +1,16 @@
 <div class="filter-pane">
-  <label>Strength:</label>
-  <ng-select
-    [items]="potionStrengths"
-    multiple="true"
-    (change)="onStrengthChange($event)"
-    closeOnSelect="false"
-  >
-  </ng-select>
+  <div class="filter-items">
+    <div class="filter-item">
+      <label>Strength:</label>
+      <ng-select
+        [items]="potionStrengths"
+        multiple="true"
+        (change)="onStrengthChange($event)"
+        closeOnSelect="false"
+      >
+      </ng-select>
+    </div>
+  </div>
   <app-search-bar (search)="setSearchTerm($event)"></app-search-bar>
 </div>
-<app-display-recipes
-  [recipesWithPlants]="filteredRecipes()"
-></app-display-recipes>
+<app-display-recipes [recipes]="filteredRecipes()"></app-display-recipes>
