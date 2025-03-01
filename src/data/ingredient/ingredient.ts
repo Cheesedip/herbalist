@@ -12,8 +12,8 @@ export function isBasicIngredient(
 }
 
 export enum IngredientType {
-  Other = 'other',
-  Plant = 'plant',
+  Other = 'Other',
+  Plant = 'Plant',
 }
 
 export abstract class Ingredient {
