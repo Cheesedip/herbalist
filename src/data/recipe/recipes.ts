@@ -6,7 +6,7 @@ export const recipes: Recipe[] = [
     name: 'Potion of Swift Scribbling',
     ingredients: [
       { count: 1, id: 0 },
-      { count: 2, id: 1 },
+      { count: 1, id: 1 },
     ],
     effect:
       'You can write or draw twice as fast as normal, with perfect legibility, for the next 24 hours.',
@@ -32,7 +32,7 @@ export const recipes: Recipe[] = [
     id: 2,
     name: 'Potion of Perfect Memory',
     ingredients: [
-      { count: 2, id: 5 },
+      { count: 1, id: 5 },
       { count: 1, id: 7 },
     ],
     effect:
@@ -48,13 +48,13 @@ export const recipes: Recipe[] = [
     name: 'Potion of Healing',
     ingredients: [
       { count: 1, id: 8 },
-      { count: 2, id: 11 },
+      { count: 1, id: 11 },
     ],
     effect: 'Heals the drinker for 2d4 + 2 hit points.',
     description:
       'The moment this warm, slightly tangy liquid touches your lips, a soothing energy spreads through your body. Wounds knit together, bruises fade, and a revitalizing warmth fills your limbs, replacing pain with a gentle surge of renewed strength.',
     strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_3.webp',
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
   {
@@ -67,17 +67,17 @@ export const recipes: Recipe[] = [
     effect:
       'For the next 8 hours, you emit no body odor or scent, making it harder for animals or creatures to track you by smell.',
     strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_4.webp',
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
   {
     id: 5,
     name: 'Potion of Nimble Digits',
-    ingredients: [{ count: 3, id: 17 }],
+    ingredients: [{ count: 2, id: 17 }],
     effect:
       'For the next hour, your fingers are unusually dexterous, giving you advantage on Sleight of Hand checks involving delicate tasks (picking locks, performing tricks, sewing, etc.).',
     strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_5.webp',
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
   {
@@ -85,7 +85,7 @@ export const recipes: Recipe[] = [
     name: 'Potion of Endless Breath',
     ingredients: [
       { count: 1, id: 18 },
-      { count: 3, id: 23 },
+      { count: 1, id: 23 },
     ],
     effect: 'You can hold your breath for up to 10 minutes without discomfort.',
     description:
@@ -114,7 +114,7 @@ export const recipes: Recipe[] = [
     name: 'Potion of Effortless Elegance',
     ingredients: [
       { count: 1, id: 28 },
-      { count: 3, id: 29 },
+      { count: 2, id: 29 },
     ],
     effect:
       'For the next 4 hours, your clothes remain clean and wrinkle-free, no matter what you do.',
@@ -129,34 +129,40 @@ export const recipes: Recipe[] = [
     name: 'Potion of Weightless Carrying',
     ingredients: [
       { count: 2, id: 30 },
-      { count: 2, id: 31 },
+      { count: 1, id: 31 },
     ],
     effect:
       'For 1 hour, any non-living object you carry feels 50% lighter, though its actual weight remains the same.',
+    description:
+      'As the cool, effervescent potion takes effect, a strange sensation washes over your arms and shoulders. The strain of heavy burdens fades, replaced by an effortless ease, as if the weight of your gear has been lifted by an unseen force, making even the heaviest loads feel manageable.',
     strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_9.webp',
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
   {
     id: 10,
     name: 'Potion of Harmonious Presence',
-    ingredients: [{ count: 4, id: 32 }],
+    ingredients: [{ count: 2, id: 32 }],
     effect:
-      'For the next hour, minor social faux pas (like interrupting someone or forgetting a name) are overlooked or easily forgiven by those around you.',
+      'For the next 4 hours, minor social faux pas (like interrupting someone or forgetting a name) are overlooked or easily forgiven by those around you.',
+    description:
+      'A calming aura surrounds you. Awkward moments slip by unnoticed, and those around you seem naturally inclined to view your actions with warmth and understanding, smoothing over social missteps with ease.',
     strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_10.webp',
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
   {
     id: 11,
     name: 'Darkvision Draught',
     ingredients: [
-      { count: 2, id: 39 },
-      { count: 2, id: 40 },
+      { count: 1, id: 39 },
+      { count: 1, id: 40 },
     ],
     effect: 'Grants temporary darkvision (up to 30 feet) for 1 hour.',
+    description:
+      'A tingling sensation spreads behind your eyes. The darkness around you gradually shifts, shadows sharpening into clear shapes, and the once-impenetrable gloom now reveals its hidden details in shades of gray.',
     strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_11.webp',
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
   {
@@ -164,23 +170,27 @@ export const recipes: Recipe[] = [
     name: 'Potion of Lingering Warmth',
     ingredients: [
       { count: 1, id: 41 },
-      { count: 3, id: 42 },
+      { count: 1, id: 42 },
     ],
     effect:
-      'You remain comfortably warm in cold weather for the next 8 hours, regardless of wind or frost.',
+      'You remain comfortably warm in cold weather for the next 24 hours, regardless of wind or frost.',
+    description:
+      'A comforting heat spreads through your body. The chill of the air around you fades, leaving you wrapped in a cozy warmth that shields you from the biting cold, no matter how harsh the weather becomes.',
     strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_12.webp',
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
   {
     id: 13,
     name: 'Elixir of Iron Stomach',
     ingredients: [
-      { count: 2, id: 0 },
+      { count: 1, id: 0 },
       { count: 1, id: 8 },
     ],
     effect:
       'For the next 24 hours, you can safely consume any food or drink, no matter how spoiled, bitter, or unusual. You’re immune to mild food poisoning or discomfort caused by exotic cuisine.',
+    description:
+      'A warm, reassuring sensation fills your stomach. Any queasiness you might have felt from spoiled or strange foods vanishes, replaced by a newfound confidence in your ability to consume anything without harm or discomfort, no matter how unappealing it may seem.',
     strength: PotionStrength.Mild,
     imageUrl: 'assets/recipes/recipe_13.webp',
     count: 0,
@@ -189,13 +199,15 @@ export const recipes: Recipe[] = [
     id: 14,
     name: 'Potion of Verdant Whispers',
     ingredients: [
-      { count: 2, id: 5 },
-      { count: 2, id: 11 },
+      { count: 1, id: 5 },
+      { count: 2, id: 18 },
     ],
     effect:
       'For the next 10 minutes, you can sense the general health and needs of plants within 30 feet.',
+    description:
+      'A faint hum resonates in your mind, as if the world around you is breathing in rhythm with nature. You can now sense the subtle needs of nearby plants—whether they crave sunlight, water, or simply need a gentle touch, their whispers echo in your thoughts.',
     strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_14.webp',
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
   {
@@ -203,61 +215,72 @@ export const recipes: Recipe[] = [
     name: 'Soothing Poultice',
     ingredients: [
       { count: 1, id: 7 },
-      { count: 3, id: 16 },
+      { count: 2, id: 16 },
     ],
     effect:
-      'Causes a deep, healing sleep and wards off nightmares for 8 hours.',
+      'Causes a deep, healing sleep and wards off nightmares for 8 hours. You gain the effect of a long rest and awake with 1d6 temporary hit points.',
+    description:
+      'A wave of relaxation washes over you. Your body begins to unwind, and soon you find yourself drifting into a peaceful, restorative sleep, free from the troubling dreams that usually plague your nights. You feel fully rested and at ease when you awaken, as if the sleep itself healed you.',
     strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_15.webp',
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
   {
     id: 16,
-    name: 'Potion of Subtle Influence',
+    name: 'Potion of Underwater Breating',
     ingredients: [
-      { count: 2, id: 2 },
-      { count: 2, id: 13 },
+      { count: 1, id: 2 },
+      { count: 1, id: 13 },
     ],
-    effect:
-      'For the next hour, your posture, tone, and demeanor exude confidence, giving you advantage on Persuasion checks involving non-hostile NPCs.',
+    effect: 'You can breathe underwater for the next 20 minutes.',
+    description:
+      'Within moments of consuming the potion, small, webbed gills begin to form along your neck, allowing you to breathe in the water with ease.',
     strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_16.webp',
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
   {
     id: 17,
-    name: 'Cooling Draught',
+    name: 'Anti Gravity Brew',
     ingredients: [
       { count: 1, id: 17 },
-      { count: 3, id: 18 },
+      { count: 2, id: 11 },
     ],
-    effect: 'Creates a mild cooling effect that soothes fever or heat.',
+    effect: 'You become weightless for the next 1 minute',
+    description:
+      'A strange lightness fills your body. You feel gravity lose its grip on you, and within moments, you begin to float gently off the ground.',
     strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_17.webp',
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
   {
     id: 18,
-    name: 'TODO',
+    name: 'Potion of Fertile Manure',
     ingredients: [
-      { count: 2, id: 24 },
-      { count: 2, id: 23 },
+      { count: 1, id: 24 },
+      { count: 1, id: 23 },
     ],
-    effect: 'TODO',
+    effect:
+      'After drinking the potion and consuming a seed, you vomit, and the plant or tree from the seed instantly grows before your eyes, flourishing in an instant.',
+    description:
+      'As you drink the potion, an earthy, pungent flavor lingers on your tongue. You then consume the seed, and a wave of discomfort hits you as your stomach churns. Moments later, you violently vomit, the seed sprouts immediately, growing rapidly into its full form. In mere seconds, a fully grown plant or tree stands where there was once only the seed.',
     strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_18.webp',
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
   {
     id: 19,
-    name: 'TODO',
+    name: 'Potion of Erratic Teleportation',
     ingredients: [
       { count: 1, id: 26 },
-      { count: 3, id: 28 },
+      { count: 2, id: 28 },
     ],
-    effect: 'TODO',
+    effect:
+      'For the next 5 minutes you get hiccups (every two turns - 12 seconds), every time you hiccup, you teleport 15 feet in a random direction.',
+    description:
+      'Your body is plagued by an uncontrollable series of hiccups. Each time you hiccup, your body vanishes and reappears.',
     strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_19.webp',
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
   {
@@ -272,33 +295,33 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
     description:
       'A comforting clarity settles over your mind. The usual pull of exhaustion fades into the background, replaced by a steady, restful alertness. Your body feels relaxed, yet your senses remain sharp, allowing you to stay vigilant without the weight of fatigue.',
     strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_20.webp',
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
-  {
-    id: 21,
-    name: 'TODO',
-    ingredients: [
-      { count: 1, id: 31 },
-      { count: 3, id: 32 },
-    ],
-    effect: 'TODO',
-    strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_21.webp',
-    count: 0,
-  },
-  {
-    id: 22,
-    name: 'Healing Mist',
-    ingredients: [
-      { count: 2, id: 39 },
-      { count: 2, id: 42 },
-    ],
-    effect: 'For one hour anyone you touch feels ticklish for one minute.',
-    strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_22.webp',
-    count: 0,
-  },
+  // {
+  //   id: 21,
+  //   name: 'TODO',
+  //   ingredients: [
+  //     { count: 1, id: 31 },
+  //     { count: 3, id: 32 },
+  //   ],
+  //   effect: 'TODO',
+  //   strength: PotionStrength.Mild,
+  //   imageUrl: 'assets/recipes/recipe_0.webp',
+  //   count: 0,
+  // },
+  // {
+  //   id: 22,
+  //   name: 'Healing Mist',
+  //   ingredients: [
+  //     { count: 2, id: 39 },
+  //     { count: 2, id: 42 },
+  //   ],
+  //   effect: 'For one hour anyone you touch feels ticklish for one minute.',
+  //   strength: PotionStrength.Mild,
+  //   imageUrl: 'assets/recipes/recipe_0.webp',
+  //   count: 0,
+  // },
   {
     id: 23,
     name: 'Furry Floof Tonic',
@@ -315,19 +338,19 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
     imageUrl: 'assets/recipes/recipe_23.webp',
     count: 0,
   },
-  {
-    id: 24,
-    name: 'Night Vision Tea',
-    ingredients: [
-      { count: 1, id: 1 },
-      { count: 3, id: 8 },
-    ],
-    effect:
-      'Everything you say is sung in an opera voice instead for 2 minutes.',
-    strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_24.webp',
-    count: 0,
-  },
+  // {
+  //   id: 24,
+  //   name: 'Night Vision Tea',
+  //   ingredients: [
+  //     { count: 1, id: 1 },
+  //     { count: 3, id: 8 },
+  //   ],
+  //   effect:
+  //     'Everything you say is sung in an opera voice instead for 2 minutes.',
+  //   strength: PotionStrength.Mild,
+  //   imageUrl: 'assets/recipes/recipe_24.webp',
+  //   count: 0,
+  // },
   {
     id: 25,
     name: 'Smoke grenade',
@@ -352,8 +375,8 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
     effect: 'Heals the drinker for 4d4 + 4 hit points.',
     description:
       'The moment this warm, slightly tangy liquid touches your lips, a soothing energy spreads through your body. Wounds knit together, bruises fade, and a revitalizing warmth fills your limbs, replacing pain with a gentle surge of renewed strength.',
-    strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_26.webp',
+    strength: PotionStrength.Potent,
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
   {
@@ -363,7 +386,7 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
       { count: 2, id: 14 },
       { count: 1, id: 15 },
     ],
-    effect: 'Immune to being frightened for 1 minute.',
+    effect: 'Immune to being frightened for the next 1 minute.',
     description: `Drinking this elixir brings an immediate wave of soothing calm, as if a comforting presence has settled deep within. The drinker's heart steadies, their mind clears, and even the most terrifying sights fail to unsettle them, leaving them calm and resolute in the face of fear.`,
     strength: PotionStrength.Potent,
     imageUrl: 'assets/recipes/recipe_27.webp',
@@ -371,61 +394,64 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
   },
   {
     id: 28,
-    name: 'Frostshield Brew',
+    name: 'Potion of Noxious Winds',
     ingredients: [
       { count: 1, id: 20 },
       { count: 2, id: 22 },
     ],
-    effect: 'Grants resistance to cold damage for 1 hour.',
+    effect:
+      'For 30 seconds, a gas cloud with a 20-foot radius surrounds you. Anyone within this cloud must make a DC 10 Constitution saving throw or take 1d4 poison damage at the start of their turn.',
+    description:
+      'Upon drinking this potion, you release an intensely foul and toxic fart, creating a noxious gas cloud that surrounds you for the next 30 seconds. The air becomes thick with poison, and those unfortunate enough to be caught within it suffer from the poisonous fumes.',
     strength: PotionStrength.Potent,
-    imageUrl: 'assets/recipes/recipe_28.webp',
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
-  {
-    id: 29,
-    name: 'Insight Elixir',
-    ingredients: [
-      { count: 2, id: 25 },
-      { count: 1, id: 33 },
-    ],
-    effect: 'Advantage on insight checks for 1 hour.',
-    strength: PotionStrength.Potent,
-    imageUrl: 'assets/recipes/recipe_29.webp',
-    count: 0,
-  },
-  {
-    id: 30,
-    name: 'Invisibility Tonic',
-    ingredients: [{ count: 3, id: 34 }],
-    effect: 'You completely turn to stone for 30 seconds.',
-    strength: PotionStrength.Potent,
-    imageUrl: 'assets/recipes/recipe_30.webp',
-    count: 0,
-  },
-  {
-    id: 31,
-    name: 'TODO',
-    ingredients: [
-      { count: 1, id: 35 },
-      { count: 3, id: 43 },
-    ],
-    effect: 'TODO',
-    strength: PotionStrength.Potent,
-    imageUrl: 'assets/recipes/recipe_31.webp',
-    count: 0,
-  },
-  {
-    id: 32,
-    name: 'TODO',
-    ingredients: [
-      { count: 1, id: 44 },
-      { count: 2, id: 45 },
-    ],
-    effect: 'TODO',
-    strength: PotionStrength.Potent,
-    imageUrl: 'assets/recipes/recipe_32.webp',
-    count: 0,
-  },
+  // {
+  //   id: 29,
+  //   name: 'Insight Elixir',
+  //   ingredients: [
+  //     { count: 2, id: 25 },
+  //     { count: 1, id: 33 },
+  //   ],
+  //   effect: 'Advantage on insight checks for 1 hour.',
+  //   strength: PotionStrength.Potent,
+  //   imageUrl: 'assets/recipes/recipe_29.webp',
+  //   count: 0,
+  // },
+  // {
+  //   id: 30,
+  //   name: 'Invisibility Tonic',
+  //   ingredients: [{ count: 3, id: 34 }],
+  //   effect: 'You completely turn to stone for 30 seconds.',
+  //   strength: PotionStrength.Potent,
+  //   imageUrl: 'assets/recipes/recipe_30.webp',
+  //   count: 0,
+  // },
+  // {
+  //   id: 31,
+  //   name: 'TODO',
+  //   ingredients: [
+  //     { count: 1, id: 35 },
+  //     { count: 3, id: 43 },
+  //   ],
+  //   effect: 'TODO',
+  //   strength: PotionStrength.Potent,
+  //   imageUrl: 'assets/recipes/recipe_31.webp',
+  //   count: 0,
+  // },
+  // {
+  //   id: 32,
+  //   name: 'TODO',
+  //   ingredients: [
+  //     { count: 1, id: 44 },
+  //     { count: 2, id: 45 },
+  //   ],
+  //   effect: 'TODO',
+  //   strength: PotionStrength.Potent,
+  //   imageUrl: 'assets/recipes/recipe_32.webp',
+  //   count: 0,
+  // },
   {
     id: 33,
     name: `Mage's Bane Potion`,
@@ -441,18 +467,18 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
     imageUrl: 'assets/recipes/recipe_33.webp',
     count: 0,
   },
-  {
-    id: 34,
-    name: 'Chillwind Draught',
-    ingredients: [
-      { count: 1, id: 14 },
-      { count: 3, id: 22 },
-    ],
-    effect: 'Grants resistance to fire damage for 1 hour.',
-    strength: PotionStrength.Potent,
-    imageUrl: 'assets/recipes/recipe_34.webp',
-    count: 0,
-  },
+  // {
+  //   id: 34,
+  //   name: 'Chillwind Draught',
+  //   ingredients: [
+  //     { count: 1, id: 14 },
+  //     { count: 3, id: 22 },
+  //   ],
+  //   effect: 'Grants resistance to fire damage for 1 hour.',
+  //   strength: PotionStrength.Potent,
+  //   imageUrl: 'assets/recipes/recipe_34.webp',
+  //   count: 0,
+  // },
   {
     id: 35,
     name: 'Silent Steps Elixir',
@@ -467,43 +493,43 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
     imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
-  {
-    id: 36,
-    name: 'Stone Skin Draught',
-    ingredients: [
-      { count: 1, id: 33 },
-      { count: 3, id: 34 },
-    ],
-    effect:
-      'Turns the skin into stone-like material, granting temporary hit points (1d6) for 1 hour.',
-    strength: PotionStrength.Potent,
-    imageUrl: 'assets/recipes/recipe_0.webp',
-    count: 0,
-  },
-  {
-    id: 37,
-    name: 'TODO',
-    ingredients: [
-      { count: 2, id: 43 },
-      { count: 2, id: 45 },
-    ],
-    effect: 'TODO',
-    strength: PotionStrength.Potent,
-    imageUrl: 'assets/recipes/recipe_0.webp',
-    count: 0,
-  },
-  {
-    id: 38,
-    name: 'TODO',
-    ingredients: [
-      { count: 3, id: 44 },
-      { count: 1, id: 12 },
-    ],
-    effect: 'TODO',
-    strength: PotionStrength.Potent,
-    imageUrl: 'assets/recipes/recipe_0.webp',
-    count: 0,
-  },
+  // {
+  //   id: 36,
+  //   name: 'Stone Skin Draught',
+  //   ingredients: [
+  //     { count: 1, id: 33 },
+  //     { count: 3, id: 34 },
+  //   ],
+  //   effect:
+  //     'Turns the skin into stone-like material, granting temporary hit points (1d6) for 1 hour.',
+  //   strength: PotionStrength.Potent,
+  //   imageUrl: 'assets/recipes/recipe_0.webp',
+  //   count: 0,
+  // },
+  // {
+  //   id: 37,
+  //   name: 'TODO',
+  //   ingredients: [
+  //     { count: 2, id: 43 },
+  //     { count: 2, id: 45 },
+  //   ],
+  //   effect: 'TODO',
+  //   strength: PotionStrength.Potent,
+  //   imageUrl: 'assets/recipes/recipe_0.webp',
+  //   count: 0,
+  // },
+  // {
+  //   id: 38,
+  //   name: 'TODO',
+  //   ingredients: [
+  //     { count: 3, id: 44 },
+  //     { count: 1, id: 12 },
+  //   ],
+  //   effect: 'TODO',
+  //   strength: PotionStrength.Potent,
+  //   imageUrl: 'assets/recipes/recipe_0.webp',
+  //   count: 0,
+  // },
   {
     id: 39,
     name: 'Armor of Frost',
@@ -522,40 +548,44 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
   },
   {
     id: 40,
-    name: 'TODO',
+    name: 'Potion of Feign Death',
     ingredients: [
-      { count: 2, id: 3 },
-      { count: 2, id: 15 },
+      { count: 1, id: 3 },
+      { count: 1, id: 15 },
+      { count: 1, id: 17 },
     ],
-    effect: 'TODO',
+    effect:
+      'You drop to 1 hp, appear dead, with no heartbeat or breath for the next 1 hour or until you decide to take your next action, bonus action or reaction.',
+    description:
+      'Upon drinking this potion, your body immediately goes into a deathlike state. Your breathing ceases, your heart stops, and you appear lifeless. For the next hour, you are undetectable by normal means, showing no signs of life, as if you are truly deceased. While in this state, and you remain unresponsive to external stimuli until the potion’s effects wear off.',
     strength: PotionStrength.Potent,
     imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
-  {
-    id: 41,
-    name: 'TODO',
-    ingredients: [
-      { count: 3, id: 14 },
-      { count: 1, id: 25 },
-    ],
-    effect: 'TODO',
-    strength: PotionStrength.Potent,
-    imageUrl: 'assets/recipes/recipe_0.webp',
-    count: 0,
-  },
-  {
-    id: 42,
-    name: 'TODO',
-    ingredients: [
-      { count: 2, id: 4 },
-      { count: 2, id: 43 },
-    ],
-    effect: 'TODO',
-    strength: PotionStrength.Potent,
-    imageUrl: 'assets/recipes/recipe_0.webp',
-    count: 0,
-  },
+  // {
+  //   id: 41,
+  //   name: 'TODO',
+  //   ingredients: [
+  //     { count: 3, id: 14 },
+  //     { count: 1, id: 25 },
+  //   ],
+  //   effect: 'TODO',
+  //   strength: PotionStrength.Potent,
+  //   imageUrl: 'assets/recipes/recipe_0.webp',
+  //   count: 0,
+  // },
+  // {
+  //   id: 42,
+  //   name: 'TODO',
+  //   ingredients: [
+  //     { count: 2, id: 4 },
+  //     { count: 2, id: 43 },
+  //   ],
+  //   effect: 'TODO',
+  //   strength: PotionStrength.Potent,
+  //   imageUrl: 'assets/recipes/recipe_0.webp',
+  //   count: 0,
+  // },
   {
     id: 43,
     name: 'Decurse Draught',
@@ -601,79 +631,81 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
     description:
       'The moment this warm, slightly tangy liquid touches your lips, a soothing energy spreads through your body. Wounds knit together, bruises fade, and a revitalizing warmth fills your limbs, replacing pain with a gentle surge of renewed strength.',
     strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_26.webp',
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
   {
     id: 46,
-    name: 'TODO',
+    name: 'Potion of Manic Energy',
     ingredients: [
       { count: 1, id: 37 },
       { count: 3, id: 46 },
     ],
-    effect: 'TODO',
+    effect: `Until your next long rest you either become 'Very Happy' (+2 char and +1 dex) or 'Very Sad' (-2 char and -1 dex)`,
+    description:
+      'After drinking the potion, you may feel incredibly cheerful and outgoing, or you may become despondent, losing confidence and agility. The mood shift lasts until your next long rest.',
     strength: PotionStrength.Infused,
     imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
-  {
-    id: 47,
-    name: 'TODO',
-    ingredients: [{ count: 4, id: 47 }],
-    effect: 'TODO',
-    strength: PotionStrength.Infused,
-    imageUrl: 'assets/recipes/recipe_0.webp',
-    count: 0,
-  },
-  {
-    id: 48,
-    name: 'TODO',
-    ingredients: [
-      { count: 2, id: 6 },
-      { count: 2, id: 21 },
-    ],
-    effect: 'TODO',
-    strength: PotionStrength.Infused,
-    imageUrl: 'assets/recipes/recipe_0.webp',
-    count: 0,
-  },
-  {
-    id: 49,
-    name: 'TODO',
-    ingredients: [
-      { count: 3, id: 10 },
-      { count: 1, id: 37 },
-    ],
-    effect: 'TODO',
-    strength: PotionStrength.Infused,
-    imageUrl: 'assets/recipes/recipe_0.webp',
-    count: 0,
-  },
-  {
-    id: 50,
-    name: 'TODO',
-    ingredients: [
-      { count: 2, id: 19 },
-      { count: 2, id: 46 },
-    ],
-    effect: 'TODO',
-    strength: PotionStrength.Infused,
-    imageUrl: 'assets/recipes/recipe_0.webp',
-    count: 0,
-  },
-  {
-    id: 51,
-    name: 'TODO',
-    ingredients: [
-      { count: 1, id: 27 },
-      { count: 1, id: 38 },
-      { count: 1, id: 48 },
-    ],
-    effect: 'TODO',
-    strength: PotionStrength.Mythic,
-    imageUrl: 'assets/recipes/recipe_0.webp',
-    count: 0,
-  },
+  // {
+  //   id: 47,
+  //   name: 'TODO',
+  //   ingredients: [{ count: 4, id: 47 }],
+  //   effect: 'TODO',
+  //   strength: PotionStrength.Infused,
+  //   imageUrl: 'assets/recipes/recipe_0.webp',
+  //   count: 0,
+  // },
+  // {
+  //   id: 48,
+  //   name: 'TODO',
+  //   ingredients: [
+  //     { count: 2, id: 6 },
+  //     { count: 2, id: 21 },
+  //   ],
+  //   effect: 'TODO',
+  //   strength: PotionStrength.Infused,
+  //   imageUrl: 'assets/recipes/recipe_0.webp',
+  //   count: 0,
+  // },
+  // {
+  //   id: 49,
+  //   name: 'TODO',
+  //   ingredients: [
+  //     { count: 3, id: 10 },
+  //     { count: 1, id: 37 },
+  //   ],
+  //   effect: 'TODO',
+  //   strength: PotionStrength.Infused,
+  //   imageUrl: 'assets/recipes/recipe_0.webp',
+  //   count: 0,
+  // },
+  // {
+  //   id: 50,
+  //   name: 'TODO',
+  //   ingredients: [
+  //     { count: 2, id: 19 },
+  //     { count: 2, id: 46 },
+  //   ],
+  //   effect: 'TODO',
+  //   strength: PotionStrength.Infused,
+  //   imageUrl: 'assets/recipes/recipe_0.webp',
+  //   count: 0,
+  // },
+  // {
+  //   id: 51,
+  //   name: 'TODO',
+  //   ingredients: [
+  //     { count: 1, id: 27 },
+  //     { count: 1, id: 38 },
+  //     { count: 1, id: 48 },
+  //   ],
+  //   effect: 'TODO',
+  //   strength: PotionStrength.Mythic,
+  //   imageUrl: 'assets/recipes/recipe_0.webp',
+  //   count: 0,
+  // },
   {
     id: 52,
     name: 'Potion of Giant Size',
@@ -721,7 +753,7 @@ When the effect ends, any hit points you have above your hit point maximum becom
     description:
       'The moment this warm, slightly tangy liquid touches your lips, a soothing energy spreads through your body. Wounds knit together, bruises fade, and a revitalizing warmth fills your limbs, replacing pain with a gentle surge of renewed strength.',
     strength: PotionStrength.Mild,
-    imageUrl: 'assets/recipes/recipe_54.webp',
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
 ];
