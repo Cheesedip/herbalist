@@ -1,23 +1,37 @@
 import { computed, signal } from '@angular/core';
+import { LocalStorageService } from '../local-storage.service';
 
 export enum SortType {
-  Ascending,
-  Descending,
+  Ascending = 'ascending',
+  Descending = 'descending',
 }
 
 export class SortingService<SortBy extends string> {
   private sortByOptions: SortBy[] = [];
+  private localStorageService: LocalStorageService;
 
   constructor(
-    private sortByFunctions: Record<SortBy, (a: any, b: any) => boolean>
+    private sortByFunctions: Record<SortBy, (a: any, b: any) => boolean>,
+    localStoragePageKey: string
   ) {
+    this.localStorageService = new LocalStorageService(localStoragePageKey);
+
     this.sortByOptions = Object.keys(sortByFunctions) as SortBy[];
     if (this.sortByOptions.length === 0) {
       throw new Error('sortByFunctions cannot be empty');
     }
 
+    const previousSortBy = this.localStorageService.get('sortBy');
+    const previousSortType = this.localStorageService.get('sortType');
     // Toggle default sort
-    this.toggleSort(this.sortByOptions[0], SortType.Ascending);
+    this.toggleSort(
+      previousSortBy !== null
+        ? (previousSortBy as SortBy)
+        : this.sortByOptions[0],
+      previousSortType !== null
+        ? (previousSortType as SortType)
+        : SortType.Ascending
+    );
   }
 
   private _sortBy = signal<SortBy | null>(null);
@@ -57,5 +71,9 @@ export class SortingService<SortBy extends string> {
 
     this._sortBy.set(sortBy);
     this._sortType.set(sortType);
+
+    // Set the sort to local storage
+    this.localStorageService.set('sortBy', sortBy);
+    this.localStorageService.set('sortType', sortType);
   }
 }

@@ -5,8 +5,8 @@ import {
   signal,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Biome } from '../../../data/ingredient/biome';
-import { ItemComponent } from '../../display-recipes/item/item.component';
+import { Biome } from '../../../../data/ingredient/biome';
+import { ItemComponent } from '../../../ui-components/item/item.component';
 import { NgFor } from '@angular/common';
 
 export interface ItemInputs {

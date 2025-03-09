@@ -48,5 +48,6 @@
   <app-display-ingredients
     *ngIf="gatheredPlants().length"
     [ingredients]="gatheredPlants()"
+    [sortingService]="sortingService"
   ></app-display-ingredients>
 </div>

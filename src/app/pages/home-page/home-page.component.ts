@@ -8,7 +8,7 @@ import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter } from 'rxjs';
 import { BackpackComponent } from '../../ui-components/backpack/backpack.component';
 import { DialogService } from '@ngneat/dialog';
-import { AboutModalComponent } from '../../about-modal/about-modal.component';
+import { AboutModalComponent } from '../../components/about-modal/about-modal.component';
 
 @Component({
   selector: 'app-home-page',

@@ -6,8 +6,10 @@ import {
   input,
   Signal,
 } from '@angular/core';
-import { SortingService, SortType } from './sorting/sorting.service';
-
+import {
+  SortingService,
+  SortType,
+} from '../../services/sorting/sorting.service';
 
 @Component({
   selector: 'app-sortable-header',

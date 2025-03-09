@@ -7,15 +7,15 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ItemComponent } from './item/item.component';
-import { InventoryStore } from '../../data/inventory/inventory.store';
-import { SortableHeaderComponent } from '../ui-components/sortable-header/sortable-header.component';
-import { SortingService } from '../ui-components/sortable-header/sorting/sorting.service';
+import { ItemComponent } from '../../ui-components/item/item.component';
+import { InventoryStore } from '../../../data/inventory/inventory.store';
+import { SortableHeaderComponent } from '../../ui-components/sortable-header/sortable-header.component';
+import { SortingService } from '../../services/sorting/sorting.service';
 import {
   RecipeSortByOptions,
   recipesSortFunctions,
-} from '../ui-components/sortable-header/sorting/recipe-sort-functions';
-import { PopulatedRecipe } from '../../data/recipe/recipe';
+} from '../../services/sorting/recipe-sort-functions';
+import { PopulatedRecipe } from '../../../data/recipe/recipe';
 
 @Component({
   selector: 'app-display-recipes',
@@ -28,7 +28,7 @@ import { PopulatedRecipe } from '../../data/recipe/recipe';
     {
       provide: SortingService,
       useFactory: () =>
-        new SortingService<RecipeSortByOptions>(recipesSortFunctions),
+        new SortingService<RecipeSortByOptions>(recipesSortFunctions, 'tmp'),
     },
   ],
 })

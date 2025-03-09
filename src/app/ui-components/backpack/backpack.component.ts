@@ -4,7 +4,7 @@ import {
   computed,
   inject,
 } from '@angular/core';
-import { ItemComponent } from '../../display-recipes/item/item.component';
+import { ItemComponent } from '../item/item.component';
 import { CommonModule } from '@angular/common';
 import { InventoryStore } from '../../../data/inventory/inventory.store';
 

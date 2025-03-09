@@ -14,15 +14,20 @@ import {
   Validators,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { Biome } from '../../data/ingredient/biome';
+import { Biome } from '../../../data/ingredient/biome';
 import { CommonModule } from '@angular/common';
-import { DisplayIngredientsComponent } from '../display-plants/display-ingredients.component';
-import { atLeastOneBiomeChecked } from '../../form-validators/at-least-one-biome.validator';
+import { DisplayIngredientsComponent } from '../../components/display-plants/display-ingredients.component';
+import { atLeastOneBiomeChecked } from '../../../form-validators/at-least-one-biome.validator';
 import { BiomeSelectorComponent } from './biome-selector/biome-selector.component';
-import { InventoryStore } from '../../data/inventory/inventory.store';
-import { LOCAL_STORAGE_VERSION_KEY } from '../version';
-import { GatherService } from '../../data/ingredient/gather';
-import { Plant } from '../../data/ingredient/ingredient';
+import { InventoryStore } from '../../../data/inventory/inventory.store';
+import { LOCAL_STORAGE_VERSION_KEY } from '../../version';
+import { GatherService } from '../../../data/ingredient/gather';
+import { Plant } from '../../../data/ingredient/ingredient';
+import { SortingService } from '../../services/sorting/sorting.service';
+import {
+  PlantsSortByOptions,
+  plantsSortFunctions,
+} from '../../services/sorting/plants-sort-functions';
 
 const LOCAL_STORAGE_PAGE_KEY = 'gatherHerbsPageState';
 
@@ -38,8 +43,19 @@ const LOCAL_STORAGE_PAGE_KEY = 'gatherHerbsPageState';
   styleUrl: './gather-herbs.component.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: SortingService,
+      useFactory: () =>
+        new SortingService<PlantsSortByOptions>(
+          plantsSortFunctions,
+          LOCAL_STORAGE_PAGE_KEY
+        ),
+    },
+  ],
 })
 export class GatherHerbsComponent {
+  protected sortingService = inject(SortingService);
   private inventoryStore = inject(InventoryStore);
   private gatherService = inject(GatherService);
 

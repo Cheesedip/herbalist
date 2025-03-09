@@ -7,7 +7,7 @@ import {
   Recipe,
 } from '../../../data/recipe/recipe';
 import { CommonModule } from '@angular/common';
-import { ItemComponent } from '../../display-recipes/item/item.component';
+import { ItemComponent } from '../../ui-components/item/item.component';
 import { InventoryStore } from '../../../data/inventory/inventory.store';
 import { RecipesStore } from '../../../data/recipe/recipes.store';
 
@@ -25,7 +25,8 @@ export class RecipePageComponent {
   private recipesStore = inject(RecipesStore);
   private router = inject(Router);
 
-  protected recipe: WritableSignal<PopulatedRecipe | undefined> = signal(undefined);
+  protected recipe: WritableSignal<PopulatedRecipe | undefined> =
+    signal(undefined);
   protected brewingCost = brewingCost;
   protected brewingTime = brewingTime;
 

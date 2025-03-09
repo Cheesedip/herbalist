@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { ItemComponent } from '../item/item.component';
+import { ItemComponent } from '../../../ui-components/item/item.component';
 import { NgFor } from '@angular/common';
-import { PopulatedRecipe } from '../../../data/recipe/recipe';
+import { PopulatedRecipe } from '../../../../data/recipe/recipe';
 
 @Component({
   selector: 'app-recipe',

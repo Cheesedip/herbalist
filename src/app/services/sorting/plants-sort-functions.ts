@@ -1,5 +1,5 @@
-import { Plant } from '../../../../data/ingredient/ingredient';
-import { PlantRarityOrder } from '../../../../data/ingredient/rarity';
+import { Plant } from '../../../data/ingredient/ingredient';
+import { PlantRarityOrder } from '../../../data/ingredient/rarity';
 
 export type PlantsSortByOptions = 'name' | 'biome' | 'rarity' | 'appearance';
 

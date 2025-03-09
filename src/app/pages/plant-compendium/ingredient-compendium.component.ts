@@ -1,25 +1,43 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { DisplayIngredientsComponent } from '../display-plants/display-ingredients.component';
-import { SearchBarComponent } from '../ui-components/search-bar/search-bar.component';
-import { Biome } from '../../data/ingredient/biome';
-import { PlantRarity } from '../../data/ingredient/rarity';
+import { DisplayIngredientsComponent } from '../../components/display-plants/display-ingredients.component';
+import { SearchBarComponent } from '../../ui-components/search-bar/search-bar.component';
+import { Biome } from '../../../data/ingredient/biome';
+import { PlantRarity } from '../../../data/ingredient/rarity';
 import { NgSelectComponent } from '@ng-select/ng-select';
-import { IngredientsStore } from '../../data/ingredient/ingredient.store';
+import { IngredientsStore } from '../../../data/ingredient/ingredient.store';
 import {
   BasicIngredient,
   IngredientType,
   isBasicIngredient,
   isPlant,
   Plant,
-} from '../../data/ingredient/ingredient';
+} from '../../../data/ingredient/ingredient';
+import {
+  PlantsSortByOptions,
+  plantsSortFunctions,
+} from '../../services/sorting/plants-sort-functions';
+import { SortingService } from '../../services/sorting/sorting.service';
+
+const LOCAL_STORAGE_PAGE_KEY = 'ingredientCompendiumPageState';
 
 @Component({
   selector: 'app-ingredient-compendium',
   imports: [DisplayIngredientsComponent, SearchBarComponent, NgSelectComponent],
   templateUrl: './ingredient-compendium.component.html',
   styleUrl: './ingredient-compendium.component.scss',
+  providers: [
+    {
+      provide: SortingService,
+      useFactory: () =>
+        new SortingService<PlantsSortByOptions>(
+          plantsSortFunctions,
+          LOCAL_STORAGE_PAGE_KEY
+        ),
+    },
+  ],
 })
 export class IngredientCompendiumComponent {
+  protected sortingService = inject(SortingService);
   private ingredientsStore = inject(IngredientsStore);
   private ingredients = this.ingredientsStore.ingredients();
   private searchTerm = signal('');

@@ -6,16 +6,16 @@ import {
   signal,
   WritableSignal,
 } from '@angular/core';
-import { PopulatedRecipe, PotionStrength } from '../../data/recipe/recipe';
-import { DisplayRecipesComponent } from '../display-recipes/display-recipes.component';
-import { SearchBarComponent } from '../ui-components/search-bar/search-bar.component';
+import { PopulatedRecipe, PotionStrength } from '../../../data/recipe/recipe';
+import { DisplayRecipesComponent } from '../../components/display-recipes/display-recipes.component';
+import { SearchBarComponent } from '../../ui-components/search-bar/search-bar.component';
 import {
   NgLabelTemplateDirective,
   NgOptionTemplateDirective,
   NgSelectComponent,
 } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
-import { RecipesStore } from '../../data/recipe/recipes.store';
+import { RecipesStore } from '../../../data/recipe/recipes.store';
 
 @Component({
   selector: 'app-concoction-catalog',

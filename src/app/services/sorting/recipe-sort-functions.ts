@@ -1,4 +1,4 @@
-import { potionStrengthOrder, Recipe } from '../../../../data/recipe/recipe';
+import { potionStrengthOrder, Recipe } from '../../../data/recipe/recipe';
 
 export type RecipeSortByOptions = 'name' | 'strength' | 'effect' | 'craftable';
 

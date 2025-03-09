@@ -3,9 +3,9 @@ import { IngredientPageComponent } from './pages/plant-page/ingredient-page.comp
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { SignUpPageComponent } from './pages/login/sign-up-page.component';
 import { LoginPageComponent } from './pages/login/login-page.component';
-import { GatherHerbsComponent } from './gather-herbs/gather-herbs.component';
-import { IngredientCompendiumComponent } from './plant-compendium/ingredient-compendium.component';
-import { ConcoctionCatalogComponent } from './concoction-catalog/concoction-catalog.component';
+import { GatherHerbsComponent } from './pages/gather-herbs/gather-herbs.component';
+import { IngredientCompendiumComponent } from './pages/plant-compendium/ingredient-compendium.component';
+import { ConcoctionCatalogComponent } from './pages/concoction-catalog/concoction-catalog.component';
 import { RecipePageComponent } from './pages/recipe-page/recipe-page.component';
 
 export const routes: Routes = [

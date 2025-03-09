@@ -8,11 +8,11 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { AnyIngredient, isPlant } from '../../../data/ingredient/ingredient';
 import { CommonModule, Location } from '@angular/common';
-import { DisplayRecipesComponent } from '../../display-recipes/display-recipes.component';
-import { RecipeComponent } from '../../display-recipes/recipe/recipe.component';
-import { ItemComponent } from '../../display-recipes/item/item.component';
+import { DisplayRecipesComponent } from '../../components/display-recipes/display-recipes.component';
+import { RecipeComponent } from '../../components/display-recipes/recipe/recipe.component';
+import { ItemComponent } from '../../ui-components/item/item.component';
 import { DialogService } from '@ngneat/dialog';
-import { RarityExplanationModalComponent } from '../../rarity-explanation-modal/rarity-explanation-modal.component';
+import { RarityExplanationModalComponent } from '../../components/rarity-explanation-modal/rarity-explanation-modal.component';
 import { InventoryStore } from '../../../data/inventory/inventory.store';
 import { IngredientsStore } from '../../../data/ingredient/ingredient.store';
 import { RecipesStore } from '../../../data/recipe/recipes.store';
