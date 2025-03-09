@@ -37,7 +37,6 @@ export class HomePageComponent {
             : ''
         );
       });
-    this.router.navigate(['gather']);
   }
 
   openAboutModal(): void {
