@@ -102,7 +102,6 @@ export class GatherHerbsComponent {
       form.roll,
       this.getBiomeListFromForm(form.biomes)
     );
-    console.log({ gatherResult });
     this.gatheredPlants.set(gatherResult);
   }
 

@@ -3,6 +3,7 @@ import { Biome } from './biome';
 import { Plant, PlantOdds } from './ingredient';
 import { PlantRarity } from './rarity';
 import { IngredientsStore } from './ingredient.store';
+import { linearGatherFunction, smootherFunction } from './gather-functions';
 
 @Injectable({ providedIn: 'root' })
 export class GatherService {
@@ -35,34 +36,8 @@ export class GatherService {
     return this.countPlants(plants);
   }
 
-  /**
-   * Generates an array of length 'roll' with values between 0-100
-   * based on the PlantRarity enum, each entry in the array will possibily
-   * result in a plant of a certain rarity (The lower the random value the
-   * higher quality the plant)
-   * @param roll The roll of the player
-   * @returns For each plant rarity the number of plants gathered
-   */
   public calculateGatherRarity(roll: number): Record<PlantRarity, number> {
-    const rnd = Array.from({ length: roll }, () => Math.random() * 100);
-
-    // Initialize counts
-    const gatherRarity = Object.keys(PlantOdds).reduce(
-      (acc, key) => ({ ...acc, [key]: 0 }),
-      {} as Record<PlantRarity, number>
-    );
-
-    rnd.reduce((acc, value) => {
-      for (const rarity of Object.keys(PlantOdds) as PlantRarity[]) {
-        if (value <= PlantOdds[rarity]) {
-          acc[rarity]++;
-          break; // Stop checking once the rarity is matched
-        }
-      }
-      return acc;
-    }, gatherRarity);
-
-    return gatherRarity;
+    return smootherFunction(roll);
   }
 
   /**

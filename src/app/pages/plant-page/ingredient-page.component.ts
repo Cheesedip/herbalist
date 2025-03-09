@@ -49,7 +49,6 @@ export class IngredientPageComponent {
       this.ingredient.set(
         this.ingredientsStore.getIngredientById(ingredientId)
       );
-      console.log(this.ingredient());
 
       this.recipes.set(
         this.recipesStore

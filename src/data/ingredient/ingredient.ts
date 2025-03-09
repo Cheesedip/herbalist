@@ -39,9 +39,9 @@ export class BasicIngredient extends Ingredient {
 // Important, this enum must start with the most rare value
 export const PlantOdds = {
   [PlantRarity.EPIC]: 1, // 1% chance for Epic plants
-  [PlantRarity.RARE]: 4, // 3% chance for Rare plants
-  [PlantRarity.UNCOMMON]: 14, // 10% chance for Uncommon plants
-  [PlantRarity.COMMON]: 34, // 20% chance for Common plants
+  [PlantRarity.RARE]: 6, // 5% chance for Rare plants
+  [PlantRarity.UNCOMMON]: 26, // 20% chance for Uncommon plants
+  [PlantRarity.COMMON]: 66, // 40% chance for Common plants
 } satisfies Record<PlantRarity, number>;
 
 export type AnyIngredient = Plant | BasicIngredient;
