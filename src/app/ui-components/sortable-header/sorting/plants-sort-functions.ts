@@ -9,6 +9,11 @@ export const plantsSortFunctions: Record<
 > = {
   name: (a, b) => a.name.localeCompare(b.name) < 0,
   biome: (a, b) => a.biome.localeCompare(b.biome) < 0,
-  rarity: (a, b) => PlantRarityOrder[a.rarity] < PlantRarityOrder[b.rarity],
+  rarity: (a, b) => {
+    return (
+      (a.rarity ? PlantRarityOrder[a.rarity] : -1) >
+      (b.rarity ? PlantRarityOrder[b.rarity] : -1)
+    );
+  },
   appearance: (a, b) => a.appearance.localeCompare(b.appearance) < 0,
 };
