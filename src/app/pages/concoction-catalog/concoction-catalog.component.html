@@ -5,7 +5,8 @@
       <ng-select
         [items]="potionStrengths"
         multiple="true"
-        (change)="onStrengthChange($event)"
+        (ngModelChange)="onStrengthChange($event)"
+        [ngModel]="selectedStrengths()"
         closeOnSelect="false"
       >
       </ng-select>

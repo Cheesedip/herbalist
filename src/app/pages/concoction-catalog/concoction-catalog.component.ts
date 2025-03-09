@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   computed,
   inject,
@@ -16,6 +17,9 @@ import {
 } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { RecipesStore } from '../../../data/recipe/recipes.store';
+import { LocalStorageService } from '../../services/local-storage.service';
+
+const LOCAL_STORAGE_PAGE_KEY = 'concoctionCatalogPageState';
 
 @Component({
   selector: 'app-concoction-catalog',
@@ -27,11 +31,20 @@ import { RecipesStore } from '../../../data/recipe/recipes.store';
     NgOptionTemplateDirective,
     FormsModule,
   ],
+  providers: [
+    {
+      provide: LocalStorageService,
+      useFactory: () => new LocalStorageService(LOCAL_STORAGE_PAGE_KEY),
+    },
+  ],
   templateUrl: './concoction-catalog.component.html',
   styleUrl: './concoction-catalog.component.scss',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConcoctionCatalogComponent {
   private recipesStore = inject(RecipesStore);
+  private localStorageService = inject(LocalStorageService);
   private searchTerm = signal('');
   private recipes = computed(() =>
     this.recipesStore
@@ -60,11 +73,23 @@ export class ConcoctionCatalogComponent {
       .sort((a, b) => a.name.localeCompare(b.name));
   });
 
+  constructor() {
+    this.setInitialFilterSate();
+  }
+
   protected setSearchTerm(term: string) {
     this.searchTerm.set(term);
   }
 
   protected onStrengthChange(strengths: PotionStrength[]) {
     this.selectedStrengths.set(strengths);
+    this.localStorageService.set('strengths', JSON.stringify(strengths));
+  }
+
+  private setInitialFilterSate() {
+    const strengths = this.localStorageService.get('strengths');
+    if (strengths) {
+      this.selectedStrengths.set(JSON.parse(strengths));
+    }
   }
 }

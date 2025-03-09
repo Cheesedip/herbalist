@@ -5,8 +5,9 @@
       <ng-select
         [items]="biomes"
         multiple="true"
-        (change)="onBiomeChange($event)"
         closeOnSelect="false"
+        [ngModel]="selectedBiomes()"
+        (ngModelChange)="onBiomeChange($event)"
       ></ng-select>
     </div>
     <div class="filter-item">
@@ -14,8 +15,9 @@
       <ng-select
         [items]="plantRarities"
         multiple="true"
-        (change)="onRarityChange($event)"
         closeOnSelect="false"
+        [ngModel]="selectedRarities()"
+        (ngModelChange)="onRarityChange($event)"
       ></ng-select>
     </div>
     <div class="filter-item">
@@ -23,8 +25,9 @@
       <ng-select
         [items]="ingredientTypes"
         multiple="true"
-        (change)="onTypeChange($event)"
         closeOnSelect="false"
+        [ngModel]="selectedIngredientTypes()"
+        (ngModelChange)="onTypeChange($event)"
       ></ng-select>
     </div>
   </div>
