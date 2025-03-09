@@ -1,9 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { Biome } from './biome';
-import { Plant, PlantOdds } from './ingredient';
+import { Plant } from './ingredient';
 import { PlantRarity } from './rarity';
 import { IngredientsStore } from './ingredient.store';
-import { linearGatherFunction, smootherFunction } from './gather-functions';
+import { smootherFunction } from './gather-functions';
 
 @Injectable({ providedIn: 'root' })
 export class GatherService {
