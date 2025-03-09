@@ -22,7 +22,7 @@ export const recipes: Recipe[] = [
     name: 'Potion of Delicate Drizzle',
     ingredients: [
       { count: 1, id: 5 },
-      { count: 1, id: 7 },
+      { count: 1, id: 2 },
       { count: 1, id: 8 },
     ],
     description:
@@ -37,7 +37,7 @@ export const recipes: Recipe[] = [
     id: 2,
     name: 'Potion of Perfect Memory',
     ingredients: [
-      { count: 1, id: 11 },
+      { count: 1, id: 8 },
       { count: 1, id: 16 },
     ],
     effect:
@@ -108,7 +108,7 @@ export const recipes: Recipe[] = [
     ingredients: [
       { count: 1, id: 7 },
       { count: 1, id: 8 },
-      { count: 1, id: 5 },
+      { count: 1, id: 18 },
     ],
     effect:
       'For the next 30 minutes, you can read and understand any written language you encounter, though you cannot speak or write it.',
@@ -153,7 +153,7 @@ export const recipes: Recipe[] = [
     id: 10,
     name: 'Potion of Harmonious Presence',
     ingredients: [
-      { count: 1, id: 5 },
+      { count: 1, id: 18 },
       { count: 1, id: 7 },
       { count: 1, id: 2 },
     ],
@@ -215,7 +215,7 @@ export const recipes: Recipe[] = [
     id: 14,
     name: 'Potion of Verdant Whispers',
     ingredients: [
-      { count: 1, id: 23 },
+      { count: 1, id: 24 },
       { count: 1, id: 28 },
       { count: 2, id: 39 },
     ],
@@ -230,9 +230,7 @@ export const recipes: Recipe[] = [
   {
     id: 15,
     name: 'Soothing Poultice',
-    ingredients: [
-      { count: 2, id: 11 },
-    ],
+    ingredients: [{ count: 2, id: 11 }],
     effect:
       'Causes a deep, healing sleep and wards off nightmares for 8 hours. You gain the effect of a long rest and awake with 1d6 temporary hit points.',
     description:
@@ -367,7 +365,7 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
     description:
       'Upon drinking, the imbiber’s mind opens to the thoughts of those around them, like a veil lifting to reveal a hidden world. ',
     strength: PotionStrength.Potent,
-    imageUrl: 'assets/recipes/recipe_24.webp',
+    imageUrl: 'assets/recipes/recipe_0.webp',
     count: 0,
   },
   {
@@ -389,7 +387,7 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
     name: 'Potion of Greater Healing',
     ingredients: [
       { count: 2, id: 12 },
-      { count: 2, id: 11 },
+      { count: 2, id: 1 },
     ],
     effect: 'Heals the drinker for 4d4 + 4 hit points.',
     description:
@@ -555,7 +553,7 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
     ingredients: [
       { count: 1, id: 4 },
       { count: 1, id: 35 },
-      { count: 1, id: 7 },
+      { count: 1, id: 2 },
     ],
     effect:
       'For the next minute, your Armor Class is increased by 1 and any creature that hits you with a melee attack takes 1d4 cold damage and has their movement reduced by half until the end of their next turn.',
@@ -571,6 +569,7 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
     ingredients: [
       { count: 1, id: 3 },
       { count: 1, id: 15 },
+      { count: 1, id: 35 },
     ],
     effect:
       'You drop to 1 hp, appear dead, with no heartbeat or breath for the next 1 hour or until you decide to take your next action, bonus action or reaction.',
@@ -632,6 +631,7 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
     ingredients: [
       { count: 1, id: 10 },
       { count: 1, id: 19 },
+      { count: 2, id: 35 },
     ],
     effect:
       'For the next hour, you take on the exact appearance of another creature whose hair, blood, or other genetic material was added to the potion. Your voice, scent, and physical form perfectly mimic the target, though your abilities remain unchanged.',
@@ -646,7 +646,8 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
     name: 'Potion of Superior Healing',
     ingredients: [
       { count: 2, id: 12 },
-      { count: 2, id: 11 },
+      { count: 2, id: 0 },
+      { count: 2, id: 22 },
     ],
     effect: 'Heals the drinker for 8d4 + 8 hit points.',
     description:
@@ -658,7 +659,10 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
   {
     id: 46,
     name: 'Potion of Manic Energy',
-    ingredients: [{ count: 1, id: 37 }],
+    ingredients: [
+      { count: 1, id: 37 },
+      { count: 2, id: 20 },
+    ],
     effect: `Until your next long rest you either become 'Very Happy' (+2 char and +1 dex) or 'Very Sad' (-2 char and -1 dex)`,
     description:
       'After drinking the potion, you may feel incredibly cheerful and outgoing, or you may become despondent, losing confidence and agility. The mood shift lasts until your next long rest.',
@@ -669,7 +673,10 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
   {
     id: 47,
     name: 'Potion of heroism',
-    ingredients: [{ count: 3, id: 12 }],
+    ingredients: [
+      { count: 3, id: 12 },
+      { count: 1, id: 4 },
+    ],
     effect:
       'When drunk, a creature gains 10 temporary HP that last for 1 hour as well as the effects of the bless spell (no concentration required) for the same duration.',
     description:
@@ -681,7 +688,10 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
   {
     id: 48,
     name: 'Potion of Invisibility',
-    ingredients: [{ count: 2, id: 6 }],
+    ingredients: [
+      { count: 2, id: 6 },
+      { count: 1, id: 45 },
+    ],
     effect:
       'When drunk, a creature becomes invisible for 1 hour along with anything it’s carrying or wearing. The effect ends early if the creature makes an attack or casts a spell.',
     description:
@@ -705,7 +715,10 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
   {
     id: 50,
     name: 'Potion of Longevity',
-    ingredients: [{ count: 2, id: 19 }],
+    ingredients: [
+      { count: 2, id: 19 },
+      { count: 1, id: 43 },
+    ],
     effect:
       'When drunk, a creature’s physical age is reduced by 1d6 + 6 years, to a minimum of 13 years. Each subsequent time a creature drinks this potion, there is 10% cumulative chance that it will instead age 1d6 +6 years.',
     description:
@@ -720,6 +733,7 @@ This sweet, amber-colored brew has no effect on creatures that don't require sle
     ingredients: [
       { count: 1, id: 38 },
       { count: 1, id: 48 },
+      { count: 1, id: 25 },
     ],
     effect:
       'The vial has enough oil to coat one slashing or piercing weapon or up to 5 pieces of ammunition; 1 minute to apply. The coated item has a +3 bonus to attack and damage rolls for 1 hour.',
@@ -751,6 +765,7 @@ When the effect ends, any hit points you have above your hit point maximum becom
       { count: 1, id: 38 },
       { count: 1, id: 48 },
       { count: 1, id: 49 },
+      { count: 1, id: 9 },
     ],
     effect:
       'The transformation lasts for 1 hour. For the duration, you use the game statistics of the adult dragon instead of your own, but you retain your languages, personality, and memories. You can’t use a dragon’s Change Shape or its legendary or lair actions.',
@@ -766,7 +781,8 @@ When the effect ends, any hit points you have above your hit point maximum becom
     ingredients: [
       { count: 4, id: 26 },
       { count: 2, id: 12 },
-      { count: 2, id: 11 },
+      { count: 2, id: 10 },
+      { count: 1, id: 9 },
     ],
     effect: 'Heals the drinker for 10d4 + 20 hit points.',
     description:
