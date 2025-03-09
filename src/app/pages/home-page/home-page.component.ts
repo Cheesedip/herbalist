@@ -27,8 +27,11 @@ export class HomePageComponent {
       .pipe(filter((e) => e instanceof NavigationEnd))
       .subscribe(() => {
         const path = this.router.url;
+        if (path === '/') {
+          this.router.navigate(['gather']);
+        }
         this.activeTab.set(
-          path.includes('gather')
+          path.includes('gather') || path === '/'
             ? 'gather'
             : path.includes('ingredients')
             ? 'ingredients'
