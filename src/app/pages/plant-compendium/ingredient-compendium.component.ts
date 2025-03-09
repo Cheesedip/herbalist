@@ -1,4 +1,10 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  signal,
+} from '@angular/core';
 import { DisplayIngredientsComponent } from '../../components/display-plants/display-ingredients.component';
 import { SearchBarComponent } from '../../ui-components/search-bar/search-bar.component';
 import { Biome } from '../../../data/ingredient/biome';
@@ -17,12 +23,19 @@ import {
   plantsSortFunctions,
 } from '../../services/sorting/plants-sort-functions';
 import { SortingService } from '../../services/sorting/sorting.service';
+import { LocalStorageService } from '../../services/local-storage.service';
+import { FormsModule } from '@angular/forms';
 
 const LOCAL_STORAGE_PAGE_KEY = 'ingredientCompendiumPageState';
 
 @Component({
   selector: 'app-ingredient-compendium',
-  imports: [DisplayIngredientsComponent, SearchBarComponent, NgSelectComponent],
+  imports: [
+    DisplayIngredientsComponent,
+    SearchBarComponent,
+    NgSelectComponent,
+    FormsModule,
+  ],
   templateUrl: './ingredient-compendium.component.html',
   styleUrl: './ingredient-compendium.component.scss',
   providers: [
@@ -34,10 +47,17 @@ const LOCAL_STORAGE_PAGE_KEY = 'ingredientCompendiumPageState';
           LOCAL_STORAGE_PAGE_KEY
         ),
     },
+    {
+      provide: LocalStorageService,
+      useFactory: () => new LocalStorageService(LOCAL_STORAGE_PAGE_KEY),
+    },
   ],
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IngredientCompendiumComponent {
   protected sortingService = inject(SortingService);
+  private localStorageService = inject(LocalStorageService);
   private ingredientsStore = inject(IngredientsStore);
   private ingredients = this.ingredientsStore.ingredients();
   private searchTerm = signal('');
@@ -46,9 +66,9 @@ export class IngredientCompendiumComponent {
   public plantRarities = Object.values(PlantRarity);
   public ingredientTypes = Object.values(IngredientType);
 
-  private selectedBiomes = signal<Biome[]>([]);
-  private selectedRarities = signal<PlantRarity[]>([]);
-  private selectedIngredientTypes = signal<IngredientType[]>([]);
+  protected selectedBiomes = signal<Biome[]>([]);
+  protected selectedRarities = signal<PlantRarity[]>([]);
+  protected selectedIngredientTypes = signal<IngredientType[]>([]);
 
   protected filteredIngredients = computed(() => {
     const lower = this.searchTerm().toLowerCase();
@@ -71,6 +91,10 @@ export class IngredientCompendiumComponent {
       return true;
     });
   });
+
+  constructor() {
+    this.setInitialFilterState();
+  }
 
   private filterPlant(
     plant: Plant,
@@ -107,13 +131,31 @@ export class IngredientCompendiumComponent {
 
   protected onBiomeChange(biomes: Biome[]) {
     this.selectedBiomes.set(biomes);
+    this.localStorageService.set('biomes', JSON.stringify(biomes));
   }
 
   protected onRarityChange(rarities: PlantRarity[]) {
     this.selectedRarities.set(rarities);
+    this.localStorageService.set('rarities', JSON.stringify(rarities));
   }
 
   protected onTypeChange(type: IngredientType[]) {
     this.selectedIngredientTypes.set(type);
+    this.localStorageService.set('types', JSON.stringify(type));
+  }
+
+  private setInitialFilterState() {
+    const biomes = this.localStorageService.get('biomes');
+    if (biomes !== null) {
+      this.selectedBiomes.set(JSON.parse(biomes));
+    }
+    const rarities = this.localStorageService.get('rarities');
+    if (rarities !== null) {
+      this.selectedRarities.set(JSON.parse(rarities));
+    }
+    const types = this.localStorageService.get('types');
+    if (types !== null) {
+      this.selectedIngredientTypes.set(JSON.parse(types));
+    }
   }
 }
