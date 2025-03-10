@@ -5,9 +5,6 @@
   margin: 20px auto;
   width: 80%;
   padding: $padding-medium;
-  // border: 1px solid $light-gray;
-  // border-radius: $large-border-radius;
-  // box-shadow: $box-shadow;
   background-color: $white;
   font-family: "Arial", sans-serif;
 }
@@ -72,9 +69,33 @@
   position: relative;
 }
 
-.about-link {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  cursor: pointer;
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $background-gradient;
+  padding: $padding-medium;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  
+  span {
+    font-size: 18px;
+    font-weight: bold;
+    color: $text-color;
+    cursor: pointer;
+    padding: $padding-small $padding-medium;
+    border-radius: $border-radius;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      background-color: $dark-hover;
+      color: $white;
+    }
+  }
+
+  span:last-child {
+    font-weight: normal;
+    color: $primary-color;
+  }
 }
+

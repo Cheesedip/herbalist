@@ -1,16 +1,21 @@
+<div class="toolbar">
+  <span (click)="openAboutModal()">Contact</span>
+  <span (click)="openAppExplanationModal()">App</span>
+  <span (click)="signInOrOut()"> {{ getTranslation() }}</span>
+  <span *ngIf="user() as user"> Logged in as {{ user.email }}</span>
+</div>
 <div class="herbalist-container">
   <header class="welcome-header">
     <h1>Welcome to Herbalist!</h1>
-    <span class="about-link" (click)="openAboutModal()">About</span>
   </header>
   <nav class="navigation-links">
-    <a routerLink="/gather" [class.active]="activeTab() === 'gather'"
+    <a routerLink="gather" [class.active]="activeTab() === 'gather'"
       >Gather Herbs</a
     >
-    <a routerLink="/ingredients" [class.active]="activeTab() === 'ingredients'"
+    <a routerLink="ingredients" [class.active]="activeTab() === 'ingredients'"
       >Ingredient Compendium</a
     >
-    <a routerLink="/recipes" [class.active]="activeTab() === 'recipes'"
+    <a routerLink="recipes" [class.active]="activeTab() === 'recipes'"
       >Concoction Catalog</a
     >
   </nav>

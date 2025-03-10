@@ -1,0 +1,48 @@
+@import "../../../styles.scss";
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: $padding-medium;
+
+  label {
+    font-weight: bold;
+    color: $primary-color;
+  }
+
+  input {
+    padding: $padding-small;
+    border: 1px solid $light-gray;
+    border-radius: $border-radius;
+    font-size: 1rem;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 5px rgba($primary-color, 0.5);
+    }
+  }
+  small {
+    color: red;
+    font-size: 0.875rem;
+  }
+
+  button {
+    background: $primary-color;
+    color: $white;
+    padding: $padding-medium;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: $dark-hover;
+    }
+
+    &:disabled {
+      background: $light-gray;
+      cursor: not-allowed;
+    }
+  }
+}

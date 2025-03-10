@@ -15,6 +15,7 @@ export class AuthService {
   currentUser$ = this.currentUserSubject.asObservable();
 
   constructor(private auth: Auth) {
+    console.log({ auth });
     this.auth.onAuthStateChanged((user) => this.currentUserSubject.next(user));
   }
 

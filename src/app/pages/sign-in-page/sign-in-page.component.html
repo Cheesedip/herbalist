@@ -1,0 +1,8 @@
+<div class="body-container">
+  <h1>Join Herbalist</h1>
+  <p>Fill in your email address to login through magic link</p>
+  <app-email-form
+    (onSubmit)="signIn($event)"
+    [disabledCondition]="emailSubmitted()"
+  ></app-email-form>
+</div>

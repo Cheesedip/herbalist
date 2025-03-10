@@ -1,0 +1,8 @@
+<div class="body-container">
+  <h1>Join Herbalist</h1>
+  <p>Confirm your email address to complete the sign in</p>
+  <app-email-form
+    *ngIf="needsEmailConfirmation()"
+    (onSubmit)="finalize($event)"
+  ></app-email-form>
+</div>

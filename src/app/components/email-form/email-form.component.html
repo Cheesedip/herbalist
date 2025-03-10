@@ -1,0 +1,22 @@
+<form [formGroup]="emailForm" novalidate>
+  <label for="email">Email</label>
+  <input id="email" type="email" formControlName="email" />
+
+  <!-- <div
+    *ngIf="emailForm.controls.email.invalid && emailForm.controls.email.touched"
+  >
+    <small *ngIf="emailForm.controls.email.errors?.['required']"
+      >Email is required.</small
+    >
+    <small *ngIf="emailForm.controls.email.errors?.['email']"
+      >Invalid email format.</small
+    >
+  </div> -->
+
+  <button
+    [disabled]="emailForm.invalid || disabledCondition()"
+    (click)="onSubmit.emit(emailForm.getRawValue().email)"
+  >
+    Submit
+  </button>
+</form>
